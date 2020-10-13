@@ -3,3 +3,13 @@
   width:100vw;
   height: 100vh;
 }
+.center {
+  margin: 0 auto;
+  display: block;
+}
+.space-bar {
+  position: absolute;
+  left:50%;
+  margin-left:-160px;
+  bottom:50px;
+}

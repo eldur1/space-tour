@@ -1,16 +1,5 @@
-body {
-  font-family: sans-serif;
-  font-size: $size-text;
-  line-height: 1.5;
-  color: $c-text;
-}
-
-p {
-  margin:15px 0;
-}
-
-.title {
-  color: $c-alt;
-  &--big{}
-  &--small{}
+.game-gravity {
+  background-color: #13162F;
+  width:100vw;
+  height: 100vh;
 }

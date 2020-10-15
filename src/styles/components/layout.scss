@@ -22,6 +22,7 @@ body{
   margin-left:-160px;
   bottom:50px;
   z-index: 4;
+  opacity: 0.5;
 }
 
 .hidden {
@@ -36,7 +37,7 @@ body{
   position: absolute;
   bottom:100px;
   left:50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(8deg);
 }
 .terre-js {
   margin-bottom: 100px;
@@ -66,3 +67,8 @@ body{
   top: 5em;
   left: 40%;
 }
+
+
+//
+
+

@@ -1,6 +1,7 @@
 import gsap from 'gsap';
+import { _getProperty } from 'gsap/gsap-core';
 let space_bar = document.querySelector('.space-bar');
-
+let fusee = document.querySelector('.fusee-js');
 
 
 let i = 0;
@@ -17,7 +18,19 @@ function fuseeAnimation() {
             duration: 1,
             rotate: "8deg"
         });
-        console.log(i);
+        setTimeout(() => {
+    /*         gsap.to(".fusee-js", {
+                y:"-="+accumulate,
+                duration: 1,
+                rotate: "8deg"
+            }); */
+
+            var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
+            let distance = transformValues[5];
+            console.log(distance);
+                
+
+        }, 1000);
 
 
         // mouvement perpetuel
@@ -34,6 +47,7 @@ function fuseeAnimation() {
     }
     else if(i < 35) {
         console.log('bloqué');
+        // Mission complete
 
     }
 
@@ -50,13 +64,31 @@ function fuseeAnimation() {
 
 }
 
+function SpaceBarAnimation() {
+}
 
-space_bar.addEventListener('click', (e)=> {
-    fuseeAnimation();
 
-});
+// Detect space bar 
 
-window.onkeydown = function(e) { 
-    fuseeAnimation();
-    return !(e.keyCode == 32);
-};
+
+window.onkeypress = (e) => {
+    if(e.keyCode == 32) {
+        fuseeAnimation()
+        SpaceBarAnimation()
+        gsap.to(".space-bar", 0.3, {
+            opacity:1
+        });
+        SpaceBarAnimation()
+    } 
+}
+
+
+window.onkeyup = (e) => {
+    gsap.to(".space-bar", 0.3, {
+        opacity:0.5
+    });
+}
+    
+
+
+

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "canvas-sketch": "^0.7.4",
+    "compass": "^0.1.1",
     "gsap": "^3.5.1",
     "three": "^0.121.1"
   }

@@ -1,6 +1,11 @@
 body {
   overflow: hidden;
 }
+body{
+    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Assistant', sans-serif;
+    color: $s-desk--medium;
+}
 .game-gravity {
   background-color: #13162F;
   width:100vw;

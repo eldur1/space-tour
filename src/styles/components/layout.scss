@@ -1,37 +1,60 @@
-body {
-  overflow: hidden;
-}
 body{
     font-family: 'Rajdhani', sans-serif;
     font-family: 'Assistant', sans-serif;
+    background-color: #13162F;
     color: $c-black;
+    height: 100vh;
 }
 
-.game-gravity {
-  background-color: #13162F;
-  width:100vw;
-  height: 100vh;
+// .game-gravity {
+//   width:100vw;
+//   height: 100vh;
 
-}
+// }
+
+
+// travailler avec 100vw c'est pas une bonne solution, ça crée du scroll horizontal à cause de la scrollbar
+
 .center {
   margin: 0 auto;
   display: block;
 }
-.space-bar {
-  position: absolute;
-  left:50%;
-  margin-left:-160px;
-  bottom:50px;
-  z-index: 4;
-  opacity: 0.5;
-}
+
+// .space-bar {
+//   position: absolute;
+//   left:50%;
+//   margin-left:-160px;
+//   bottom:50px;
+//   z-index: 4;
+//   opacity: 0.5;
+// } 
 
 .hidden {
   display: none;
 }
-.terre {
-  position: absolute;
+
+.planet{
+  z-index: 0;
+  &--from{
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &--to{
+      left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+
 }
+// .terre {
+//   position: absolute;
+// }
 .fusee-js {
   margin-bottom: 100px;
   z-index:4;
@@ -40,36 +63,69 @@ body{
   left:50%;
   transform: translateX(-50%) rotate(8deg);
 }
-.terre-js {
-  margin-bottom: 100px;
-  z-index:2;
-  position: absolute;
-  bottom:-170px;
-  left:50%;
-  transform: translateX(-50%);
+
+// .terre-js {
+//   margin-bottom: 100px;
+//   z-index:2;
+//   position: absolute;
+//   bottom:-170px;
+//   left:50%;
+//   transform: translateX(-50%);
+// }
+
+// .ligne {
+//   position: absolute;
+// }
+// .liste-objectif {
+//   position: absolute;
+//   top:0;
+//   left:50%;
+//   transform:translateX(-50%);
+//   color:white;
+//   list-style: none;
+//   padding-inline-start: 0px;
+//   font-size: 20px;
+//   font-family: sans-serif;
+// }
+// .mercure {
+//   position: absolute;
+//   top: 5em;
+//   left: 40%;
+// }
+
+
+
+.hud{
+  p{
+    text-transform: uppercase;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 700;
+    background-color: $c-white;
+    font-size: $s-desk--big;
+    padding: $s-desk--smallest/2 0  ;
+    display: block;
+    max-width: $s-desk--big*2;
+    text-align: center;
+    cursor: pointer;
+    transition: 100ms;
+    animation-timing-function: ease-in;
+    border-radius: 20px;
+    box-shadow: 0 10px #fefefe80;
+    user-select: none; 
+    -webkit-user-select: none;      
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+    top: 75vh;
+
+    &:active{
+      background-color: #b4b4b4;
+      box-shadow: inset 0 10px #131313a6;
+    animation-timing-function: ease-out;
+
+    }
+  }
 }
-.ligne {
-  position: absolute;
-
-}
-.liste-objectif {
-  position: absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  color:white;
-  list-style: none;
-  padding-inline-start: 0px;
-  font-size: 20px;
-  font-family: sans-serif;
-}
-.mercure {
-  position: absolute;
-  top: 5em;
-  left: 40%;
-}
-
-
-//
-
-

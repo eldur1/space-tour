@@ -4,8 +4,19 @@ let space_bar = document.querySelector('.space-bar');
 
 
 let i = 0;
+
+function perpetualMouvement() {
+    while(i > 3) {
+        setInterval(function(){ 
+            console.log("Hello"); 
+            }, 3000);
+    }
+
+  }
+
 function fuseeAnimation() {
-    
+
+
     // Etape 1
     if(i < 1) {
         let posY = -20;
@@ -56,9 +67,11 @@ function fuseeAnimation() {
 
 space_bar.addEventListener('click', (e)=> {
     fuseeAnimation();
+    perpetualMouvement();
 });
 
 window.onkeydown = function(e) { 
     fuseeAnimation();
+    perpetualMouvement();
     return !(e.keyCode == 32);
 };

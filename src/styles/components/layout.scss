@@ -1,7 +1,11 @@
+body {
+  overflow: hidden;
+}
 .game-gravity {
   background-color: #13162F;
   width:100vw;
   height: 100vh;
+
 }
 .center {
   margin: 0 auto;
@@ -12,4 +16,43 @@
   left:50%;
   margin-left:-160px;
   bottom:50px;
+  z-index: 4;
+}
+
+.hidden {
+  display: none;
+}
+.terre {
+  position: absolute;
+}
+.fusee-js {
+  margin-bottom: 100px;
+  z-index:4;
+  position: absolute;
+  bottom:100px;
+  left:50%;
+  transform: translateX(-50%);
+}
+.terre-js {
+  margin-bottom: 100px;
+  z-index:2;
+  position: absolute;
+  bottom:-170px;
+  left:50%;
+  transform: translateX(-50%);
+}
+.ligne {
+  position: absolute;
+
+}
+.liste-objectif {
+  position: absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  list-style: none;
+  padding-inline-start: 0px;
+  font-size: 20px;
+  font-family: sans-serif;
 }

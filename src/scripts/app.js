@@ -5,9 +5,12 @@ let space_bar = document.querySelector('.space-bar');
 
 let i = 0;
 
+
+
+// Faire descendre la fusée si on reste pas appuyé
 function fuseeAnimation() {
     // Etape 1
-    if(i < 3) {
+    if(i < 25) {
         let posY = -20;
         gsap.to(".fusee-js", {
             y:"+="+posY,
@@ -15,17 +18,11 @@ function fuseeAnimation() {
             rotate: "8deg"
         });
         console.log(i);
-    }
-    else if(i < 4) {
-        let posY = -120;
-        gsap.to(".fusee-js", {
-            y:"+="+posY,
-            duration: 1,
-        });
-        console.log(i);
 
+
+        // mouvement perpetuel
     }
-    else if(i < 5) {
+    else if(i < 35) {
         let posY = -1000;
         gsap.to(".fusee-js", {
             y:"+="+posY,
@@ -35,7 +32,7 @@ function fuseeAnimation() {
         // Change stage objectif
 
     }
-    else if(i < 6) {
+    else if(i < 35) {
         console.log('bloqué');
 
     }

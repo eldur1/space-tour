@@ -5,20 +5,9 @@ let space_bar = document.querySelector('.space-bar');
 
 let i = 0;
 
-function perpetualMouvement() {
-    while(i > 3) {
-        setInterval(function(){ 
-            console.log("Hello"); 
-            }, 3000);
-    }
-
-  }
-
 function fuseeAnimation() {
-
-
     // Etape 1
-    if(i < 1) {
+    if(i < 3) {
         let posY = -20;
         gsap.to(".fusee-js", {
             y:"+="+posY,
@@ -27,7 +16,7 @@ function fuseeAnimation() {
         });
         console.log(i);
     }
-    else if(i < 2) {
+    else if(i < 4) {
         let posY = -120;
         gsap.to(".fusee-js", {
             y:"+="+posY,
@@ -36,7 +25,7 @@ function fuseeAnimation() {
         console.log(i);
 
     }
-    else if(i < 3) {
+    else if(i < 5) {
         let posY = -1000;
         gsap.to(".fusee-js", {
             y:"+="+posY,
@@ -46,7 +35,7 @@ function fuseeAnimation() {
         // Change stage objectif
 
     }
-    else if(i < 4) {
+    else if(i < 6) {
         console.log('bloqué');
 
     }
@@ -67,11 +56,10 @@ function fuseeAnimation() {
 
 space_bar.addEventListener('click', (e)=> {
     fuseeAnimation();
-    perpetualMouvement();
+
 });
 
 window.onkeydown = function(e) { 
     fuseeAnimation();
-    perpetualMouvement();
     return !(e.keyCode == 32);
 };

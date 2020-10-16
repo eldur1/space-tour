@@ -2,7 +2,7 @@
 import gsap from 'gsap';
 
 import { _getProperty } from 'gsap/gsap-core';
-let space_bar = document.querySelector('.space-bar');
+let input = document.querySelector('.input');
 let fusee = document.querySelector('.fusee-js');
 let i = 0;
 
@@ -30,14 +30,14 @@ function fuseeAnimation() {
         let posY = -20;
         gsap.to(".fusee-js", {
             y:"+="+posY,
-            duration: 1,
+            duration: 0.5,
             rotate: "8deg",
         });
     }
     // Etape 2 : dans l'espace
     else if(i < 30) {
-        let posY = -1000;
-        gsap.to(".fusee-js", {
+        let posY = -500; 
+        gsap.to(".fusee-js", {    
             y:"+="+posY,
             duration: 1,
         });
@@ -50,18 +50,22 @@ function fuseeAnimation() {
 window.onkeypress = (e) => {
     if(e.keyCode == 32) {
         fuseeAnimation()
-        gsap.to(".space-bar", 0.3, {
-            opacity:1
-        });
+        // gsap.to(".input", 0.3, {
+        //     opacity:1
+        // });
     } 
 }
 
-window.onkeyup = (e) => {
-    if(e.keyCode == 32) {
-        gsap.to(".space-bar", 0.3, {
-            opacity:0.5
-        });
-    }
+input.addEventListener("mousedown", (e) => {
+    fuseeAnimation()
+})
+
+// window.onkeyup = (e) => {
+//     if(e.keyCode == 32) {
+//         gsap.to(".input", 0.3, {
+//             opacity:0.5
+//         });
+//     }
     if(i < 20) {
         setTimeout(() => {
             var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
@@ -73,7 +77,7 @@ window.onkeyup = (e) => {
             i = 0;
         }, 500);
     }
-}
+// }
 
 
 

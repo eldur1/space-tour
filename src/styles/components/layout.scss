@@ -121,11 +121,16 @@ body{
     position: relative;
     top: 75vh;
 
-    &:active{
-      background-color: #b4b4b4;
-      box-shadow: inset 0 10px #131313a6;
-    animation-timing-function: ease-out;
-
-    }
+    position: absolute;
+    top: 75vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.375em 0.6em;
   }
+
+}
+.active {
+    background-color: #b4b4b4;
+    box-shadow: inset 0 10px #131313a6;
+    animation-timing-function: ease-out;
 }

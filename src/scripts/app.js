@@ -7,11 +7,6 @@ let fusee = document.querySelector('.fusee-js');
 
 let i = 0;
 
-
-
-
-
-
 function fuseeAnimation() {
     // Etape 1
     if(i < 25) {
@@ -69,16 +64,11 @@ function fuseeAnimation() {
 }
 
 
-
 // Detect space bar 
-
-
 window.onkeypress = (e) => {
     if(e.keyCode == 32) {
         fuseeAnimation()
-        // gsap.to(".input", 0.3, {
-        //     opacity:1
-        // });
+        input.classList.add("active");
     } 
 }
 
@@ -86,12 +76,13 @@ input.addEventListener("mousedown", (e) => {
     fuseeAnimation()
 })
 
-// window.onkeyup = (e) => {
-//     if(e.keyCode == 32) {
-//         gsap.to(".input", 0.3, {
-//             opacity:0.5
-//         });
-//     }
+ window.onkeyup = (e) => {
+     if(e.keyCode == 32) {
+         gsap.to(".input", 0.3, {
+             opacity:0.5
+         });
+        input.classList.remove("active");
+     }
     if(i < 20) {
         setTimeout(() => {
             var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
@@ -103,7 +94,7 @@ input.addEventListener("mousedown", (e) => {
             i = 0;
         }, 500);
     }
-// }
+}
 
 
 

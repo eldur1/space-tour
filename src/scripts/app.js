@@ -8,19 +8,6 @@ let fusee = document.querySelector('.fusee-js');
 let i = 0;
 
 
-// particle js
-import { tsParticles } from "tsparticles";
-
-tsParticles
-  .loadJSON("tsparticles", "../assets/gravity/particlesjs-config.json")
-  .then((container) => {
-    console.log("callback - tsparticles config loaded");
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
-
 
 
 
@@ -81,8 +68,6 @@ function fuseeAnimation() {
 
 }
 
-function SpaceBarAnimation() {
-}
 
 
 // Detect space bar 

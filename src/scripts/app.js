@@ -1,9 +1,28 @@
 'use strict';
 import gsap from 'gsap';
+
 import { _getProperty } from 'gsap/gsap-core';
 let space_bar = document.querySelector('.space-bar');
 let fusee = document.querySelector('.fusee-js');
 let i = 0;
+
+
+// particle js
+import { tsParticles } from "tsparticles";
+
+tsParticles
+  .loadJSON("tsparticles", "../assets/gravity/particlesjs-config.json")
+  .then((container) => {
+    console.log("callback - tsparticles config loaded");
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+
+
+
+
 
 function fuseeAnimation() {
     // Etape 1 : sortie de l'atmosphere

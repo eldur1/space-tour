@@ -133,7 +133,10 @@ body{
   transition: 300ms;
   animation-timing-function: ease-in;
 
-  @include tb{
+ 
+
+  @include lg{
+    max-width: 600px;
   }
   .planet{
       width: 100%;
@@ -189,10 +192,30 @@ p{
   }
 
   &--what{
-    padding-top: $s-mob--small;
-    padding-bottom: $s-mob--small;
-    clip-path: polygon(0 0, 100% $s-mob--small, 100% 100%, 0 (100% - $s-mob--small));
+    padding-top: $s-mob--small*2;
+    padding-bottom: $s-mob--small*2;
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0  95%);
 
+    @include tb{
+      padding-top: $s-tab--medium*2;
+      padding-bottom: $s-tab--medium*2;
+      clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+      
+    }
+
+    @include lg{
+      padding-top: $s-desk--medium*1;
+      padding-bottom: $s-desk--medium*2;
+      clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+      
+    }
+
+    @include xl{
+          padding-top: $s-desk--medium*2;
+      padding-bottom: $s-desk--medium*3;
+      clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+      
+    }
   }
 }
 

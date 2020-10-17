@@ -43,12 +43,13 @@ function getRandomInt(max) {
 }
 
 let rocket = new Sprite("assets/rocket.svg", 50, 650, 50);
-let asteroid1 = new Sprite("assets/asteroid.svg", getRandomInt(4)*25, 100, 800);
-let asteroid2 = new Sprite("assets/asteroid.svg", getRandomInt(4)*25, 300, 800);
-let asteroid3 = new Sprite("assets/asteroid.svg", getRandomInt(4)*25, 600, 800);
-let asteroid4 = new Sprite("assets/asteroid.svg", getRandomInt(4)*25, 1000, 800);
-let asteroid5 = new Sprite("assets/asteroid.svg", getRandomInt(4)*25, 1400, 800);
 
+let asteroids = [];
+
+for (let i = 0; i <= 20; i++) {
+    let asteroid = new Sprite("assets/asteroid.svg", getRandomInt(4)*25, getRandomInt(1400), 800 + getRandomInt(1000));
+    asteroids.push(asteroid);
+}
 
 // Bouger la fusée de gauche à droite
 
@@ -87,31 +88,21 @@ function moveAsteroid(asteroid){
     asteroid.bottom -= 3;
     if (asteroid.bottom <= 0 - asteroid._node.height) {
         asteroid.stopAnimation();
+        asteroid._node.style.display = "none";
     }
-    if (rocket.checkCollision(asteroid1)) {
-        asteroid1.stopAnimation();
-    }
-    if(rocket.checkCollision(asteroid2)){
-        asteroid2.stopAnimation();
-    }
-    if(rocket.checkCollision(asteroid3)){
-        asteroid3.stopAnimation();
-    }
-    if(rocket.checkCollision(asteroid4)){
-        asteroid4.stopAnimation();
-    }
-    if(rocket.checkCollision(asteroid5)){
-        asteroid5.stopAnimation();
-    }
+    asteroids.forEach(asteroid => {
+        if (rocket.checkCollision(asteroid)) {
+            asteroid.stopAnimation();
+            asteroid._node.style.display = "none";
+        }
+    });
+        
 
 }
 
-asteroid1.startAnimation( moveAsteroid, 40);
-asteroid2.startAnimation( moveAsteroid, 40);
-asteroid3.startAnimation( moveAsteroid, 40);
-asteroid4.startAnimation( moveAsteroid, 40);
-asteroid5.startAnimation( moveAsteroid, 40);
-
+asteroids.forEach(asteroid => {
+    asteroid.startAnimation(moveAsteroid, 40);
+});
 
 // Check la collision
 
@@ -119,5 +110,5 @@ Sprite.prototype.checkCollision = function(other){
     return ! ( (this.bottom + this._node.height < other.bottom) ||
                 this.bottom > (other.bottom + other._node.height) ||
                 (this.left + this._node.width < other.left) ||
-                this.left > (other.bottom + other._node.width) );
+                this.left > (other.left + other._node.width) );
 }; 

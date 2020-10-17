@@ -107,3 +107,48 @@ body{
     box-shadow: inset 0 10px #131313a6;
     animation-timing-function: ease-out;
 }
+
+.stop1{
+  stop-color: $c-green;
+}
+
+.center{
+  stop-color: $c-white;
+  stop-opacity: 1;
+
+}
+
+.edge{
+  stop-opacity: 0;
+}
+
+.orbit{
+  stroke: $c-blue;
+  animation: circle 40s linear infinite;
+  transform-origin: center;
+}
+
+.orbit--close{
+  animation: circle 60s linear infinite;
+
+}
+
+.planettest{
+  filter: url(#shadow);
+
+}
+.stop2{
+  stop-color: $c-blue;
+
+}
+
+
+@keyframes circle {
+  0% {
+    transform:rotate(0deg);       
+  }
+  100% {
+    transform: rotate(-360deg);      
+  }
+  
+}

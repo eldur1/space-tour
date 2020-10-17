@@ -48,10 +48,29 @@
       <li>Partie 4 — L’horizon du trou noir</li>
       <li>Partie 5 — À la vitesse de la lumière</li>
   </ul>
+
+  <svg width="400" height="400" viewBox="0 0 100 100">
+    <defs>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop class="stop1" offset="0%" />
+        <stop class="stop2" offset="100%" />
+      </linearGradient>
+    <radialGradient id="shadow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" class="center"/>
+      <stop offset="60%" class="edge"/>
+    </radialGradient>
+    </defs>
+    <circle  cx="50" cy="50" r="40" fill="url(#shadow)" />
+    <circle class="planettest" cx="50" cy="50" r="20" fill="url(#Gradient2)"/>
+    <!-- <circle  cx="50" cy="50" r="35" fill="#fefefe10" /> -->
+    <circle class="orbit orbit--close" cx="50" cy="50" r="40" stroke-width="0.6" stroke-dasharray="10" stroke-dashoffset="360" fill="transparent" />
+  </svg>
+
+
   <div class="background">
-    <div class="stars"></div>
-    <div class="star2"></div>
-    <div class="star3"></div>
+      <div class="stars stars1">petites étoiles</div>
+      <div class="stars stars2">moyennes étoiles</div>
+      <!-- <div class="stars stars3">grandes étoiles</div> -->
   </div>
   </body>
 </html>

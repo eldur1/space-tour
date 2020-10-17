@@ -5,7 +5,6 @@ let input = document.querySelector('.input');
 let fusee = document.querySelector('.fusee-js');
 let planets = document.querySelectorAll('.planet');
 
-
 let i = 0;
 
 function fuseeAnimation() {
@@ -18,68 +17,63 @@ function fuseeAnimation() {
             rotate: "8deg",
         });
         setTimeout(() => {
-    /*         gsap.to(".fusee-js", {
-                y:"-="+accumulate,
-                duration: 1,
-                rotate: "8deg"
-            }); */
-
             var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
             let distance = transformValues[5];
             console.log(distance);
-                
-
         }, 1000);
 
 
-        // mouvement perpetuel
     }
-    // Etape 2 : dans l'espace
     else {
-        // Faire avancer les planètes + bouger les étoiles
+            // Faire avancer les planètes + bouger les étoiles
             let posY = +50;
             gsap.to('.planet', {
                 y:"+="+posY,
             });
         console.log(i);
         // Change stage objectif
-
     }
-
-/*             // Etape 2
-    gsap.to(".fusee-js", {
-        y:"-="+posY,
-        duration: 1,
-        rotate:"-85deg",
-    });
-
-
- */
     i++;
 
 }
 
 
-// Detect space bar 
-window.onkeypress = (e) => {
-    if(e.keyCode == 32) {
-        fuseeAnimation()
-        input.classList.add("active");
-    } 
-}
 
-input.addEventListener("mousedown", (e) => {
+// Detect space bar 
+/* window.onkeydown = function (e){
+    switch(e.key) {
+        case 'ArrowLeft':
+            gsap.to(".fusee-js", {
+                rotate:"-=3deg",
+                duration:0.3,
+            });
+            break;
+        case 'ArrowRight':
+            gsap.to(".fusee-js", {
+                rotate:"+=3deg",
+                duration:0.3
+            });
+            break;
+        case 'ArrowUp':
+            fuseeAnimation()
+            input.classList.add("active");
+            gsap.to(".input", 0.3, {
+                opacity:0.5
+            });
+            input.classList.remove("active");
+            console.log("cocou");
+            break;
+
+    }
+} */
+
+
+ input.addEventListener("mousedown", (e) => {
     fuseeAnimation()
 })
 
- window.onkeyup = (e) => {
-     if(e.keyCode == 32) {
-         gsap.to(".input", 0.3, {
-             opacity:0.5
-         });
-        input.classList.remove("active");
-     }
-    if(i < 20) {
+     window.onkeyup = (e) => {
+     if(i < 20) {
         setTimeout(() => {
             var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
             let distance = transformValues[5];
@@ -89,9 +83,8 @@ input.addEventListener("mousedown", (e) => {
             });
             i = 0;
         }, 500);
-    }
+    } 
 }
-
-
+ 
 
 

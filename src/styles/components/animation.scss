@@ -1,0 +1,12 @@
+.asteroid{
+    animation: asteroidRotation 8s linear 0s infinite;
+}
+
+@keyframes asteroidRotation {
+    from{
+        transform : rotate(0);
+    }
+    to{
+        transform : rotate(360deg);
+    }
+}

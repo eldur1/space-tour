@@ -1,0 +1,28 @@
+.title {
+
+  &--biggest {
+    font-size:$s-mob--bigger;
+  }
+  &--big {
+    font-size:$s-mob--big;
+  }
+  &--medium {
+    font-size:$s-mob--medium;
+  }
+  &--small {
+    font-size:$s-mob--small;
+  }
+  &--smaller {
+    font-size:$s-mob--smaller;
+  }
+  &--smallest {
+    font-size:$s-mob--smallest;
+  }
+}
+.list {
+
+}
+
+.f-black {
+  color:$c-black;
+}

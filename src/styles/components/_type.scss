@@ -1,24 +1,4 @@
-.title {
 
-  &--bigger {
-    font-size:$s-mob--bigger;
-  }
-  &--big {
-    font-size:$s-mob--big;
-  }
-  &--medium {
-    font-size:$s-mob--medium;
-  }
-  &--small {
-    font-size:$s-mob--small;
-  }
-  &--smaller {
-    font-size:$s-mob--smaller;
-  }
-  &--smallest {
-    font-size:$s-mob--smallest;
-  }
-}
 
 .title{
   &--bigger{
@@ -27,25 +7,79 @@
     text-transform: uppercase;
     font-weight: 800;
     text-shadow: 4px 0px 1px $c-red--d;
+
+    @include tb{
+      font-size: $s-tab--biggest;
+    }
+
+    @include lg{
+      font-size: $s-desk--biggest;
+      text-shadow: 8px 1px 1px $c-red--d;
+
+    }
   }
 
   &--big{
     font-size: $s-mob--small;
     line-height: 160%;
     font-weight: 800;
+
+    @include tb{
+      font-size: $s-tab--medium;
+    }
+
+    @include lg{
+      font-size: $s-desk--medium;
+    }
   }
 
   &--medium{
     font-family: 'Assistant', sans-serif;
     font-weight: 800;
     font-size: $s-mob--medium;
+
+    @include tb{
+      font-size: $s-tab--big;
+    }
+
+    @include lg{
+      font-size: $s-desk--big;
+    }
   }
 }
 
 p{
   font-weight: 800;
   line-height: 160%;
+    @include tb{
+      font-size: $s-tab--medium;
+    }
+
+    @include lg{
+      font-size: $s-desk--medium;
+    }
 }
 
+.cta{
+  p{
 
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: $s-mob--big;
+    text-align: center;
 
+    @include tb{
+      font-size: $s-tab--big;
+    }
+
+    @include lg{
+      font-size: $s-desk--bigger;
+    }
+  }
+}
+
+.nobreak{
+  white-space: nowrap;
+}

@@ -9,14 +9,29 @@ a{
 
 .section{
     &--what {
-        p{
             background-color: $c-yellow;
             color: $c-black;
-        }
     }
 
     &--space{
-        background: linear-gradient($c-green, $c-blue);
-        color: $c-black
+        background: linear-gradient($c-sand, $c-blue--l);
+        color: $c-black;
     }
+}
+
+.cta{
+
+  .planet{
+      .stop1{
+        stop-color: $c-blue--m;
+      }
+
+      .stop2, .stop3{
+        stop-color: $c-blue--d;
+      } 
+
+      .stop4{
+        stop-color: $c-blue--m;
+      }
+  }
 }

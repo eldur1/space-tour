@@ -77,49 +77,123 @@ body{
     animation-timing-function: ease-out;
 }
 
-.stop1{
-  stop-color: $c-green;
+
+// template pour planète de base au cas où un système foire
+.planet {
+
+  .stop1{
+    stop-color: $c-blue--m;
+  }
+
+  .stop2{
+    stop-color: $c-blue--d;
+  } 
+
+  .stop3{
+    stop-color: $c-blue--m;
+  }
+
+  .core{
+    fill: url(#gradient);
+  }
+
+  .center{
+    stop-color: $c-white;
+    stop-opacity: 1;
+  }
+
+  .edge{
+    stop-opacity: 0;
+  }
+
+  .orbit{
+    stroke: $c-blue;
+    animation: circle 40s linear infinite;
+    transform-origin: center;
+    stroke-width: 0.6;
+    stroke-dasharray: 5;
+    fill: transparent;
+    transition: 300ms;
+
+  }
+
+  .orbit--close{
+    animation: circle 60s linear infinite;
+  }
 }
 
-.center{
-  stop-color: $c-white;
-  stop-opacity: 1;
-}
-
-.edge{
-  stop-opacity: 0;
-}
-
-.orbit{
-  stroke: $c-blue;
-  animation: circle 40s linear infinite;
-  transform-origin: center;
-  stroke-width: 0.6;
-  stroke-dasharray: 5;
-  fill: transparent;
-}
-
-.orbit--close{
-  animation: circle 60s linear infinite;
-
-}
-
-
-.cta-jouer{
-
-  width: 40%;
+// planète pour le bouton "jouer"
+.cta{
+  position: relative;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  width: 80%;
+  max-width: 400px;
+  transition: 300ms;
+  animation-timing-function: ease-in;
+
+  @include tb{
+  }
+  .planet{
+      width: 100%;
+      display: inline-block;
+  }
+
+  p{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-110%);
+    top: 50%;
+  }
+
+  &:hover{
+    animation-timing-function: ease-out;
+    transform: scale(1.05);
+
+    .planet {
+      .orbit{
+        animation: circle 20s reverse linear infinite;
+
+      }
+    }
+  }
 }
 
 
-.planettest{
-  fill: url(#Gradient2);
-}
-.stop2{
-  stop-color: $c-blue;
+p{
+  max-width: 260px;
 
+  @include tb{
+    max-width: 500px;
+  }
+
+  @include lg{
+    max-width: 1000px;
+  }
+}
+
+.section{
+  padding: 0 $s-mob--medium;
+
+  @include lg{
+    padding: 0 $s-desk--biggest*2;
+
+  }
+  &--header{
+    height: 100vh;
+  }
+
+  &--main{
+    padding: 0;
+  }
+
+  &--what{
+    padding-top: $s-mob--small;
+    padding-bottom: $s-mob--small;
+    clip-path: polygon(0 0, 100% $s-mob--small, 100% 100%, 0 (100% - $s-mob--small));
+
+  }
 }
 
 

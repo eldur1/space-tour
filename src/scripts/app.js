@@ -1,5 +1,5 @@
 "use strict"
-
+// fonction création d'objet
 function Sprite(filename, size, left, bottom){
     this._node = document.createElement("img");
     this._node.src = filename;
@@ -42,19 +42,26 @@ function getRandomInt(max) {
     return (Math.floor(Math.random() * Math.floor(max)))+1;
 }
 
-let rocket = new Sprite("../assets/gravity/rocket.svg", 50, 650, 50);
-rocket._node.style.transitionDuration = "0.3s";
-let asteroids = [];
+// Création Rocket
 
-for (let i = 0; i <= 20; i++) {
-    let asteroid = new Sprite("../assets/gravity/asteroid.svg", getRandomInt(4)*25, getRandomInt(1400), 800 + getRandomInt(1000));
+let rocket = new Sprite("../assets/gravity/rocket.svg", 50, 650, 50);
+
+// Créations astéroides
+
+let clientWidth = document.body.clientWidth;
+
+let asteroids = [];
+for (let i = 1; i <= 20; i++) {
+    let asteroidWidth = getRandomInt(4)*25;
+    let left = getRandomInt(clientWidth - asteroidWidth);
+    let bottom = asteroidWidth*i+800;
+    let asteroid = new Sprite("../assets/gravity/asteroid.svg", asteroidWidth, left, bottom);
     asteroids.push(asteroid);
 }
 
 // Bouger la fusée de gauche à droite
 
 document.onkeydown = function( event ) {
-    //console.log (event.keyCode);
     if (event.keyCode == 37) {
         rocket.left -= 10;
     } else if (event.keyCode == 39) {
@@ -99,7 +106,6 @@ function moveAsteroid(asteroid){
         
 
 }
-
 asteroids.forEach(asteroid => {
     asteroid.startAnimation(moveAsteroid, 40);
 });

@@ -4,17 +4,8 @@ body{
     background-color: #13162F;
     color: $c-black;
     height: 100vh;
+    overflow: hidden;
 }
-
-// .game-gravity {
-//   width:100vw;
-//   height: 100vh;
-
-// }
-
-
-// travailler avec 100vw c'est pas une bonne solution, ça crée du scroll horizontal à cause de la scrollbar
-
 .center {
   margin: 0 auto;
   display: block;

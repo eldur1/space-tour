@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { _getProperty } from 'gsap/gsap-core';
 let input = document.querySelector('.input');
 let fusee = document.querySelector('.fusee-js');
+let planets = document.querySelectorAll('.planet');
 
 
 let i = 0;
@@ -34,19 +35,14 @@ function fuseeAnimation() {
         // mouvement perpetuel
     }
     // Etape 2 : dans l'espace
-    else if(i < 30) {
-        let posY = -500; 
-        gsap.to(".fusee-js", {    
-            y:"+="+posY,
-            duration: 1,
-        });
+    else {
+        // Faire avancer les planètes + bouger les étoiles
+            let posY = +50;
+            gsap.to('.planet', {
+                y:"+="+posY,
+            });
         console.log(i);
         // Change stage objectif
-
-    }
-    else if(i < 35) {
-        console.log('bloqué');
-        // Mission complete
 
     }
 

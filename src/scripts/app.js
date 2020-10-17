@@ -1,10 +1,11 @@
 "use strict"
 // fonction création d'objet
-function Sprite(filename, size, left, bottom){
+function Sprite(filename, id, size, left, bottom){
     this._node = document.createElement("img");
     this._node.src = filename;
     this._node.style.position = "absolute";
     this._node.style.width = size + "px";
+    this._node.classList.add(id);
     document.body.appendChild(this._node);
     
     Object.defineProperty(this, "left", {
@@ -44,18 +45,22 @@ function getRandomInt(max) {
 
 // Création Rocket
 
-let rocket = new Sprite("../assets/gravity/rocket.svg", 50, 650, 50);
+let clientWidth = document.body.clientWidth;
+let rocketLeft = (clientWidth/2)-(50/2);
+let rocket = new Sprite("../assets/gravity/rocket.svg", "rocket", 50, rocketLeft, 50);
 
 // Créations astéroides
 
-let clientWidth = document.body.clientWidth;
+
 
 let asteroids = [];
 for (let i = 1; i <= 20; i++) {
-    let asteroidWidth = getRandomInt(4)*25;
+    let randomRotation = getRandomInt(90)*4;
+    let asteroidWidth = (getRandomInt(4)+1)*25;
     let left = getRandomInt(clientWidth - asteroidWidth);
-    let bottom = asteroidWidth*i+800;
-    let asteroid = new Sprite("../assets/gravity/asteroid.svg", asteroidWidth, left, bottom);
+    let bottom = 100*i+800;
+    let asteroid = new Sprite("../assets/gravity/asteroid.svg", "asteroid", asteroidWidth, left, bottom);
+    asteroid._node.style.transform = "rotate("+randomRotation+"deg)";
     asteroids.push(asteroid);
 }
 
@@ -103,8 +108,6 @@ function moveAsteroid(asteroid){
             asteroid._node.style.display = "none";
         }
     });
-        
-
 }
 asteroids.forEach(asteroid => {
     asteroid.startAnimation(moveAsteroid, 40);

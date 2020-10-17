@@ -2,6 +2,10 @@ body{
     font-family: 'Rajdhani', 'Assistant', sans-serif;
     color: $c-white;
     height: 100vh;
+    
+}
+.overflow-hidden {
+  overflow: hidden;
 }
 .center {
   margin: 0 auto;

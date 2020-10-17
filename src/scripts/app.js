@@ -1,90 +1,117 @@
-import gsap from 'gsap';
+"use strict"
 
-import { _getProperty } from 'gsap/gsap-core';
-let input = document.querySelector('.input');
-let fusee = document.querySelector('.fusee-js');
-let planets = document.querySelectorAll('.planet');
+function Sprite(filename, size, left, bottom){
+    this._node = document.createElement("img");
+    this._node.src = filename;
+    this._node.style.position = "absolute";
+    this._node.style.width = size + "px";
+    document.body.appendChild(this._node);
+    
+    Object.defineProperty(this, "left", {
+        get: function() {
+            return this._left;
+        },
+        set: function(value) {
+            this._left = value;
+            this._node.style.left = value + "px";
+        }
+    });
+    Object.defineProperty(this, "bottom", {
+        get: function() {
+            return this._bottom;
+        },
+        set: function(value) {
+            this._bottom = value;
+            this._node.style.bottom = value + "px";
+        }
+    });
+    Object.defineProperty(this, "display", {
+        get: function() {
+            return this._display;
+        },
+        set: function(value) {
+            this._display = value;
+            this._node.style.bottom = value;
+        }
+    });
+    this.left = left;
+    this.bottom = bottom;
+}
 
-let i = 0;
+function getRandomInt(max) {
+    return (Math.floor(Math.random() * Math.floor(max)))+1;
+}
 
-function fuseeAnimation() {
-    // Etape 1
-    if(i < 25) {
-        let posY = -20;
-        gsap.to(".fusee-js", {
-            y:"+="+posY,
-            duration: 0.5,
-            rotate: "8deg",
-        });
-        setTimeout(() => {
-            var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
-            let distance = transformValues[5];
-            console.log(distance);
-        }, 1000);
+let rocket = new Sprite("../assets/gravity/rocket.svg", 50, 650, 50);
+rocket._node.style.transitionDuration = "0.3s";
+let asteroids = [];
 
+for (let i = 0; i <= 20; i++) {
+    let asteroid = new Sprite("../assets/gravity/asteroid.svg", getRandomInt(4)*25, getRandomInt(1400), 800 + getRandomInt(1000));
+    asteroids.push(asteroid);
+}
 
+// Bouger la fusée de gauche à droite
+
+document.onkeydown = function( event ) {
+    //console.log (event.keyCode);
+    if (event.keyCode == 37) {
+        rocket.left -= 10;
+    } else if (event.keyCode == 39) {
+        rocket.left += 10;
+    };
+
+    if (rocket.left < 0) {
+        rocket.left = 0;
     }
-    else {
-            // Faire avancer les planètes + bouger les étoiles
-            let posY = +50;
-            gsap.to('.planet', {
-                y:"+="+posY,
-            });
-        console.log(i);
-        // Change stage objectif
+    if (rocket.left > document.body.clientWidth - rocket._node.width) { 
+        rocket.left = document.body.clientWidth - rocket._node.width;
     }
-    i++;
-
 }
 
 
+// Bouger les astéroïdes
 
-// Detect space bar 
-/* window.onkeydown = function (e){
-    switch(e.key) {
-        case 'ArrowLeft':
-            gsap.to(".fusee-js", {
-                rotate:"-=3deg",
-                duration:0.3,
-            });
-            break;
-        case 'ArrowRight':
-            gsap.to(".fusee-js", {
-                rotate:"+=3deg",
-                duration:0.3
-            });
-            break;
-        case 'ArrowUp':
-            fuseeAnimation()
-            input.classList.add("active");
-            gsap.to(".input", 0.3, {
-                opacity:0.5
-            });
-            input.classList.remove("active");
-            console.log("cocou");
-            break;
+Sprite.prototype.startAnimation = function(fct, interval) {
+    if (this._clock) window.clearInterval(this._clock);
+    var _this = this;
+    this._clock = window.setInterval(function() {
+        fct(_this);
+    }, interval);   
+};
 
+Sprite.prototype.stopAnimation = function(){
+    window.clearInterval(this._clock);
+};
+
+function moveAsteroid(asteroid){
+    asteroid.bottom -= 3;
+    if (asteroid.bottom <= 0 - asteroid._node.height) {
+        asteroid.stopAnimation();
+        asteroid._node.style.display = "none";
     }
-} */
+    asteroids.forEach(asteroid => {
+        if (rocket.checkCollision(asteroid)) {
+            asteroid.stopAnimation();
+            asteroid._node.style.display = "none";
+        }
+    });
+        
 
-
- input.addEventListener("mousedown", (e) => {
-    fuseeAnimation()
-})
-
-     window.onkeyup = (e) => {
-     if(i < 20) {
-        setTimeout(() => {
-            var transformValues = window.getComputedStyle(fusee).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
-            let distance = transformValues[5];
-            console.log(distance);
-            gsap.to('.fusee-js', 2, {
-                y:0
-            });
-            i = 0;
-        }, 500);
-    } 
 }
+
+asteroids.forEach(asteroid => {
+    asteroid.startAnimation(moveAsteroid, 40);
+});
+
+// Check la collision
+
+Sprite.prototype.checkCollision = function(other){
+    return ! ( (this.bottom + this._node.height < other.bottom) ||
+                this.bottom > (other.bottom + other._node.height) ||
+                (this.left + this._node.width < other.left) ||
+                this.left > (other.left + other._node.width) );
+}; 
  
 
 

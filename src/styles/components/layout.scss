@@ -126,6 +126,9 @@ body{
   stroke: $c-blue;
   animation: circle 40s linear infinite;
   transform-origin: center;
+  stroke-width: 0.6;
+  stroke-dasharray: 5;
+  fill: transparent;
 }
 
 .orbit--close{
@@ -133,9 +136,18 @@ body{
 
 }
 
-.planettest{
-  filter: url(#shadow);
 
+.cta-jouer{
+
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+.planettest{
+  fill: url(#Gradient2);
 }
 .stop2{
   stop-color: $c-blue;

@@ -41,37 +41,6 @@ body{
   transform: translateX(-50%) rotate(8deg);
 }
 
-// .terre-js {
-//   margin-bottom: 100px;
-//   z-index:2;
-//   position: absolute;
-//   bottom:-170px;
-//   left:50%;
-//   transform: translateX(-50%);
-// }
-
-// .ligne {
-//   position: absolute;
-// }
-// .liste-objectif {
-//   position: absolute;
-//   top:0;
-//   left:50%;
-//   transform:translateX(-50%);
-//   color:white;
-//   list-style: none;
-//   padding-inline-start: 0px;
-//   font-size: 20px;
-//   font-family: sans-serif;
-// }
-// .mercure {
-//   position: absolute;
-//   top: 5em;
-//   left: 40%;
-// }
-
-
-
 .hud{
   p{
     text-transform: uppercase;
@@ -115,7 +84,6 @@ body{
 .center{
   stop-color: $c-white;
   stop-opacity: 1;
-
 }
 
 .edge{

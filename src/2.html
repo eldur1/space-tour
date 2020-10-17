@@ -14,58 +14,85 @@
     rel="stylesheet">
 </head>
 <body>
-  <h1 class="title title--bigger">Space tour</h1>
-  <h2 class="title title--big">Découvrez la gravité tout en s’amusant!</h2>
-  <h3 class="title title--medium">De quoi s&#39;agit-il ?</h3>
-  <p>Space-tour est une initiative lancée par une demi-douzaine d’étudiants pour apprendre aux enfants, de façon ludique et interactive la notion de gravité dans l’espace.</p>
-  <h3 class="title title--medium">Pourquoi la gravité ?</h3>
-  <p>Nous avons décidé de partir sur la gravité car il s’agit de l’une des notions les plus importante qui définissent l’univers tel que nous le connaissons. </p>
-  <p>Il était alors intéressant de la faire découvrir aux enfants tout en leur permettant d’explorer l’espace et de découvrir certaines planètes de notre système solaire.</p>
-  <h3 class="title title--medium">Pourquoi l’espace ?</h3>
-  <p>L’espace est un thème énigmatique, surtout pour les enfants. C’est un lieu rempli de mystères que nous voulons, par tous les moyens nécessaires, explorer. </p>
-  <p>Il s’agit également de l’endroit idéal pour démontrer la gravité en pleine action : les satelittes orbitant autour des planètes, les systèmes solaires, sont d’excellentes démonstration du concept de gravité.</p>
-  <h3 class="title title--medium">Notre équipe</h3>
-  <ul class="list">
-      <li>Camille mouvet</li>
-      <li>Elie Durieux</li>
-      <li>William Blanchy</li>
-      <li>Ludovic Decuyper</li>
-      <li>Guillaume Pihard</li>
-      <li>Tom Delfosse</li>
-  </ul>
-  
-  <h3 class="title title--medium">Remerciements</h3>
-  <ul class="list">
-  <li>Cousin.ines de Camille et Guillaume, sans qui ce projet n’aurait pas décollé;</li>
-  <li>Aux professeur.es pour leurs nombreuses remarques et conseils;</li>
-  </ul>
-  
-  <h3 class="title title--medium">Case Studies</h3>
-  <ul class="list">
-      <li>Partie 1 — Rayonner parmis les étoiles</li>
-      <li>Partie 2 — Un Espace pour les enfants</li>
-      <li>Partie 3 — Retour d’entre les morts</li>
-      <li>Partie 4 — L’horizon du trou noir</li>
-      <li>Partie 5 — À la vitesse de la lumière</li>
-  </ul>
+  <header class="section section--header">
+    <h1 class="title title--bigger">Space tour</h1>
+    <h2 class="title title--big">Découvrez la gravité tout en&nbsp;s’amusant&nbsp;!</h2>
+    
+      <svg class="cta-jouer" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+            <stop class="stop1" offset="0%" style="stop-color:'';" />
+            <stop class="stop2" offset="100%" style="stop-color:'';" />
+          </linearGradient>
+          <radialGradient id="shadow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" class="center" />
+            <stop offset="80%" class="edge" />
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="40" fill="url(#shadow)" />
+        <circle class="planettest" cx="50" cy="50" r="20" />
+        <circle class="orbit" cx="50" cy="50" r="40" />
+      </svg>
 
-  <svg  class="cta-jouer" viewBox="0 0 100 100">
-    <defs>
-      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
-        <stop class="stop1" offset="0%" style="stop-color:'';"/>
-        <stop class="stop2" offset="100%" style="stop-color:'';"/>
-      </linearGradient>
-    <radialGradient id="shadow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-      <stop offset="0%" class="center"/>
-      <stop offset="80%" class="edge"/>
-    </radialGradient>
-    </defs>
-    <circle  cx="50" cy="50" r="40" fill="url(#shadow)" />
-    <circle class="planettest" cx="50" cy="50" r="20"/>
-    <circle class="orbit" cx="50" cy="50" r="40"/>
-  </svg>
+      <a href="index.html">Jouer</a>
+  </header>
 
+  <main class="section section--main">
+    <section class="section section--what">
+      <h3 class="title title--medium">De quoi s&#39;agit-il&nbsp;?</h3>
+      <p>Space-tour est une initiative lancée par une demi-douzaine d’étudiants pour apprendre aux enfants, de façon ludique et interactive la notion de gravité dans&nbsp;l’espace.</p>
+    </section>
+    
+    <section class="section section--grav">
+      <h3 class="title title--medium">Pourquoi la gravité&nbsp;?</h3>
+      <p>L'équipe a décidé de partir sur la gravité car il s’agit de l’une des notions les plus importantes qui définissent l’univers tel que nous le&nbsp;connaissons. </p>
+      <p>Il était alors intéressant de la faire découvrir aux enfants tout en leur permettant d’explorer l’espace et de découvrir
+      certaines planètes de notre système&nbsp;solaire.</p>
+    </section>
 
+    <section class="section section--space">
+      <h3 class="title title--medium">Pourquoi l’espace&nbsp;?</h3>
+      <p>L’espace est un thème énigmatique, surtout pour les enfants. C’est un lieu rempli de mystères que nous voulons, par tous
+      les moyens nécessaires,&nbsp;explorer.</p>
+      <p>Il s’agit également de l’endroit idéal pour démontrer la gravité en pleine action : les satellites orbitant autour des
+      planètes, les systèmes solaires, sont d’excellentes démonstration du concept de&nbsp;gravité.</p>
+    </section>
+    
+    <section class="section section--team">
+      <h3 class="title title--medium">Notre&nbsp;équipe</h3>
+
+      <ul class="list">
+        <li>Camille mouvet</li>
+        <li>Elie Durieux</li>
+        <li>William Blanchy</li>
+        <li>Ludovic Decuyper</li>
+        <li>Guillaume Pihard</li>
+        <li>Tom Delfosse</li>
+      
+
+        <!-- à changer pour rajouter les planètes ici -->
+      </ul>
+    </section>
+  </main>
+  <footer class="section section--footer">
+
+    <h3 class="title title--medium">Remerciements</h3>
+    <ul class="list">
+      <li>Cousin.ines, Neveux & Nièces de Camille et Guillaume, sans qui ce projet n’aurait pas&nbsp;décollé;</li>
+      <li>Aux professeur.es pour leurs nombreuses remarques et&nbsp;conseils;</li>
+      <li><a href="http://">Vinicius Ferreira</a> pour le <a href="http://">fond d'écran&nbsp;animé</a>.</li>
+    </ul>
+    
+    <h3 class="title title--medium">Case Studies</h3>
+    <ul class="list">
+      <li>Partie 1 — Rayonner parmis les&nbsp;étoiles</li>
+      <li>Partie 2 — Un Espace pour les&nbsp;enfants</li>
+      <li>Partie 3 — Retour d’entre les&nbsp;morts</li>
+      <li>Partie 4 — L’horizon du trou&nbsp;noir</li>
+      <li>Partie 5 — À la vitesse de la&nbsp;lumière</li>
+    </ul>
+  </footer>
+    
   <div class="background">
       <div class="stars stars1">petites étoiles</div>
       <div class="stars stars2">moyennes étoiles</div>

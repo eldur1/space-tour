@@ -19,10 +19,33 @@
     font-size:$s-mob--smallest;
   }
 }
-.list {
 
+.title{
+  &--bigger{
+    font-size: $s-mob--bigger;
+    font-family: 'Assistant', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-shadow: 4px 0px 1px $c-red--d;
+  }
+
+  &--big{
+    font-size: $s-mob--small;
+    line-height: 160%;
+    font-weight: 800;
+  }
+
+  &--medium{
+    font-family: 'Assistant', sans-serif;
+    font-weight: 800;
+    font-size: $s-mob--medium;
+  }
 }
 
-.f-black {
-  color:$c-black;
+p{
+  font-weight: 800;
+  line-height: 160%;
 }
+
+
+

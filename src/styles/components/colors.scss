@@ -1,0 +1,22 @@
+.section--footer{
+    background-color: $c-red--d;
+}
+
+a{
+    color: inherit;
+}
+
+
+.section{
+    &--what {
+        p{
+            background-color: $c-yellow;
+            color: $c-black;
+        }
+    }
+
+    &--space{
+        background: linear-gradient($c-green, $c-blue);
+        color: $c-black
+    }
+}

@@ -121,6 +121,3 @@ Sprite.prototype.checkCollision = function(other){
                 (this.left + this._node.width < other.left) ||
                 this.left > (other.left + other._node.width) );
 }; 
- 
-
-

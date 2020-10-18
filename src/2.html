@@ -8,6 +8,8 @@
   <!-- Meta Partage -->
   <!-- Favicon -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="scripts/scroll.js" defer></script>
+  <script src="scripts/zenscroll.js"></script>
   <link rel="stylesheet" href="styles/app.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap"
@@ -40,9 +42,17 @@
         </svg>
         <p>Jouer</p>
       </a>
+
+      <img src="assets/gravity/rocket.svg" alt="fusée"  class="rocket">
+      <button class="btn-scroll">
+        <svg viewBox="0 0 37 19" fill="none">
+          <path d="M4.5 3L19.8719 16L34.5 3" stroke="#CC584C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M2.5 3L17.8719 16L32.5 3" stroke="#FEFEFE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+</button>
   </header>
 
-  <main class="section section--main">
+  <main class="section section--main" id="zs-main">
     <section class="section section--what">
       <h3 class="title title--medium">De quoi s&#39;agit-il&nbsp;?</h3>
       <p>Space&nbsp;tour est une initiative lancée par une <span class="nobreak">demi-douzaine</span> d’étudiants pour apprendre aux enfants, de façon ludique et interactive la notion de gravité dans&nbsp;l’espace.</p>
@@ -84,13 +94,13 @@
     <section class="section section--team">
       <h3 class="title title--medium">Notre&nbsp;équipe</h3>
 
-      <ul class="list">
-        <li>Camille mouvet</li>
-        <li>Elie Durieux</li>
-        <li>William Blanchy</li>
-        <li>Ludovic Decuyper</li>
-        <li>Guillaume Pihard</li>
-        <li>Tom Delfosse</li>
+      <ul class="list list--team">
+        <li class="list__el">&nbsp;Camille mouvet</li>
+        <li class="list__el">&nbsp;Elie Durieux</li>
+        <li class="list__el">&nbsp;William Blanchy</li>
+        <li class="list__el">&nbsp;Ludovic Decuyper</li>
+        <li class="list__el">&nbsp;Guillaume Pihard</li>
+        <li class="list__el">&nbsp;Tom Delfosse</li>
       
 
         <!-- à changer pour rajouter les planètes ici -->
@@ -122,19 +132,19 @@
 
     <h3 class="title title--medium">Remerciements</h3>
     <ul class="list">
-      <li>Cousin.ines, Neveux & Nièces de Camille et Guillaume, sans qui ce projet n’aurait pas&nbsp;décollé;</li>
-      <li>Aux professeur.es pour leurs nombreuses remarques et&nbsp;conseils;</li>
-      <li><a href="#">Vinicius Ferreira</a> pour le <a href="#">fond d'écran&nbsp;animé</a>.</li>
+      <li class="list__el">&nbsp;Cousin.ines, Neveux & Nièces de Camille et Guillaume, sans qui ce projet n’aurait pas&nbsp;décollé;</li>
+      <li class="list__el">&nbsp;Aux professeur.es pour leurs nombreuses remarques et&nbsp;conseils;</li>
+      <li class="list__el">&nbsp;<a href="#">Vinicius Ferreira</a> pour le <a href="#">fond d'écran&nbsp;animé</a>.</li>
     </ul>
     
     <h3 class="title title--medium">Case Studies</h3>
-    <ul class="list">
-      <li><a href="#">Partie 1 — Rayonner parmis les&nbsp;étoiles</a></li>
-      <li><a href="#">Partie 2 — Un Espace pour les&nbsp;enfants</a></li>
-      <li><a href="#">Partie 3 — Retour d’entre les&nbsp;morts</a></li>
-      <li><a href="#">Partie 4 — L’horizon du trou&nbsp;noir</a></li>
-      <li><a href="#">Partie 5 — À la vitesse de la&nbsp;lumière</a></li>
-    </ul>
+    <ol class="list">
+      <li class="list__el">&nbsp;<a href="#">Partie 1 — Rayonner parmis les&nbsp;étoiles</a></li>
+      <li class="list__el">&nbsp;<a href="#">Partie 2 — Un Espace pour les&nbsp;enfants</a></li>
+      <li class="list__el">&nbsp;<a href="#">Partie 3 — Retour d’entre les&nbsp;morts</a></li>
+      <li class="list__el">&nbsp;<a href="#">Partie 4 — L’horizon du trou&nbsp;noir</a></li>
+      <li class="list__el">&nbsp;<a href="#">Partie 5 — À la vitesse de la&nbsp;lumière</a></li>
+    </ol>
   </footer>
     
   <div class="background">

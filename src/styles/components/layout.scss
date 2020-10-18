@@ -2,6 +2,7 @@ body{
     font-family: 'Rajdhani', 'Assistant', sans-serif;
     color: $c-white;
     height: 100vh;
+    scroll-behavior: smooth;
     
 }
 .overflow-hidden {
@@ -181,10 +182,11 @@ p{
 
   @include lg{
     padding: 0 $s-desk--biggest*2;
-
   }
+
   &--header{
     height: 100vh;
+    position: relative;
   }
 
   &--main{
@@ -198,28 +200,114 @@ p{
 
     @include tb{
       padding-top: $s-tab--medium*2;
-      padding-bottom: $s-tab--medium*2;
+      padding-bottom: $s-tab--medium*4;
       clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
       
     }
 
     @include lg{
-      padding-top: $s-desk--medium*1;
-      padding-bottom: $s-desk--medium*2;
+      padding-top: $s-desk--big*1;
+      padding-bottom: $s-desk--big*2;
       clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
       
     }
 
     @include xl{
+<<<<<<< HEAD
       padding-top: $s-desk--medium*2;
       padding-bottom: $s-desk--medium*3;
+=======
+          padding-top: $s-desk--medium*2;
+      padding-bottom: $s-desk--medium*4;
+>>>>>>> 6e5344492847b0cee83bd2adf810e1097425739d
       clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
       
     }
   }
+<<<<<<< HEAD
 }
 
 
+=======
+
+  &--space{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+}
+
+
+.section--space{
+  .planet{
+    width:180%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    z-index: -1;
+
+    .orbit{
+      stroke-width: 0.3;
+  }
+  }
+}
+
+.btn-scroll{
+    background-color: inherit;
+
+    outline: 0px;
+    border: inherit;
+    transition: 300ms;
+    animation-timing-function: ease-in;
+    position:absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    svg{
+        width: 15%;
+        max-width: 200px;
+        transition: 300ms;
+        animation : scrollDown 2s infinite ease-in-out;
+        cursor: pointer;
+
+        @include tb{
+          width: 20%;
+        }
+
+        @include lg{
+          width: 30%;
+        }
+    }
+    
+    &:hover{
+        transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
+        animation-timing-function: ease-out;
+        transition: 200ms;
+
+    }
+
+}
+
+
+@keyframes scrollDown{
+    0%{
+        transform: translateY(0%);
+    }
+    
+    50%{
+        transform: translateY(50%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+>>>>>>> 6e5344492847b0cee83bd2adf810e1097425739d
 @keyframes circle {
   0% {
     transform:rotate(0deg);       

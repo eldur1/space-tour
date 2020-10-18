@@ -1,0 +1,11 @@
+.list{
+    list-style-type:  none;
+
+    .list__el{
+        &::before{
+            content: "–";
+            display: inline-block;
+        }           
+    }
+}
+

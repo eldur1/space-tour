@@ -6,6 +6,40 @@ a{
     color: inherit;
 }
 
+.planet {
+
+  .stop1{
+    stop-color: $c-blue--l;
+  }
+
+  .stop2{
+    stop-color: $c-blue--d;
+  } 
+
+  .stop3{
+    stop-color: $c-blue--m;
+  }
+
+  .core{
+    fill: url(#gradient);
+  }
+
+  .center{
+    stop-color: $c-white;
+    stop-opacity: 1;
+  }
+
+  .edge{
+    stop-opacity: 0;
+  }
+
+  .orbit{
+    stroke: $c-blue;
+  }
+
+}
+
+
 
 .section{
     &--what {
@@ -14,10 +48,25 @@ a{
     }
 
     &--space{
-        background: linear-gradient($c-sand, $c-blue--l);
-        color: $c-black;
+      color: $c-black;
+
+      .planet{
+        .core{
+          fill: url(#gradient-space);
+        }
+        .stop1{
+          stop-color: $c-sand;
+        }
+
+        .stop2{
+          stop-color: $c-blue--l;
+      } 
     }
+  }
 }
+
+// template pour planète de base au cas où un système foire
+
 
 .cta{
 

@@ -8,9 +8,7 @@ body{
 .overflow-wrapper{
   overflow: hidden;
 }
-.overflow-hidden{
-  overflow: hidden;
-}
+
 .title{
   margin: 0;
   padding: 0;
@@ -19,7 +17,6 @@ body{
 
     @include lg{
       padding: $s-tab--small 0 0;
-
     }
 
     @include xl{
@@ -47,8 +44,7 @@ p{
 
   @include lg{
     max-width: 1000px;
-}
-
+  }
 }
 
 .list{
@@ -69,7 +65,6 @@ p{
       }
     }
 }
-
 
 .section--what{
   .title--medium{
@@ -124,34 +119,7 @@ p{
 
 // template pour planète de base au cas où un système foire
 .planet {
-
-  .stop1{
-    stop-color: $c-blue--m;
-  }
-
-  .stop2{
-    stop-color: $c-blue--d;
-  } 
-
-  .stop3{
-    stop-color: $c-blue--m;
-  }
-
-  .core{
-    fill: url(#gradient);
-  }
-
-  .center{
-    stop-color: $c-white;
-    stop-opacity: 1;
-  }
-
-  .edge{
-    stop-opacity: 0;
-  }
-
   .orbit{
-    stroke: $c-blue;
     animation: circle 40s linear infinite;
     transform-origin: center;
     stroke-width: 0.6;
@@ -169,14 +137,28 @@ p{
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-  max-width: 320px;
+  max-width: $s-mob--biggest*5;
+  transform:scale(1.0);
   transition: 300ms;
   animation-timing-function: ease-in;
-
-  @include lg{
-    max-width: 600px;
+  
+  @include tb{
+  max-width: $s-tab--biggest*5;
+  transform:scale(0.8);
+    
   }
 
+  @include lg{
+    transform:scale(1.2);
+    max-width: $s-desk--biggest*3;
+
+
+  }
+
+  &--footer{
+    margin: $s-tab--bigger*2 auto $s-tab--bigger*3;
+
+  }
   .planet{
       width: 100%;
       display: inline-block;
@@ -207,6 +189,9 @@ p{
 .section{
   padding: 0 $s-mob--medium;
 
+  @include tb{
+    padding: 0 $s-tab--biggest*2;
+  }
   @include lg{
     padding: 0 $s-desk--biggest*2;
   }
@@ -227,7 +212,7 @@ p{
   }
 
   &--team{
-    margin-top: $s-mob--biggest*3;
+    margin-top: $s-mob--biggest*2;
   }
 
   &--what{
@@ -270,14 +255,15 @@ p{
 .section{
   &--space{
     .planet{
-      width:240%;
+      width:100%;
       display: block;
       margin-left: auto;
       margin-right: auto;
       position: absolute;
-      max-width: 1000px;
-      top: -15%;
-      left: -70%;
+      top: 55%;
+      left: 0;
+      transform: translateY(-50%) scale(2.4);
+      transform-origin: center;
       z-index: -1;
 
       .orbit{
@@ -285,30 +271,41 @@ p{
       }
 
       @include tb{
-        width: 154% ;
-        left: -32%;
-        top: -22%;
-        max-width: 1500px;
+        transform: translateY(-50%) scale(1.8);
+        top: 53%;
+      }
 
+      @include lg{
+        transform: translateY(-50%) scale(1.2);
+        // top: ;
       }
     }
   }
 
   &--footer{
     .planet{
-      width: 300%;
+      width: 100%;
       position: absolute;
-      top: -5%;
+      top: 55%;
+      left: 0;
       z-index: -1;
-      left: -100%;
+      transform: translateY(-50%) scale(2.8);
+      transform-origin: center;
 
-      .orbit{
-        stroke-width: 0.1;
+
+      @include tb{
+        transform: translateY(-50%) scale(2.0);
+        top: 75%;
       }
 
       @include lg{
-        width: 240%;
-        left: -70%;
+        transform: translateY(-50%) scale(1.7);
+        top: 100%;
+      }
+
+
+      .orbit{
+        stroke-width: 0.1;
       }
     }
   }
@@ -316,7 +313,6 @@ p{
 
 .btn-scroll{
     background-color: inherit;
-
     outline: 0px;
     border: inherit;
     transition: 300ms;
@@ -326,17 +322,17 @@ p{
     left: 50%;
     transform: translateX(-50%);
 
-    @include tb{
+    // @include tb{
 
-    }
+    // }
 
-    @include lg{
+    // @include lg{
       
-    }
+    // }
     
-    @include xl{
+    // @include xl{
       
-    }
+    // }
 
     svg{
         width: 15%;
@@ -360,10 +356,7 @@ p{
         transition: 200ms;
 
     }
-
 }
-
-
 
 
 .rocket{
@@ -384,22 +377,20 @@ p{
   &--space{
     pointer-events: none;
     position: relative;
-    width: 125%;
-    left: -25%;
+    width: 100%;
+    left: -10%;
     top: $s-mob--biggest;
+    transform: scale(1.5);
 
     @include tb{
-      width: 120%;
-      left: -18%;
-      top: $s-tab--bigger;
+      top: $s-tab--bigger*1.5;
+      left: -15%;
 
-      
     }
     
     @include lg{
-      width: 125%;
-      left: -20%;
-      top: $s-desk--bigger;
+      top: $s-desk--bigger*1.5;
+      // left: -20%;
 
     }
   }

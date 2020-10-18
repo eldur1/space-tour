@@ -7,7 +7,6 @@ body{
 .overflow-hidden {
   overflow: hidden;
 }
-
 .center {
   margin: 0 auto;
   display: block;
@@ -81,13 +80,41 @@ body{
 
 // template pour planète de base au cas où un système foire
 .planet {
+
+  .stop1{
+    stop-color: $c-blue--m;
+  }
+
+  .stop2{
+    stop-color: $c-blue--d;
+  } 
+
+  .stop3{
+    stop-color: $c-blue--m;
+  }
+
+  .core{
+    fill: url(#gradient);
+  }
+
+  .center{
+    stop-color: $c-white;
+    stop-opacity: 1;
+  }
+
+  .edge{
+    stop-opacity: 0;
+  }
+
   .orbit{
+    stroke: $c-blue;
     animation: circle 40s linear infinite;
     transform-origin: center;
     stroke-width: 0.6;
     stroke-dasharray: 5;
     fill: transparent;
     transition: 300ms;
+
   }
 
   .orbit--close{
@@ -162,15 +189,6 @@ p{
 
   &--main{
     padding: 0;
-    position: relative;
-  }
-
-  &--grav{
-    margin-bottom: 500px;
-  }
-
-  &--team{
-    margin-top: 500px;
   }
 
   &--what{
@@ -182,47 +200,25 @@ p{
       padding-top: $s-tab--medium*2;
       padding-bottom: $s-tab--medium*2;
       clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+      
     }
 
     @include lg{
       padding-top: $s-desk--medium*1;
       padding-bottom: $s-desk--medium*2;
       clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+      
     }
 
     @include xl{
-          padding-top: $s-desk--medium*2;
+      padding-top: $s-desk--medium*2;
       padding-bottom: $s-desk--medium*3;
       clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
       
     }
   }
-
-  &--space{
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: visible;
-    
-  }
 }
 
-
-.section--space{
-  .planet{
-    width:180%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: -40%;
-    left: -40%;
-    z-index: -1;
-
-    .orbit{
-      stroke-width: 0.3;
-  }
-  }
-}
 
 @keyframes circle {
   0% {

@@ -1,6 +1,7 @@
-.section--footer{
-    background-color: $c-red--d;
+body{
+  background-color: $c-bg;
 }
+
 
 a{
     color: inherit;
@@ -24,6 +25,10 @@ a{
     fill: url(#gradient);
   }
 
+  .shadow{
+    fill: url(#shadow);
+  }
+
   .center{
     stop-color: $c-white;
     stop-opacity: 1;
@@ -35,10 +40,26 @@ a{
 
   .orbit{
     stroke: $c-blue;
+
+    &--red{
+      stroke: $c-red;
+    }
   }
 
 }
 
+.section--footer{
+    // background-color: $c-red--ft;
+    .planet{
+      .core{
+        fill: $c-red--ft;
+      }
+
+      .orbit{
+        stroke: $c-red--ft;
+      }
+    }
+}
 
 
 .section{
@@ -65,7 +86,6 @@ a{
   }
 }
 
-// template pour planète de base au cas où un système foire
 
 
 .cta{
@@ -82,5 +102,33 @@ a{
       .stop4{
         stop-color: $c-blue--m;
       }
+  }
+}
+
+.rocket{
+
+  .ship-bg{
+    fill: $c-bord;
+  }
+  
+  .ship-fg{
+    fill: $c-blue--m;
+  }
+  
+  .ship-ck{
+    fill: $c-blue;
+  }
+
+  .ship-visor{
+    fill: $c-blue--l;
+  }
+
+  .beam{
+    fill: $c-yellow;
+  }
+
+  .beam-line{
+    stroke: $c-yellow;
+    stroke-width: 7;
   }
 }

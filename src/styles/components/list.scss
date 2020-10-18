@@ -3,9 +3,19 @@
 
     .list__el{
         &::before{
-            content: "–";
+            content: "– \00a0" ;
             display: inline-block;
-        }           
+            font-size: $s-mob--smaller;
+        
+            @include tb{
+                font-size: $s-tab--small;
+            }
+
+            @include lg{
+                font-size: $s-desk--small;
+        
+            }           
+        }
     }
 }
 

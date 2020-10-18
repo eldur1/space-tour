@@ -1,14 +1,83 @@
 body{
     font-family: 'Rajdhani', 'Assistant', sans-serif;
     color: $c-white;
-    height: 100vh;
     scroll-behavior: smooth;
-    overflow-x:hidden;
-    
+    // overflow-x: hidden;
+
 }
-.overflow-hidden {
+.overflow-wrapper{
   overflow: hidden;
 }
+.overflow-hidden{
+  overflow: hidden;
+}
+.title{
+  margin: 0;
+  padding: 0;
+  &--bigger{
+    padding: $s-mob--small * 1.5 0 0;
+
+    @include lg{
+      padding: $s-tab--small 0 0;
+
+    }
+
+    @include xl{
+      padding: $s-desk--small 0 0;
+    }
+  }
+
+  &--big{
+    padding: $s-mob--smaller*2 0 $s-mob--big;
+  }
+
+  &--medium{
+    padding: $s-mob--big 0 $s-mob--smaller;
+  }
+}
+
+p{
+  padding: 0;
+  margin: 0 0 $s-mob--small $s-mob--medium;
+  max-width: 260px;
+
+  @include tb{
+    max-width: 500px;
+  }
+
+  @include lg{
+    max-width: 1000px;
+}
+
+}
+
+.list{
+      padding: 0;
+    margin: 0;
+
+    .list__el{
+      padding: 0 0 0 $s-mob--medium ;
+      margin: 0 0 $s-mob--smaller 0;
+      max-width: 260px;
+
+
+      @include tb{
+        max-width: 500px;
+      }
+      @include lg{
+        max-width: 600px;
+      }
+    }
+}
+
+
+.section--what{
+  .title--medium{
+    padding: $s-mob--smaller 0 ;
+  }
+}
+
+
 .center {
   margin: 0 auto;
   display: block;
@@ -16,33 +85,6 @@ body{
 .hidden {
   display: none;
 }
-.planet{
-  z-index: 0;
-  &--from{
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
-    bottom: 0;
-  }
-
-  &--to{
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
-    position: absolute;
-    top: 0;
-  }
-
-}
-.fusee-js {
-  margin-bottom: 100px;
-  z-index:4;
-  position: absolute;
-  bottom:100px;
-  left:50%;
-  transform: translateX(-50%) rotate(8deg);
-}
-
 .hud{
   p{
     text-transform: uppercase;
@@ -118,10 +160,6 @@ body{
     transition: 300ms;
 
   }
-
-  .orbit--close{
-    animation: circle 60s linear infinite;
-  }
 }
 
 // planète pour le bouton "jouer"
@@ -130,25 +168,26 @@ body{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
-  max-width: 400px;
+  width: 70%;
+  max-width: 320px;
   transition: 300ms;
   animation-timing-function: ease-in;
-
- 
 
   @include lg{
     max-width: 600px;
   }
+
   .planet{
       width: 100%;
       display: inline-block;
   }
 
   p{
+    padding: 0;
+    margin: 0;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) translateY(-110%);
+    transform: translateX(-50%) translateY(-55%);
     top: 50%;
   }
 
@@ -162,19 +201,6 @@ body{
 
       }
     }
-  }
-}
-
-
-p{
-  max-width: 260px;
-
-  @include tb{
-    max-width: 500px;
-  }
-
-  @include lg{
-    max-width: 1000px;
   }
 }
 
@@ -192,6 +218,16 @@ p{
 
   &--main{
     padding: 0;
+    position: relative;
+    
+  }
+
+  &--grav{
+    margin-bottom: $s-mob--biggest*4;
+  }
+
+  &--team{
+    margin-top: $s-mob--biggest*3;
   }
 
   &--what{
@@ -221,27 +257,60 @@ p{
     }
   }
 
+  &--footer{
+    position: relative;
+  }
+
   &--space{
     position: relative;
   }
 }
 
 
-.section--space{
-  .planet{
-    width:180%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+.section{
+  &--space{
+    .planet{
+      width:240%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      max-width: 1000px;
+      top: -15%;
+      left: -70%;
+      z-index: -1;
 
-    .orbit{
-      stroke-width: 0.3;
+      .orbit{
+        stroke-width: 0.1;
+      }
+
+      @include tb{
+        width: 154% ;
+        left: -32%;
+        top: -22%;
+        max-width: 1500px;
+
+      }
+    }
   }
+
+  &--footer{
+    .planet{
+      width: 300%;
+      position: absolute;
+      top: -5%;
+      z-index: -1;
+      left: -100%;
+
+      .orbit{
+        stroke-width: 0.1;
+      }
+
+      @include lg{
+        width: 240%;
+        left: -70%;
+      }
+    }
   }
 }
 
@@ -253,10 +322,22 @@ p{
     transition: 300ms;
     animation-timing-function: ease-in;
     position:absolute;
-    bottom: 15vh;
+    bottom: 10vh;
     left: 50%;
     transform: translateX(-50%);
+
+    @include tb{
+
+    }
+
+    @include lg{
+      
+    }
     
+    @include xl{
+      
+    }
+
     svg{
         width: 15%;
         max-width: 200px;
@@ -283,26 +364,45 @@ p{
 }
 
 
-@keyframes scrollDown{
-    0%{
-        transform: translateY(0%);
+
+
+.rocket{
+  &--header{
+    position: absolute;
+    width: 200%;
+    left: -110%;
+    transform: translateY(-15%);
+    pointer-events: none;
+
+    @include tb{
+    transform: translateY(-20%);
+    width: 100%;
+    left: -20%
+    }
+  }
+
+  &--space{
+    pointer-events: none;
+    position: relative;
+    width: 125%;
+    left: -25%;
+    top: $s-mob--biggest;
+
+    @include tb{
+      width: 120%;
+      left: -18%;
+      top: $s-tab--bigger;
+
+      
     }
     
-    50%{
-        transform: translateY(50%);
-    }
+    @include lg{
+      width: 125%;
+      left: -20%;
+      top: $s-desk--bigger;
 
-    100%{
-        transform: translateY(0%);
     }
+  }
 }
 
-@keyframes circle {
-  0% {
-    transform:rotate(0deg);       
-  }
-  100% {
-    transform: rotate(-360deg);      
-  }
-  
-}
+

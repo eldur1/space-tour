@@ -168,10 +168,6 @@ body{
 
 p{
   max-width: 260px;
-  @include sm {
-    margin-left:auto;
-    margin-right: auto;
-  }
 
   @include tb{
     max-width: 500px;
@@ -229,18 +225,11 @@ p{
     position: relative;
   }
 }
-.rocket {
-  &--hero {
-    transform: rotate(202deg);
-    position: absolute;
-    right:50px;
-    top:50px;
-  }
-}
+
 
 .section--space{
   .planet{
-    width:200%;
+    width:180%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -249,31 +238,6 @@ p{
     left:50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    @include sm {
-      width:180%;
-
-    }
-    @include smx {
-      width:160%;
-      
-    }
-    @include tb {
-      width:170%;
-      
-    }
-    @include tbx {
-      width:150%;
-      
-    }
-    @include lg {
-      width:140%;
-      
-    }
-    @include xl {
-      width:130%;
-      
-    }
-
 
     .orbit{
       stroke-width: 0.3;
@@ -283,6 +247,7 @@ p{
 
 .btn-scroll{
     background-color: inherit;
+
     outline: 0px;
     border: inherit;
     transition: 300ms;

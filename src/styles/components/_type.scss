@@ -36,44 +36,25 @@
     font-family: 'Assistant', sans-serif;
     font-weight: 800;
     font-size: $s-mob--medium;
-    margin-left:auto;
-    margin-right: auto;
-    @include smx {
-      margin-left:58px;
-    }
+
     @include tb{
       font-size: $s-tab--big;
-      margin-left:29px;
     }
 
     @include lg{
       font-size: $s-desk--big;
-      margin-left:-29px;
     }
-
-    @include tb{
-      font-size: $s-tab--medium;
-    }
-    @include tbx {
-      margin-left:58px;
-    }
-    @include xl {
-      margin-left:-58px;
-    }
-
   }
 }
 
 p{
-    font-weight: 800;
-    line-height: 160%;
-    font-size: $s-mob--small;
-    @include smx {
-      margin-left:58px;
-    }
+  font-weight: 800;
+  line-height: 160%;
+  font-size: $s-mob--small;
     @include tb{
       font-size: $s-tab--medium;
     }
+
     @include lg{
       font-size: $s-desk--medium;
     }

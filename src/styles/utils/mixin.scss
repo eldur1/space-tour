@@ -1,36 +1,118 @@
 @mixin sm{
     @media (min-width: #{$screen-sm}){
         @content;
+        .title--medium {
+            margin-left:auto;
+            margin-right: auto;
+        }
+        p {
+            margin-left:auto;
+            margin-right: auto;
+
+        }
+        .section--space {
+            .planet {
+                width:180%;
+            }
+        }
     }
 }
 
 @mixin smx{
     @media (min-width: #{$screen-smx}){
         @content;
+        .title--medium {
+            margin-left:58px;
+        }
+        p {
+            margin-left:auto;
+            margin-right: auto;
+
+        }
+        .section--space {
+            .planet {
+                width:160%;
+            }
+        }
     }
 }
 
 @mixin tb{
     @media (min-width: #{$screen-tb}){
         @content;
+        .title--medium {
+            margin-left:29px;
+        }
+        p {
+            margin-left:auto;
+            margin-right: auto;
+
+        }
+        .section--space {
+            .planet {
+                width:170%;
+            }
+        }
     }
 }
 
 @mixin tbx{
     @media (min-width: #{$screen-tbx}){
         @content;
+        .title--medium {
+            margin-left:58px;
+            margin-right: auto;
+        }
+        p {
+            margin-left:auto;
+            margin-right: auto;
+
+        }
+        .section--space {
+            .planet {
+                width:150%;
+            }
+        }
     }
 }
 
 @mixin lg{
     @media (min-width: #{$screen-lg}){
         @content;
+        .title--medium {
+            margin-left:-29px;
+            margin-right: auto;
+        }
+        p {
+            margin-left:auto;
+            margin-right: auto;
+
+        }
+        .section--space {
+            .planet {
+                width:140%;
+            }
+        }
     }
 }
 
 @mixin xl{
     @media (min-width: #{$screen-xl}){
         @content;
+        .title--medium {
+            margin-left:-58px;
+            margin-right: auto;
+        }
+        p {
+            margin-left:auto;
+            margin-right: auto;
+
+        }
+        .section--space {
+            .planet {
+                width:130%;
+            }
+        }
     }
 }
 

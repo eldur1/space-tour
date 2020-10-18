@@ -47,15 +47,42 @@ $s-desk--smallest: 0.75em;
   
 
 $screen-sm: 425px;
+/*
+- titre et p de section space centré (margin-left margin right auto)
+- section--space .planet width:180%
+*/
 
 $screen-smx: 550px;
+/*
+- titre--medium : margin-left:58px;
+- section--space .planet width:160%
+*/
 
 $screen-tb: 700px;
+/*
+- titre--medium : margin-left:29px;
+- section--space .planet width:170%
+*/
 
 $screen-tbx: 900px;
+/*
+- titre--medium : margin-left:58px;
+- section--space .planet width:150%
+*/
 
 $screen-lg: 1000px;
+/*
+- titre--medium : margin-left: -29px
+- section--space .planet width:140%
+*/
+
 
 $screen-xl: 1400px;
+/*
+- titre--medium : margin-left: -58px
+- section--space .planet width:130%
+*/
+
+
 
 $screen-xxl: 1900px;

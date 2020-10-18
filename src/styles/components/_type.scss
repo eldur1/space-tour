@@ -1,5 +1,7 @@
 
-
+body  {
+  font-size:$s-mob--small;
+}
 .title{
   &--bigger{
     font-size: $s-mob--bigger;

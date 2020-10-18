@@ -158,6 +158,7 @@ p{
   }
   &--header{
     height: 100vh;
+    position: relative;
   }
 
   &--main{
@@ -202,7 +203,6 @@ p{
     position: relative;
     overflow-x: hidden;
     overflow-y: visible;
-    
   }
 }
 
@@ -222,6 +222,58 @@ p{
       stroke-width: 0.3;
   }
   }
+}
+
+.btn-scroll{
+    background-color: inherit;
+
+    outline: 0px;
+    border: inherit;
+    transition: 300ms;
+    animation-timing-function: ease-in;
+    position:absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    svg{
+        width: 15%;
+        max-width: 200px;
+        transition: 300ms;
+        animation : scrollDown 2s infinite ease-in-out;
+        cursor: pointer;
+
+        @include tb{
+          width: 20%;
+        }
+
+        @include lg{
+          width: 30%;
+        }
+    }
+    
+    &:hover{
+        transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
+        animation-timing-function: ease-out;
+        transition: 200ms;
+
+    }
+
+}
+
+
+@keyframes scrollDown{
+    0%{
+        transform: translateY(0%);
+    }
+    
+    50%{
+        transform: translateY(50%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
 }
 
 @keyframes circle {

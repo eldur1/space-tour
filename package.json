@@ -29,6 +29,7 @@
     "gsap": "^3.5.1",
     "particle.js": "^1.0.7",
     "particles.js": "^2.0.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "three": "^0.121.1",
     "tsparticles": "^1.18.4"
   }

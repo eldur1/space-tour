@@ -281,7 +281,7 @@ p{
 .section{
   &--space{
     .planet{
-      width:220%;
+      width:370%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -294,17 +294,19 @@ p{
       .orbit{
         stroke-width: 0.1;
       }
-
+      @include smxx {
+        width:327%;
+      }
       @include sm {
         width:180%;
   
       }
       @include smx {
-        width:160%;
+        width:140%;
         
       }
       @include tb {
-        width:170%;
+        width:185%;
         
       }
       @include tbx {

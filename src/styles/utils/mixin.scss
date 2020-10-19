@@ -1,3 +1,9 @@
+@mixin smxx{
+    @media (min-width: #{$screen-sm}){
+        @content;
+    }
+}
+
 @mixin sm{
     @media (min-width: #{$screen-sm}){
         @content;

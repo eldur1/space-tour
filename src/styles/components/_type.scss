@@ -1,4 +1,9 @@
 
+.nowrap{
+  white-space: pre;
+}
+
+
 .title{
   &--bigger{
     font-size: $s-mob--bigger;
@@ -22,6 +27,11 @@
     font-size: $s-mob--small;
     line-height: 160%;
     font-weight: 800;
+
+    .nowrap{
+      white-space: pre;
+      display: block;
+    }
 
     @include tb{
       font-size: $s-tab--medium;
@@ -52,19 +62,15 @@ p{
   line-height: 160%;
   font-size: $s-mob--small;
     @include tb{
-      font-size: $s-tab--medium;
+      font-size: $s-tab--small;
     }
 
     @include lg{
-      font-size: $s-desk--medium;
+      font-size: $s-desk--small;
     }
 }
 
 
-.nowrap{
-  white-space: pre;
-  display: block; 
-}
 
 .cta{
   p{
@@ -86,9 +92,7 @@ p{
   }
 }
 
-.nobreak{
-  white-space: nowrap;
-}
+
 
 .list{
 

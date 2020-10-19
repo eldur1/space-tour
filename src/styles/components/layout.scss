@@ -25,7 +25,8 @@ body{
   }
 
   &--big{
-    padding: $s-mob--smaller*2 0 $s-mob--big;
+    padding: $s-mob--smaller*2 0 0;
+    margin-left: $s-mob--medium;
   }
 
   &--medium{
@@ -141,7 +142,7 @@ p{
   transform:scale(1.0);
   transition: 300ms;
   animation-timing-function: ease-in;
-  
+  margin: $s-mob--bigger auto;
   @include tb{
   max-width: $s-tab--biggest*5;
   transform:scale(0.8);
@@ -150,7 +151,7 @@ p{
 
   @include lg{
     transform:scale(1.2);
-    max-width: $s-desk--biggest*3;
+    max-width: $s-desk--biggest*4;
 
 
   }
@@ -175,7 +176,19 @@ p{
 
   &:hover{
     animation-timing-function: ease-out;
-    transform: scale(1.05);
+    transform: scale(1.15);
+
+    @include tb{
+      max-width: $s-tab--biggest*5;
+      transform:scale(1.0);
+    
+    }
+
+    @include lg{
+      transform:scale(1.3);
+      max-width: $s-desk--biggest*3;
+    } 
+
 
     .planet {
       .orbit{
@@ -244,6 +257,21 @@ p{
 
   &--footer{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    @include lg{
+      flex-direction: row;
+    }
+
+    .list-container{
+
+      @include lg{
+        width: 50%;
+      }
+    }
   }
 
   &--space{
@@ -265,6 +293,7 @@ p{
       transform: translateY(-50%) scale(2.4);
       transform-origin: center;
       z-index: -1;
+      max-width: 300px;
 
       .orbit{
         stroke-width: 0.1;
@@ -277,7 +306,8 @@ p{
 
       @include lg{
         transform: translateY(-50%) scale(1.2);
-        // top: ;
+        max-width: 1500px;
+
       }
     }
   }
@@ -291,6 +321,7 @@ p{
       z-index: -1;
       transform: translateY(-50%) scale(2.8);
       transform-origin: center;
+      max-width: 400px;
 
 
       @include tb{
@@ -300,7 +331,9 @@ p{
 
       @include lg{
         transform: translateY(-50%) scale(1.7);
-        top: 100%;
+        top: 100;
+        max-width: 1000px;
+
       }
 
 
@@ -362,17 +395,34 @@ p{
 .rocket{
   &--header{
     position: absolute;
-    width: 200%;
-    left: -110%;
-    transform: translateY(-15%);
-    pointer-events: none;
-
-    @include tb{
-    transform: translateY(-20%);
     width: 100%;
-    left: -20%
+    left: -20%;
+    transform: translateX(-15%) scale(1.5);
+    pointer-events: none;
+    max-width: 500px;
+
+      @include smx{
+        transform: translateY(-10%) scale(1.5) translateX(-5%);
+      }
+
+      @include tb{
+        transform: translateY(0%) scale(1.5) translateX(20%);
+      }
+
+      @include lg{
+        transform: scale(1.7) translateX(40%);
     }
+
+      @include xl{
+        transform: scale(2.2) translateX(50%);
+      }
+
+      @include xxl{
+        transform: scale(2.8) translateX(50%);
+
+      }
   }
+
 
   &--space{
     pointer-events: none;
@@ -381,6 +431,7 @@ p{
     left: -10%;
     top: $s-mob--biggest;
     transform: scale(1.5);
+    max-width: 1500px;
 
     @include tb{
       top: $s-tab--bigger*1.5;
@@ -390,7 +441,8 @@ p{
     
     @include lg{
       top: $s-desk--bigger*1.5;
-      // left: -20%;
+      left: 0%;
+      max-width: 1250px;
 
     }
   }

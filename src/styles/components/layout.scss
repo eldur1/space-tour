@@ -146,7 +146,6 @@ p{
   @include tb{
   max-width: $s-tab--biggest*5;
   transform:scale(0.8);
-    
   }
 
   @include lg{
@@ -200,14 +199,14 @@ p{
 }
 
 .section{
-  padding: 0 $s-mob--medium;
+  padding: 0 20%;
 
-  @include tb{
-    padding: 0 $s-tab--biggest*2;
-  }
-  @include lg{
-    padding: 0 $s-desk--biggest*2;
-  }
+  // @include tb{
+  //   padding: 0 $s-tab--biggest*2;
+  // }
+  // @include lg{
+  //   padding: 0 $s-desk--biggest*2;
+  // }
 
   &--header{
     height: 100vh;
@@ -217,7 +216,6 @@ p{
   &--main{
     padding: 0;
     position: relative;
-    
   }
 
   &--grav{
@@ -288,9 +286,9 @@ p{
       margin-left: auto;
       margin-right: auto;
       position: absolute;
-      top: 55%;
-      left: 0;
-      transform: translateY(-50%) scale(2.4);
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) scale(2.4) translateX(-50%);
       transform-origin: center;
       z-index: -1;
       max-width: 300px;
@@ -443,7 +441,6 @@ p{
       top: $s-desk--bigger*1.5;
       left: 0%;
       max-width: 1250px;
-
     }
   }
 }

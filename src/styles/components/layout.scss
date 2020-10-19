@@ -281,7 +281,7 @@ p{
 .section{
   &--space{
     .planet{
-      width:370%;
+      width:280%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -306,19 +306,19 @@ p{
         
       }
       @include tb {
-        width:185%;
+        width:125%;
         
       }
       @include tbx {
-        width:150%;
+        width:110%;
         
       }
       @include lg {
-        width:140%;
+        width:130%;
         
       }
       @include xl {
-        width:130%;
+        width:100%;
         
       }
   

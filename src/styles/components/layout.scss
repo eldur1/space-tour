@@ -199,7 +199,7 @@ p{
 }
 
 .section{
-  padding: 0 20%;
+  padding-left: $s-mob--medium;
 
   // @include tb{
   //   padding: 0 $s-tab--biggest*2;
@@ -233,6 +233,7 @@ p{
 
     @include tb{
       padding-top: $s-tab--medium*2;
+      padding-left: 15%;
       padding-bottom: $s-tab--medium*4;
       clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
       
@@ -281,7 +282,7 @@ p{
 .section{
   &--space{
     .planet{
-      width:280%;
+      width:430%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -314,7 +315,7 @@ p{
         
       }
       @include lg {
-        width:130%;
+        width:135%;
         
       }
       @include xl {

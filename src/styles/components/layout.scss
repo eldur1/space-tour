@@ -2,9 +2,8 @@ body{
     font-family: 'Rajdhani', 'Assistant', sans-serif;
     color: $c-white;
     scroll-behavior: smooth;
-    // overflow-x: hidden;
-
 }
+
 .overflow-wrapper{
   overflow: hidden;
 }
@@ -16,11 +15,11 @@ body{
     padding: $s-mob--small * 1.5 0 0;
 
     @include lg{
-      padding: $s-tab--small 0 0;
+      padding: $s-tab--smallest 0 0;
     }
 
     @include xl{
-      padding: $s-desk--small 0 0;
+      padding: $s-desk--smaller 0 $s-desk--smallest;
     }
   }
 
@@ -36,15 +35,15 @@ body{
 
 p{
   padding: 0;
-  margin: 0 0 $s-mob--small $s-mob--medium;
-  max-width: 260px;
+  margin: 0 auto $s-mob--small $s-mob--medium;
+  max-width: 360px;
 
   @include tb{
-    max-width: 500px;
+    max-width: 450px;
   }
 
   @include lg{
-    max-width: 1000px;
+    max-width: 650px;
   }
 }
 
@@ -59,7 +58,7 @@ p{
 
 
       @include tb{
-        max-width: 500px;
+        max-width: 400px;
       }
       @include lg{
         max-width: 600px;
@@ -67,12 +66,9 @@ p{
     }
 }
 
-.section--what{
-  .title--medium{
-    padding: $s-mob--smaller 0 ;
-  }
+.title--planet{
+  padding:  0 0 $s-mob--smaller;
 }
-
 
 .center {
   margin: 0 auto;
@@ -117,7 +113,6 @@ p{
     animation-timing-function: ease-out;
 }
 
-
 // template pour planète de base au cas où un système foire
 .planet {
   .orbit{
@@ -135,78 +130,99 @@ p{
 .cta{
   position: relative;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 70%;
   max-width: $s-mob--biggest*5;
-  transform:scale(1.0);
   transition: 300ms;
   animation-timing-function: ease-in;
   margin: $s-mob--bigger auto;
+
+
   @include tb{
-  max-width: $s-tab--biggest*5;
-  transform:scale(0.8);
+    max-width: $s-tab--biggest*5;
+    margin: 5vh auto 15vh;
   }
 
   @include lg{
-    transform:scale(1.2);
+    margin: $s-desk--bigger auto;
     max-width: $s-desk--biggest*4;
-
-
   }
 
   &--footer{
-    margin: $s-tab--bigger*2 auto $s-tab--bigger*3;
+    margin: $s-mob--bigger*2 auto $s-mob--bigger*3;
 
-  }
-  .planet{
-      width: 100%;
-      display: inline-block;
-  }
+    @include sm{
+      margin: $s-mob--bigger*2 auto $s-mob--bigger*5;
+    }
 
-  p{
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(-55%);
-    top: 50%;
-  }
-
-  &:hover{
-    animation-timing-function: ease-out;
-    transform: scale(1.15);
+    @include smx{
+      margin: $s-mob--bigger*2 auto $s-mob--bigger*6;
+    }
 
     @include tb{
-      max-width: $s-tab--biggest*5;
-      transform:scale(1.0);
-    
+      margin: $s-tab--bigger*2 auto $s-tab--bigger*6;
     }
 
     @include lg{
-      transform:scale(1.3);
-      max-width: $s-desk--biggest*3;
-    } 
+      margin: $s-desk--bigger*2 auto $s-desk--bigger*6;
+    }
 
+    @include xl{
+      margin: $s-desk--bigger*2 auto $s-desk--bigger*7;
+    }
+
+    }
+    .planet{
+        width: 100%;
+        display: inline-block;
+    }
+
+    p{
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-55%);
+      top: 50%;
+    }
+
+    &:hover{
+      animation-timing-function: ease-out;
+      transform: scale(1.1);
+
+      @include tb{
+        max-width: $s-tab--biggest*5;
+        transform:scale(1.1);
+      
+      }
+
+      @include lg{
+        transform:scale(1.1);
+        max-width: $s-desk--biggest*4;
+      } 
 
     .planet {
-      .orbit{
+      .orbit {
         animation: circle 20s reverse linear infinite;
-
       }
     }
   }
 }
 
 .section{
-  padding-left: $s-mob--medium;
+  padding: 0 $s-mob--medium;
 
-  // @include tb{
-  //   padding: 0 $s-tab--biggest*2;
-  // }
-  // @include lg{
-  //   padding: 0 $s-desk--biggest*2;
-  // }
+  @include sm{
+    padding: 0 20%;
+  }
+  @include tb{
+
+  }
+  @include lg{
+  }
+
+  @include xl{
+    padding: 0 25%;
+  }
 
   &--header{
     height: 100vh;
@@ -218,14 +234,6 @@ p{
     position: relative;
   }
 
-  &--grav{
-    margin-bottom: $s-mob--biggest*4;
-  }
-
-  &--team{
-    margin-top: $s-mob--biggest*2;
-  }
-
   &--what{
     padding-top: $s-mob--small*2;
     padding-bottom: $s-mob--small*2;
@@ -233,7 +241,6 @@ p{
 
     @include tb{
       padding-top: $s-tab--medium*2;
-      padding-left: 15%;
       padding-bottom: $s-tab--medium*4;
       clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
       
@@ -256,25 +263,44 @@ p{
 
   &--footer{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: flex-start;
+    // flex-wrap: wrap;
+    // align-items: flex-start;
 
-
-    @include lg{
-      flex-direction: row;
-    }
-
-    .list-container{
-
-      @include lg{
-        width: 50%;
-      }
-    }
+    // .list-container{
+    //     width: 50%;
+    // }
   }
 
   &--space{
     position: relative;
+    margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+
+    @include smxx{
+      margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+    }
+
+    @include sm{
+      margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+    }
+
+    @include smx{
+      margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+    }
+
+    @include tb{
+      margin: $s-tab--bigger*8 auto $s-tab--bigger*5;
+    }
+
+    @include lg{
+      margin: $s-desk--bigger*8 auto $s-desk--bigger*5;
+    }
+
+    @include xl{
+        margin: $s-desk--bigger*9 auto $s-desk--bigger*6;
+
+    }
   }
 }
 
@@ -307,20 +333,23 @@ p{
         
       }
       @include tb {
-        width:135%;
+        width:120%;
         
       }
       @include tbx {
-        width:110%;
+        width:100%;
         
       }
       @include lg {
-        width:135%;
-        
+        width:120%; 
+      }
+
+      @include lgx{ 
+        width: 110%;
+        max-width: 1400px;
       }
       @include xl {
         width:100%;
-        
       }
   
     }
@@ -328,31 +357,63 @@ p{
 
   &--footer{
     .planet{
-      width: 100%;
+      width:280%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
       position: absolute;
-      top: 55%;
-      left: 0;
-      z-index: -1;
-      transform: translateY(-50%) scale(2.8);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       transform-origin: center;
-      max-width: 400px;
-
-
-      @include tb{
-        transform: translateY(-50%) scale(2.0);
-        top: 75%;
+      z-index: -1;
+      .orbit{
+        stroke-width: 0.1;
+      }
+      @include smxx {
+        transform: translate(-50%, -42%);
+      }
+      @include sm {
+        transform: translate(-50%, -39%);
+  
+      }
+      @include smx {
+        transform: translate(-50%, -32%);
+        
+      }
+      @include tb {
+        transform: translate(-50%, -29%);
+        
+      }
+      @include tbx {
+        transform: translate(-50%, -25%);
+        
+      }
+      @include lg {
+        // transform: translate(-50%, -22%);
+        // À changer en fonction du display flex ou pas
+        transform: translate(-50%, -26%);
       }
 
-      @include lg{
-        transform: translateY(-50%) scale(1.7);
-        top: 100;
-        max-width: 1000px;
+      @include lgx{
+        transform: translate(-50%, -23%);
+        // À changer en fonction du display flex ou pas
 
       }
-
+      @include xl {
+        // transform: translate(-50%, -16%);
+        transform: translate(-50%, -21%);
 
       .orbit{
         stroke-width: 0.1;
+      }
+
+      @include xxl{
+        // transform: translate(-50%, -12.5%);
+        transform: translate(-50%, -15%);
+
+        width: 350%;
+
       }
     }
   }
@@ -369,18 +430,11 @@ p{
     left: 50%;
     transform: translateX(-50%);
 
-    // @include tb{
 
-    // }
+    @include lg{
+    bottom: 5vh;
 
-    // @include lg{
-      
-    // }
-    
-    // @include xl{
-      
-    // }
-
+    }
     svg{
         width: 15%;
         max-width: 200px;
@@ -423,8 +477,13 @@ p{
         transform: translateY(0%) scale(1.5) translateX(20%);
       }
 
+      @include tbx{
+        transform: translateY(5%) scale(1.7) translateX(40%);
+
+      }
+
       @include lg{
-        transform: scale(1.7) translateX(40%);
+        transform: translateY(5%) scale(1.9) translateX(40%);
     }
 
       @include xl{
@@ -434,7 +493,7 @@ p{
       @include xxl{
         transform: scale(2.8) translateX(50%);
 
-      }
+    }
   }
 
 
@@ -455,10 +514,28 @@ p{
     
     @include lg{
       top: $s-desk--bigger*1.5;
-      left: 0%;
+      left: -10%;
       max-width: 1250px;
+      }
+
+      @include xl{
+        transform: scale(1.8);
+        left: -15%;
+      }
     }
   }
 }
 
+// .text-centered {
+//   margin-left:auto;
+//   margin-right: auto;
+//   max-width: 260px;
 
+//   @include tb{
+//     max-width: 500px;
+//   }
+
+//   @include lg{
+//     max-width: 1000px;
+//   }
+// }

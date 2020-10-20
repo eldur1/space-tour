@@ -2,7 +2,6 @@ body{
   background-color: $c-bg;
 }
 
-
 a{
     color: inherit;
 }
@@ -130,5 +129,19 @@ a{
   .beam-line{
     stroke: $c-yellow;
     stroke-width: 7;
+  }
+
+  g{
+    .core{
+      fill: url(#gradient--green);
+      
+      &--red{
+        fill: url(#gradient--red);
+      }  
+    }
+  }
+
+  .orbit{
+    stroke-dasharray: 20 20;
   }
 }

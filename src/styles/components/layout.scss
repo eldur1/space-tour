@@ -114,7 +114,7 @@ p{
 }
 
 // template pour planète de base au cas où un système foire
-.planet {
+
   .orbit{
     animation: circle 40s linear infinite;
     transform-origin: center;
@@ -122,9 +122,9 @@ p{
     stroke-dasharray: 5;
     fill: transparent;
     transition: 300ms;
-
+    transform-box: fill-box;
   }
-}
+
 
 // planète pour le bouton "jouer"
 .cta{

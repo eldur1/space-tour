@@ -59,7 +59,7 @@ p{
 }
 
 .list{
-      padding: 0;
+    padding: 0;
     margin: 0;
 
     .list__el{
@@ -227,7 +227,6 @@ p{
 
   @include smx{
     padding: 0 20%;
-
   }
 
   @include xl{
@@ -305,7 +304,6 @@ p{
     }
   }
 }
-
 
 .section{
   &--space{
@@ -442,7 +440,7 @@ p{
     transform: translateX(-50%);
 
     @include lg{
-    bottom: 5vh;
+      bottom: 5vh;
     }
 
     svg{
@@ -465,7 +463,6 @@ p{
         transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
         animation-timing-function: ease-out;
         transition: 200ms;
-
     }
 }
 
@@ -480,11 +477,11 @@ p{
     max-width: 500px;
 
       @include smx{
-        transform: translateY(-10%) scale(1.5) translateX(-5%);
+        transform: translateY(0) scale(1.5) translateX(-5%);
       }
 
       @include tb{
-        transform: translateY(0%) scale(1.5) translateX(20%);
+        transform: translateY(0%) scale(1.5) translateX(25%);
       }
 
       @include tbx{

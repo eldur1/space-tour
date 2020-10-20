@@ -97,7 +97,6 @@ p{
 
   a{
     transition: 200ms;
-    // outline: 1px solid red;
     animation-timing-function: ease-in;
     box-shadow: inset 0 0 0 0 $c-white;
     animation-delay: 0.2s;
@@ -109,8 +108,8 @@ p{
       transition: 300ms;
       animation-delay: 0ms;
     }
-
   }
+
   .list__el{
     font-weight: 600;
     font-size: $s-mob--small;
@@ -126,7 +125,6 @@ p{
       font-size: $s-desk--medium;
       // text-indent: -$s-mob--small;
     }
-
   }
   
   &--footer{
@@ -136,8 +134,7 @@ p{
     
       @include tb{
         font-size: $s-tab--small;
-        text-indent: -$s-tab--small/2.5;
-        
+        text-indent: -$s-tab--small/2.5; 
       }
       
       @include lg{
@@ -145,6 +142,26 @@ p{
         text-indent: -$s-desk--small/2.5;   
       } 
     }
+  }
+}
+
+.list{
+  list-style-type:  none;
+
+  .list__el{
+      &::before{
+          content: "– \00a0" ;
+          display: inline-block;
+          font-size: $s-mob--smaller;
+      
+          @include tb{
+              font-size: $s-tab--small;
+          }
+
+          @include lg{
+              font-size: $s-desk--small;
+          }           
+      }
   }
 }
 

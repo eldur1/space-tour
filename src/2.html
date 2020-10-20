@@ -93,15 +93,17 @@
           <path class="ship-visor" d="M808.618 227.418L813.33 228.087L812.493 228.669L808.618 227.418Z"/>
           
           <!-- planète verte -->
-          <circle class="orbit" cx="1188.5" cy="203.5" r="202.5" />
-          <circle class="orbit orbit--red" cx="378.5" cy="162.5" r="146.5"/>
-          <circle  class="shadow" cx="1188.5" cy="203.5" r="250.5"/>
-          <circle class="shadow" cx="378" cy="163" r="170"/>
+          <g>
+            <circle class="orbit" cx="1188.5" cy="203.5" r="202.5" />
+            <circle  class="shadow" cx="1188.5" cy="203.5" r="250.5"/>
+            <circle class="core core" cx="1188.5" cy="203.5" r="133.5"/>
+          </g>
           
           <!-- planète rouge -->
-            <g>
-              <circle class="core core--red" cx="378" cy="163" r="89" />
-              <circle class="core core" cx="1188.5" cy="203.5" r="133.5"/>
+          <g>
+            <circle class="orbit orbit--red" cx="378.5" cy="162.5" r="146.5"/>
+            <circle class="shadow" cx="378" cy="163" r="170"/>
+            <circle class="core core--red" cx="378" cy="163" r="89" />
           </g>
 
           <defs>
@@ -118,24 +120,16 @@
             </linearGradient>
           </defs>
         </svg>
-
-
-        <svg class="planet planet--bg">
-
-          
-        </svg>
       </section>
 
 
       <section class="section section--space">
-        <div class="text-centered">
+
           <h3 class="title title--medium title--planet">Pourquoi l’espace&nbsp;?</h3>
         <p>L’espace est un thème énigmatique, surtout pour les enfants. C’est un lieu rempli de mystères que nous voulons, par tous
         les moyens nécessaires,&nbsp;explorer.</p>
         <p>Il s’agit également de l’endroit idéal pour démontrer la gravité en pleine action : les satellites orbitant autour des
         planètes, les systèmes solaires, sont d’excellentes démonstration du concept de&nbsp;gravité.</p>
-        </div>
-        <div class="svg-container">
           <svg class="planet planet-bg" viewBox="0 0 100 100">
             <defs>
               <linearGradient id="gradient-space" x1="0" x2="0" y1="0" y2="1">
@@ -145,9 +139,8 @@
             </defs>
             <circle class="shadow" cx="50" cy="50" r="70" />
             <circle class="core" cx="50" cy="50" r="40"/>
-            <circle class="orbit" cx="50" cy="50" r="45" />
+            <circle class="orbit orbit--red" cx="50" cy="50" r="45" />
           </svg>
-        </div>
       </section>
       
       <section class="section section--team">

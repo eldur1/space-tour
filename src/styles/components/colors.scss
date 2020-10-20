@@ -49,22 +49,14 @@ a{
 
 .section--footer{
     // background-color: $c-red--ft;
-    .planet{
-      .core{
-        fill: $c-red--ft;
-      }
 
-      .orbit{
-        stroke: $c-red--ft;
-      }
-    }
 }
 
 
 .section{
     &--what {
-            background-color: $c-yellow;
-            color: $c-black;
+      background-color: $c-yellow;
+      color: $c-black;
     }
 
     &--space{
@@ -79,8 +71,20 @@ a{
         }
 
         .stop2{
-          stop-color: $c-blue--l;
+          stop-color: $c-red--l;
       } 
+    }
+  }
+
+  &--footer{
+    .planet{
+      .core{
+        fill: $c-red--ft;
+      }
+
+      .orbit{
+        stroke: $c-red--ft;
+      }
     }
   }
 }
@@ -131,7 +135,6 @@ a{
     stroke-width: 7;
   }
 
-  g{
     .core{
       fill: url(#gradient--green);
       
@@ -139,9 +142,9 @@ a{
         fill: url(#gradient--red);
       }  
     }
-  }
 
   .orbit{
     stroke-dasharray: 20 20;
+    stroke-width: 1;
   }
 }

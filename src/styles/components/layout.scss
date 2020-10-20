@@ -14,7 +14,7 @@ body{
   &--bigger{
     padding: $s-mob--small * 1.5 0 0;
 
-    @include lg{
+    @include tb{
       padding: $s-tab--smallest 0 0;
     }
 
@@ -26,6 +26,17 @@ body{
   &--big{
     padding: $s-mob--smaller*2 0 0;
     margin-left: $s-mob--medium;
+
+    @include tb{
+      padding: $s-tab--small*2 0 0;
+      margin-left: $s-tab--medium;
+    }
+
+    @include lg{
+      padding: $s-desk--smaller*2 0 0;
+      margin-left: $s-desk--medium;
+
+    }
   }
 
   &--medium{
@@ -56,7 +67,6 @@ p{
       margin: 0 0 $s-mob--smaller 0;
       max-width: 260px;
 
-
       @include tb{
         max-width: 400px;
       }
@@ -74,9 +84,11 @@ p{
   margin: 0 auto;
   display: block;
 }
+
 .hidden {
   display: none;
 }
+
 .hud{
   p{
     text-transform: uppercase;
@@ -169,11 +181,10 @@ p{
     @include xl{
       margin: $s-desk--bigger*2 auto $s-desk--bigger*7;
     }
+  }
 
-    }
     .planet{
         width: 100%;
-        display: inline-block;
     }
 
     p{
@@ -192,7 +203,6 @@ p{
       @include tb{
         max-width: $s-tab--biggest*5;
         transform:scale(1.1);
-      
       }
 
       @include lg{
@@ -212,12 +222,12 @@ p{
   padding: 0 $s-mob--medium;
 
   @include sm{
-    padding: 0 20%;
+    padding: 0 15%;
   }
-  @include tb{
 
-  }
-  @include lg{
+  @include smx{
+    padding: 0 20%;
+
   }
 
   @include xl{
@@ -242,64 +252,56 @@ p{
     @include tb{
       padding-top: $s-tab--medium*2;
       padding-bottom: $s-tab--medium*4;
-      clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
-      
+      clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%); 
     }
 
     @include lg{
       padding-top: $s-desk--big*1;
       padding-bottom: $s-desk--big*2;
       clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
-      
     }
 
     @include xl{
       padding-top: $s-desk--medium*2;
       padding-bottom: $s-desk--medium*3;
       clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
-      
     }
   }
 
   &--footer{
     position: relative;
-    // display: flex;
-    // justify-content: flex-start;
-    // flex-wrap: wrap;
-    // align-items: flex-start;
-
-    // .list-container{
-    //     width: 50%;
-    // }
   }
 
   &--space{
     position: relative;
-    margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+    margin: $s-mob--bigger*6 auto $s-mob--bigger*4;
 
     @include smxx{
       margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
     }
 
     @include sm{
-      margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+      margin: $s-mob--bigger*6 auto $s-mob--bigger*4;
     }
 
     @include smx{
-      margin: $s-mob--bigger*7 auto $s-mob--bigger*4;
+      margin: $s-mob--bigger*6 auto $s-mob--bigger*4;
     }
 
     @include tb{
-      margin: $s-tab--bigger*8 auto $s-tab--bigger*5;
+      margin: $s-tab--bigger*7 auto $s-tab--bigger*5;
     }
 
     @include lg{
-      margin: $s-desk--bigger*8 auto $s-desk--bigger*5;
+      margin: $s-desk--bigger*7 auto $s-desk--bigger*5;
     }
 
     @include xl{
-        margin: $s-desk--bigger*9 auto $s-desk--bigger*6;
+      margin: $s-desk--bigger*8 auto $s-desk--bigger*6;
+    }
 
+    @include xxl{
+      margin: $s-desk--bigger*9 auto $s-desk--bigger*6;
     }
   }
 }
@@ -323,72 +325,83 @@ p{
       }
       @include smxx {
         width:227%;
+        max-width: 800px;
       }
       @include sm {
         width:180%;
-  
       }
+
       @include smx {
-        width:140%;
-        
+        width:140%; 
       }
+
       @include tb {
         width:120%;
-        
       }
+
       @include tbx {
         width:100%;
-        
+        max-width: 1000px;
       }
+
       @include lg {
         width:120%; 
+        max-width: 1200px;
       }
 
       @include lgx{ 
         width: 110%;
-        max-width: 1400px;
       }
+
       @include xl {
         width:100%;
+        max-width: 1300px;
+        transform: translate(-55%, -50%);
+      } 
+
+      @include xxl{
+        max-width: 1400px;
       }
-  
     }
   }
 
   &--footer{
     .planet{
-      width:280%;
+      width:300%;
       display: block;
       margin-left: auto;
       margin-right: auto;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -48%);
       transform-origin: center;
       z-index: -1;
+
       .orbit{
         stroke-width: 0.1;
       }
+
       @include smxx {
-        transform: translate(-50%, -42%);
+        transform: translate(-50%, -40%);
       }
+
       @include sm {
-        transform: translate(-50%, -39%);
-  
+        transform: translate(-50%, -35%);
       }
+
       @include smx {
-        transform: translate(-50%, -32%);
-        
+        transform: translate(-50%, -28%);  
       }
+
       @include tb {
-        transform: translate(-50%, -29%);
-        
+        transform: translate(-50%, -25%); 
       }
+
       @include tbx {
         transform: translate(-50%, -25%);
-        
       }
+      
       @include lg {
         // transform: translate(-50%, -22%);
         // À changer en fonction du display flex ou pas
@@ -397,23 +410,19 @@ p{
 
       @include lgx{
         transform: translate(-50%, -23%);
+        // max-width: 4500px;
         // À changer en fonction du display flex ou pas
-
       }
+
       @include xl {
         // transform: translate(-50%, -16%);
-        transform: translate(-50%, -21%);
-
-      .orbit{
-        stroke-width: 0.1;
+        transform: translate(-50%, -19%);
       }
 
       @include xxl{
         // transform: translate(-50%, -12.5%);
         transform: translate(-50%, -15%);
-
         width: 350%;
-
       }
     }
   }
@@ -430,25 +439,24 @@ p{
     left: 50%;
     transform: translateX(-50%);
 
-
     @include lg{
     bottom: 5vh;
-
     }
+
     svg{
-        width: 15%;
-        max-width: 200px;
-        transition: 300ms;
-        animation : scrollDown 2s infinite ease-in-out;
-        cursor: pointer;
+      width: 15%;
+      max-width: 200px;
+      transition: 300ms;
+      animation : scrollDown 2s infinite ease-in-out;
+      cursor: pointer;
 
-        @include tb{
-          width: 20%;
-        }
+      @include tb{
+        width: 20%;
+      }
 
-        @include lg{
-          width: 30%;
-        }
+      @include lg{
+        width: 30%;
+      }
     }
     
     &:hover{
@@ -479,12 +487,15 @@ p{
 
       @include tbx{
         transform: translateY(5%) scale(1.7) translateX(40%);
-
       }
 
       @include lg{
         transform: translateY(5%) scale(1.9) translateX(40%);
-    }
+      }
+
+      @include lgx{
+        transform: translateY(10%) scale(1.9) translateX(45%);
+      } 
 
       @include xl{
         transform: scale(2.2) translateX(50%);
@@ -492,10 +503,8 @@ p{
 
       @include xxl{
         transform: scale(2.8) translateX(50%);
-
     }
   }
-
 
   &--space{
     pointer-events: none;
@@ -509,7 +518,6 @@ p{
     @include tb{
       top: $s-tab--bigger*1.5;
       left: -15%;
-
     }
     
     @include lg{
@@ -518,24 +526,9 @@ p{
       max-width: 1250px;
       }
 
-      @include xl{
-        transform: scale(1.8);
-        left: -15%;
-      }
+    @include xl{
+      transform: scale(1.8);
+      left: -15%;
     }
   }
 }
-
-// .text-centered {
-//   margin-left:auto;
-//   margin-right: auto;
-//   max-width: 260px;
-
-//   @include tb{
-//     max-width: 500px;
-//   }
-
-//   @include lg{
-//     max-width: 1000px;
-//   }
-// }

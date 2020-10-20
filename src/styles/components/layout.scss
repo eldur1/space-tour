@@ -356,11 +356,13 @@ p{
       @include xl {
         width:100%;
         max-width: 1300px;
-        transform: translate(-55%, -50%);
+        transform: translate(-54%, -50%);
       } 
 
       @include xxl{
         max-width: 1400px;
+        transform: translate(-58%, -50%);
+
       }
     }
   }

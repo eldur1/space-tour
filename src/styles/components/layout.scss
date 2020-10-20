@@ -267,10 +267,6 @@ p{
     }
   }
 
-  &--footer{
-    position: relative;
-  }
-
   &--space{
     position: relative;
     margin: $s-mob--bigger*6 auto $s-mob--bigger*4;
@@ -302,11 +298,7 @@ p{
     @include xxl{
       margin: $s-desk--bigger*9 auto $s-desk--bigger*6;
     }
-  }
-}
 
-.section{
-  &--space{
     .planet{
       width:280%;
       display: block;
@@ -366,6 +358,22 @@ p{
   }
 
   &--footer{
+    position: relative;
+    margin-bottom: $s-mob--big;
+
+    @include tb{
+      margin-bottom: $s-tab--bigger;
+    }
+
+    @include lg{
+      margin-bottom: $s-desk--bigger;
+    }
+
+    @include xl{
+      margin-bottom: $s-desk--bigger*2;
+      
+    }
+
     .planet{
       width:300%;
       display: block;
@@ -426,6 +434,13 @@ p{
       }
     }
   }
+
+}
+
+
+.section{
+
+ 
 }
 
 .btn-scroll{

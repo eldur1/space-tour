@@ -111,7 +111,7 @@ p{
     }
     .list__el {
       font-weight: 600;
-      font-size: $s-mob--small;
+      font-size: $s-mob--smaller;
       line-height: 160%;
       text-indent: -$s-mob--small/2.5;
     
@@ -122,17 +122,8 @@ p{
       
       @include lg{
         font-size: $s-desk--small;
-        text-indent: -$s-desk--small/2.5;   
+        text-indent: -$s-desk--small/2.3;   
       } 
-      @include tb{
-        font-size: $s-tab--medium;
-        // text-indent: -$s-tab--medium;
-      }
-      
-      @include lg{
-        font-size: $s-desk--medium;
-        // text-indent: -$s-mob--small;
-      }
     }
   }
 }

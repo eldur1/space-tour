@@ -134,7 +134,7 @@ p{
   max-width: $s-mob--biggest*5;
   transition: 300ms;
   animation-timing-function: ease-in;
-  margin: $s-mob--bigger auto;
+  margin: 1vh auto 15vh;
 
 
   @include tb{
@@ -145,6 +145,40 @@ p{
   @include lg{
     margin: $s-desk--bigger auto;
     max-width: $s-desk--biggest*4;
+  }
+
+  .planet{
+    width: 100%;
+  }
+
+  p{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-55%);
+    top: 50%;
+  }
+
+  &:hover{
+    animation-timing-function: ease-out;
+    transform: scale(1.1);
+
+    @include tb{
+      max-width: $s-tab--biggest*5;
+      transform:scale(1.1);
+    }
+
+    @include lg{
+      transform:scale(1.1);
+      max-width: $s-desk--biggest*4;
+    } 
+
+    .planet {
+      .orbit {
+        animation: circle 20s reverse linear infinite;
+      }
+    }
   }
 
   &--footer{
@@ -165,7 +199,7 @@ p{
           max-width: 600px;
         }
       }
-  }
+    }
 
     @include sm{
       margin: $s-mob--bigger*2 auto $s-mob--bigger*5;
@@ -187,39 +221,45 @@ p{
       margin: $s-desk--bigger*2 auto $s-desk--bigger*7;
     }
   }
+}
 
-    .planet{
-        width: 100%;
+.btn-scroll{
+  background-color: inherit;
+  outline: 0px;
+  border: inherit;
+  transition: 300ms;
+  animation-timing-function: ease-in;
+  position:absolute;
+  bottom: 12vh;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.6;
+
+  @include lg{
+    bottom: 10vh;
+  }
+
+  svg{
+    width: 18%;
+    max-width: 300px;
+    transition: 300ms;
+    animation : scrollDown 2s infinite ease-in-out;
+    cursor: pointer;
+
+    @include tb{
+      width: 20%;
     }
 
-    p{
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%) translateY(-55%);
-      top: 50%;
+    @include lg{
+      width: 30%;
     }
-
-    &:hover{
+  }
+  
+  &:hover{
+      transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
       animation-timing-function: ease-out;
-      transform: scale(1.1);
-
-      @include tb{
-        max-width: $s-tab--biggest*5;
-        transform:scale(1.1);
-      }
-
-      @include lg{
-        transform:scale(1.1);
-        max-width: $s-desk--biggest*4;
-      } 
-
-    .planet {
-      .orbit {
-        animation: circle 20s reverse linear infinite;
-      }
-    }
+      transition: 200ms;
+      opacity: 1;
   }
 }
 
@@ -376,36 +416,36 @@ p{
         display: flex;
         flex-direction: row;
         align-items: center;
+
         a {
           align-content: baseline;
           min-width: 120px;
           text-decoration: none;
           font-weight: bold;
+
           &:nth-child(even) {
             padding-left:20px;
           }
+
           &:nth-child(odd) {
             padding-right:20px;
           }
         }
 
         .planet{
-          // display: block;
           overflow: auto;
           width: 100%;
 
           .orbit{
             stroke-width: 0.5;
-            // stroke-dasharray: 0;
-            stroke-dasharray: 100 50;
+            stroke-dasharray: 100 20;
           }
         }
         
         &:nth-child(even) {
-          align-self: flex-end;
-          
-        
+          align-self: flex-end;  
         }
+
         &:nth-child(odd) {
             align-self: flex-start;
         }
@@ -415,24 +455,34 @@ p{
  
 
   &--footer{
-
+    @include sm{
+      padding: 0 10%;
+    }
+  
+    @include smx{
+      padding: 0 10%;
+    }
+  
+    @include xl{
+      padding: 0 15%;
+    }
     position: relative;
     margin-bottom: $s-mob--big;
-    .list-container {
-    }
+
     @include tb{
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between;      
+      margin-bottom: $s-tab--bigger;
+
       .title--medium__padding {
         padding:0;
       }
-      margin-bottom: $s-tab--bigger;
-      
     }
 
     @include lg{
       margin-bottom: $s-desk--bigger;
       display: flex;
+
       .title--medium__padding {
         padding:0;
       }
@@ -441,10 +491,10 @@ p{
     @include xl{
       margin-bottom: $s-desk--bigger*2;
       display: flex;
+
       .title--medium__padding {
         padding:0;
       }
-      
     }
 
     .planet{
@@ -508,45 +558,6 @@ p{
     }
   }
 }
-
-.btn-scroll{
-    background-color: inherit;
-    outline: 0px;
-    border: inherit;
-    transition: 300ms;
-    animation-timing-function: ease-in;
-    position:absolute;
-    bottom: 10vh;
-    left: 50%;
-    transform: translateX(-50%);
-
-    @include lg{
-      bottom: 5vh;
-    }
-
-    svg{
-      width: 15%;
-      max-width: 200px;
-      transition: 300ms;
-      animation : scrollDown 2s infinite ease-in-out;
-      cursor: pointer;
-
-      @include tb{
-        width: 20%;
-      }
-
-      @include lg{
-        width: 30%;
-      }
-    }
-    
-    &:hover{
-        transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
-        animation-timing-function: ease-out;
-        transition: 200ms;
-    }
-}
-
 
 .rocket{
   &--header{

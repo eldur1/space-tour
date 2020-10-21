@@ -45,19 +45,91 @@ a{
     }
   }
 
-  &-member{
-    overflow: auto;
-  }
   &--tom{
+    .stop1{
+      stop-color: $c-yellow;
+    }
 
+    .stop2{
+      stop-color: $c-bord;
+    }
+    .core{
+      fill: url(#gradient--tom);
+    }
   }
 
   &--guillaume{
-    
+
+    .stop1{
+      stop-color: $c-blue;
+    }
+
+    .stop2{
+      stop-color: $c-green;
+    }
+    .core{
+      fill: url(#gradient--guillaume);
+    }
   }
 
   &--ludovic{
+    
+    .stop1{
+      stop-color: $c-red;
+    }
 
+    .stop2{
+      stop-color: $c-purple--d;
+    }
+
+    .core{
+      fill: url(#gradient--ludovic);
+    }
+  }
+
+  &--camille{
+
+    .stop1{
+      stop-color: $c-red;
+    }
+    
+    .stop2{
+      stop-color: $c-yellow--d;
+    }
+
+    .core{
+      fill: url(#gradient--camille);
+    }
+  }
+
+  &--elie{
+
+    .stop1{
+      stop-color: $c-blue;
+    }
+    
+    .stop2{
+      stop-color: $c-blue--d;
+    }
+
+    .core{
+      fill: url(#gradient--elie);
+    }
+  }
+
+  &--william{
+
+    .stop1{
+      stop-color: $c-yellow--d;
+    }
+    
+    .stop2{
+      stop-color: $c-green;
+    }
+
+    .core{
+      fill: url(#gradient--william);
+    }
   }
 }
 

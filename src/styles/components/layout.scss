@@ -58,24 +58,6 @@ p{
   }
 }
 
-.list{
-    padding: 0;
-    margin: 0;
-
-    .list__el{
-      padding: 0 0 0 $s-mob--medium ;
-      margin: 0 0 $s-mob--smaller 0;
-      max-width: 260px;
-
-      @include tb{
-        max-width: 400px;
-      }
-      @include lg{
-        max-width: 600px;
-      }
-    }
-}
-
 .title--planet{
   padding:  0 0 $s-mob--smaller;
 }
@@ -135,6 +117,10 @@ p{
     fill: transparent;
     transition: 300ms;
     transform-box: fill-box;
+    &--line {
+      stroke-width: 0.3;
+      stroke-dasharray: 0;
+    }
   }
 
 
@@ -161,6 +147,23 @@ p{
 
   &--footer{
     margin: $s-mob--bigger*2 auto $s-mob--bigger*3;
+    .list{
+      padding: 0;
+      margin: 0;
+  
+      .list__el{
+        padding: 0 0 0 $s-mob--medium ;
+        margin: 0 0 $s-mob--smaller 0;
+        max-width: 260px;
+  
+        @include tb{
+          max-width: 400px;
+        }
+        @include lg{
+          max-width: 600px;
+        }
+      }
+  }
 
     @include sm{
       margin: $s-mob--bigger*2 auto $s-mob--bigger*5;
@@ -356,6 +359,40 @@ p{
       }
     }
   }
+  &--team {
+    .list--team {
+      width: 140%;
+      margin-left:-30%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-content: stretch;
+      text-align: center;
+      .list__el {
+        max-width: 60%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        a {
+          align-content: baseline;
+          min-width: 120px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        
+        &:nth-child(even) {
+          align-self: flex-end;
+          
+        
+        }
+        &:nth-child(odd) {
+            align-self: flex-start;
+        }
+      }
+    }
+  }
+ 
 
   &--footer{
     position: relative;
@@ -434,9 +471,7 @@ p{
       }
     }
   }
-
 }
-
 
 .btn-scroll{
     background-color: inherit;

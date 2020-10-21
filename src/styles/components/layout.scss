@@ -134,12 +134,14 @@ p{
   max-width: $s-mob--biggest*5;
   transition: 300ms;
   animation-timing-function: ease-in;
-  margin: 1vh auto 15vh;
+  margin: 2vh auto 15vh;
 
+  @include smx{
+    margin: 5vh auto 15vh;
 
+  }
   @include tb{
     max-width: $s-tab--biggest*5;
-    margin: 5vh auto 15vh;
   }
 
   @include lg{
@@ -183,23 +185,6 @@ p{
 
   &--footer{
     margin: $s-mob--bigger*2 auto $s-mob--bigger*3;
-    .list{
-      padding: 0;
-      margin: 0;
-  
-      .list__el{
-        padding: 0 0 0 $s-mob--medium ;
-        margin: 0 0 $s-mob--smaller 0;
-        max-width: 260px;
-  
-        @include tb{
-          max-width: 400px;
-        }
-        @include lg{
-          max-width: 600px;
-        }
-      }
-    }
 
     @include sm{
       margin: $s-mob--bigger*2 auto $s-mob--bigger*5;
@@ -239,6 +224,10 @@ p{
     bottom: 10vh;
   }
 
+  @include xl{
+    bottom: 7vh;
+  }
+
   svg{
     width: 18%;
     max-width: 300px;
@@ -251,7 +240,7 @@ p{
     }
 
     @include lg{
-      width: 30%;
+      width: 25%;
     }
   }
   
@@ -401,6 +390,7 @@ p{
       }
     }
   }
+
   &--team {
     .list--team {
       width: 140%;
@@ -455,6 +445,9 @@ p{
  
 
   &--footer{
+    position: relative;
+    margin-bottom: $s-mob--big;
+    
     @include sm{
       padding: 0 10%;
     }
@@ -463,12 +456,6 @@ p{
       padding: 0 10%;
     }
   
-    @include xl{
-      padding: 0 15%;
-    }
-    position: relative;
-    margin-bottom: $s-mob--big;
-
     @include tb{
       display: flex;
       justify-content: space-between;      
@@ -489,11 +476,30 @@ p{
     }
 
     @include xl{
+      padding: 0 15%;
       margin-bottom: $s-desk--bigger*2;
       display: flex;
 
       .title--medium__padding {
         padding:0;
+      }
+    }
+
+    .list{
+      padding: 0;
+      margin: 0;
+  
+      .list__el{
+        padding: 0 0 0 $s-mob--medium ;
+        margin: 0 0 $s-mob--smaller 0;
+        max-width: 260px;
+  
+        @include tb{
+          max-width: 400px;
+        }
+        @include lg{
+          max-width: 650px;
+        }
       }
     }
 
@@ -552,7 +558,7 @@ p{
 
       @include xxl{
         // transform: translate(-50%, -12.5%);
-        transform: translate(-50%, -15%);
+        transform: translate(-50%, -12.5%);
         width: 350%;
       }
     }

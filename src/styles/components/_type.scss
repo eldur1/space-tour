@@ -93,8 +93,14 @@ p{
   }
 }
 
+
 .list{
-  
+  list-style-type:  none;
+
+  &--team{
+    
+  }
+
   &--footer{
     a{
       transition: 200ms;
@@ -109,7 +115,8 @@ p{
         animation-delay: 0ms;
       }
     }
-    .list__el {
+
+    .list__el{
       font-weight: 600;
       font-size: $s-mob--smaller;
       line-height: 160%;
@@ -123,17 +130,8 @@ p{
       @include lg{
         font-size: $s-desk--small;
         text-indent: -$s-desk--small/2.3;   
-      } 
-    }
-  }
-}
+      }
 
-.list{
-  list-style-type:  none;
-
-  &--footer{
-
-    .list__el{
       &::before{
         content: "– \00a0" ;
         display: inline-block;

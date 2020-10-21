@@ -379,6 +379,12 @@ p{
           min-width: 120px;
           text-decoration: none;
           font-weight: bold;
+          &:nth-child(even) {
+            padding-left:20px;
+          }
+          &:nth-child(odd) {
+            padding-right:20px;
+          }
         }
         
         &:nth-child(even) {
@@ -395,19 +401,35 @@ p{
  
 
   &--footer{
+
     position: relative;
     margin-bottom: $s-mob--big;
-
+    .list-container {
+    }
     @include tb{
+      display: flex;
+      justify-content: space-between;
+      .title--medium__padding {
+        padding:0;
+      }
       margin-bottom: $s-tab--bigger;
+      
     }
 
     @include lg{
       margin-bottom: $s-desk--bigger;
+      display: flex;
+      .title--medium__padding {
+        padding:0;
+      }
     }
 
     @include xl{
       margin-bottom: $s-desk--bigger*2;
+      display: flex;
+      .title--medium__padding {
+        padding:0;
+      }
       
     }
 

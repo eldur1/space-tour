@@ -437,15 +437,34 @@ p{
           display: flex;
           align-items: center;
           justify-content: space-between;
+          cursor: inherit;
 
           p {
             margin: 0 auto;
             width: 30%;
+            cursor: pointer;
+            transition: 200ms;
+            animation-timing-function: ease-in;
+            animation-delay: 0.2s;
           }
         }
+        
+        a:hover {
+          .planet{
+              transition: 200ms;
+              animation-timing-function: ease-out;
+              transform: scale(1.1);
+          
+              .orbit {
+                stroke: $c-white;
+                stroke-opacity: 0.7;
+              }
+            }
+          }
 
         .planet{
           overflow: auto;
+          cursor: pointer;
           width: 60%;
           transition: 200ms;
           animation-timing-function: ease-in;
@@ -485,6 +504,15 @@ p{
 
               }
             }
+
+            &:hover{
+              p{
+                animation-timing-function: ease-in-out;
+                transition: 600ms;
+                animation-delay: 100ms;
+                transform: translateX(-15%);
+              }
+            }
           }
         }
         
@@ -505,6 +533,15 @@ p{
               @include lg{
                 margin-left: $s-mob--small;
 
+              }
+            }
+
+            &:hover{
+              p{
+                animation-timing-function: ease-in-out;
+                transition: 600ms;
+                animation-delay: 100ms;
+                transform: translateX(15%);
               }
             }
           }
@@ -578,6 +615,20 @@ p{
         @include lg{
           max-width: 650px;
         }
+      }
+    }
+
+    a{
+      transition: 200ms;
+      animation-timing-function: ease-in;
+      box-shadow: inset 0 0 0 0 $c-white;
+      animation-delay: 0.2s;
+      &:hover{
+        color: $c-red--ft;
+        box-shadow: inset 0 -100px 0 0 $c-white;
+        animation-timing-function: ease-in-out;
+        transition: 300ms;
+        animation-delay: 0ms;
       }
     }
 

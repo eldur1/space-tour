@@ -117,10 +117,12 @@ p{
     fill: transparent;
     transition: 300ms;
     transform-box: fill-box;
-    &--line {
-      stroke-width: 0.3;
-      stroke-dasharray: 0;
+
+    &--close{
+    animation: circle 80s linear infinite;
+
     }
+
   }
 
 
@@ -384,6 +386,18 @@ p{
           }
           &:nth-child(odd) {
             padding-right:20px;
+          }
+        }
+
+        .planet{
+          // display: block;
+          overflow: auto;
+          width: 100%;
+
+          .orbit{
+            stroke-width: 0.5;
+            // stroke-dasharray: 0;
+            stroke-dasharray: 100 50;
           }
         }
         

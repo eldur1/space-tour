@@ -356,7 +356,25 @@ p{
       }
     }
   }
-
+  &--team {
+    .list {
+      &--team {
+        
+      }
+      &__el {
+        list-style-type: none;
+        padding: 0;
+        max-width: 70%;
+        &:nth-child(even) {
+          float:right;
+        }
+        &:nth-child(odd) {
+          float:left;
+            
+        }
+      }
+    }
+  }
   &--footer{
     position: relative;
     margin-bottom: $s-mob--big;
@@ -436,13 +454,6 @@ p{
   }
 
 }
-
-
-.section{
-
- 
-}
-
 .btn-scroll{
     background-color: inherit;
     outline: 0px;

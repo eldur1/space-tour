@@ -97,6 +97,25 @@ p{
 .list{
   list-style-type:  none;
 
+
+  &--team{
+    a{
+      p{
+        font-weight: 800;
+
+        font-size: $s-mob--small;
+      
+        @include tb{
+          font-size: $s-tab--medium;
+        }
+      
+        @include lg{
+          font-size: $s-desk--small;
+        }
+      }
+    }
+  }
+
   &--footer{
     a{
       transition: 200ms;

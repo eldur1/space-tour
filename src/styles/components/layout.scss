@@ -107,23 +107,21 @@ p{
     animation-timing-function: ease-out;
 }
 
-// template pour planète de base au cas où un système foire
 
-  .orbit{
-    animation: circle 40s linear infinite;
-    transform-origin: center;
-    stroke-width: 0.6;
-    stroke-dasharray: 5;
-    fill: transparent;
-    transition: 300ms;
-    transform-box: fill-box;
+.orbit{
+  animation: circle 40s linear infinite;
+  transform-origin: center;
+  stroke-width: 0.6;
+  stroke-dasharray: 5;
+  fill: transparent;
+  transition: 300ms;
+  transform-box: fill-box;
 
-    &--close{
-    animation: circle 80s linear infinite;
-
-    }
+  &--close{
+  animation: circle 80s linear infinite;
 
   }
+}
 
 
 // planète pour le bouton "jouer"
@@ -133,7 +131,7 @@ p{
   width: 70%;
   max-width: $s-mob--biggest*5;
   transition: 300ms;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-out;
   margin: 2vh auto 15vh;
 
   @include smx{
@@ -163,7 +161,7 @@ p{
   }
 
   &:hover{
-    animation-timing-function: ease-out;
+    animation-timing-function: ease-in;
     transform: scale(1.1);
 
     @include tb{
@@ -187,23 +185,23 @@ p{
     margin: $s-mob--bigger*2 auto $s-mob--bigger*3;
 
     @include sm{
-      margin: $s-mob--bigger*2 auto $s-mob--bigger*5;
+      margin: $s-mob--bigger*2 auto $s-mob--bigger*4;
     }
 
     @include smx{
-      margin: $s-mob--bigger*2 auto $s-mob--bigger*6;
+      margin: $s-mob--bigger*2 auto $s-mob--bigger*4;
     }
 
     @include tb{
-      margin: $s-tab--bigger*2 auto $s-tab--bigger*6;
+      margin: $s-tab--bigger*2 auto $s-tab--bigger*5;
     }
 
     @include lg{
-      margin: $s-desk--bigger*2 auto $s-desk--bigger*6;
+      margin: $s-desk--bigger*2 auto $s-desk--bigger*4;
     }
 
     @include xl{
-      margin: $s-desk--bigger*2 auto $s-desk--bigger*7;
+      margin: $s-desk--bigger*2 auto $s-desk--bigger*6;
     }
   }
 }
@@ -391,53 +389,129 @@ p{
     }
   }
 
-  &--team {
+  &--team {   
     .list--team {
-      width: 140%;
-      margin-left:-30%;
+
+      width: 100%;
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: stretch;
-      text-align: center;
+      padding: 0;
+
+      @include sm{
+        width: 120%;
+        margin-left: -10%;
+      }
+
+      @include lg{
+        width: 100%;
+        margin-left: inherit;
+      }
+
+      // justify-content: flex-start;
+      // align-content: stretch;
+      // text-align: center;
+
       .list__el {
-        max-width: 60%;
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-bottom: $s-mob--bigger;
+
+        @include sm{
+          max-width: 80%;
+        }
+
+        @include tb{
+        margin-bottom: $s-tab--bigger;
+        max-width: 100%;
+        }
+
+        @include lg{
+          margin-bottom: $s-desk--bigger;
+        }
 
         a {
-          align-content: baseline;
-          min-width: 120px;
           text-decoration: none;
-          font-weight: bold;
+          text-align: left;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
 
-          &:nth-child(even) {
-            padding-left:20px;
-          }
-
-          &:nth-child(odd) {
-            padding-right:20px;
+          p {
+            margin: 0 auto;
+            width: 30%;
           }
         }
 
         .planet{
           overflow: auto;
-          width: 100%;
+          width: 60%;
+          transition: 200ms;
+          animation-timing-function: ease-in;
 
           .orbit{
             stroke-width: 0.5;
             stroke-dasharray: 100 20;
           }
+
+          &:hover{
+            transition: 200ms;
+            animation-timing-function: ease-out;
+            transform: scale(1.1);
+        
+            .orbit {
+              stroke: $c-white;
+              stroke-opacity: 0.7;
+            }
+          }
         }
         
         &:nth-child(even) {
-          align-self: flex-end;  
-        }
+          align-self: flex-end; 
+          
+          a{
+            text-align: right;
 
+            p {
+              margin-right: $s-mob--small;
+
+              @include tb{
+                margin-right: $s-tab--small;
+              }
+
+              @include lg{
+                margin-right: $s-mob--small;
+
+              }
+            }
+          }
+        }
+        
         &:nth-child(odd) {
-            align-self: flex-start;
+          align-self: flex-start;
+          
+          a{
+            flex-direction: row-reverse; 
+            text-align: left;
+
+            p {
+              margin-left: $s-mob--small;
+
+              @include tb{
+                margin-left: $s-tab--small;
+              }
+
+              @include lg{
+                margin-left: $s-mob--small;
+
+              }
+            }
+          }
+        }
+        
+        &:nth-last-child(1){
+          margin-bottom: 0;
         }
       }
     }

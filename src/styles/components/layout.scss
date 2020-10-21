@@ -449,21 +449,25 @@ p{
     margin-bottom: $s-mob--big;
     
     @include sm{
-      padding: 0 10%;
+      padding: 0 20%;
     }
   
-    @include smx{
+    @include tbx{
       padding: 0 10%;
     }
   
     @include tb{
-      display: flex;
       justify-content: space-between;      
       margin-bottom: $s-tab--bigger;
 
       .title--medium__padding {
         padding:0;
       }
+    }
+
+    @include tbx{
+      display: flex;
+
     }
 
     @include lg{
@@ -511,7 +515,7 @@ p{
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -48%);
+      transform: translate(-50%, -44%);
       transform-origin: center;
       z-index: -1;
 
@@ -520,7 +524,7 @@ p{
       }
 
       @include smxx {
-        transform: translate(-50%, -40%);
+        transform: translate(-50%, -38%);
       }
 
       @include sm {
@@ -528,36 +532,31 @@ p{
       }
 
       @include smx {
-        transform: translate(-50%, -28%);  
+        transform: translate(-50%, -25%);  
       }
+
 
       @include tb {
         transform: translate(-50%, -25%); 
       }
 
       @include tbx {
-        transform: translate(-50%, -25%);
+        transform: translate(-50%, -16%);
       }
       
       @include lg {
-        // transform: translate(-50%, -22%);
-        // À changer en fonction du display flex ou pas
-        transform: translate(-50%, -26%);
+        transform: translate(-50%, -20%);
       }
 
       @include lgx{
-        transform: translate(-50%, -23%);
-        // max-width: 4500px;
-        // À changer en fonction du display flex ou pas
+        transform: translate(-50%, -17%);
       }
 
       @include xl {
-        // transform: translate(-50%, -16%);
-        transform: translate(-50%, -19%);
+        transform: translate(-50%, -15%);
       }
 
       @include xxl{
-        // transform: translate(-50%, -12.5%);
         transform: translate(-50%, -12.5%);
         width: 350%;
       }

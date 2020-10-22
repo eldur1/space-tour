@@ -267,13 +267,13 @@ p{
   z-index: 0;
   display: none;
 
-  @include small-h{
-      display: block;
-      bottom: 20vh;
-  }
+  // @include small-h{
+  //     display: block;
+  //     bottom: 20vh;
+  // }
 
   @include tb{
-    display: none;
+    // display: none;
 
     @include smaller-h{
       display: inherit;

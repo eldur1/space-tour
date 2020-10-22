@@ -52,8 +52,14 @@
     }
 }
 
+@mixin smallest-h {
+    @media (min-height: #{$screen-smallest-h}){
+        @content;
+    }   
+}
+
 @mixin smaller-h {
-    @media (min-height: #{$screen-small-h}){
+    @media (min-height: #{$screen-smaller-h}){
         @content;
     }   
 }
@@ -72,6 +78,13 @@
 
 @mixin big-h {
     @media (min-height: #{$screen-big-h}){
+        @content;
+    }   
+}
+
+
+@mixin bigger-h {
+    @media (min-height: #{$screen-bigger-h}){
         @content;
     }   
 }

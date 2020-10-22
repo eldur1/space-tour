@@ -265,6 +265,12 @@ p{
   transform: translateX(-50%);
   opacity: 0.6;
   z-index: 0;
+  display: none;
+
+  @include small-h{
+      display: block;
+      bottom: 20vh;
+  }
 
   @include tb{
     display: none;

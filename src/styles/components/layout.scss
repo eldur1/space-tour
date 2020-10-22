@@ -132,7 +132,8 @@ p{
   max-width: $s-mob--biggest*5;
   transition: 300ms;
   animation-timing-function: ease-out;
-  margin: 2vh auto 15vh;
+  margin: 5vh auto auto;
+  z-index: 1;
 
   @include smx{
     margin: 5vh auto 15vh;
@@ -145,6 +146,10 @@ p{
   @include lg{
     margin: $s-desk--bigger auto;
     max-width: $s-desk--biggest*4;
+  }
+
+  @include smaller-h{
+    // margin: 70% auto auto;
   }
 
   .planet{
@@ -217,6 +222,7 @@ p{
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.6;
+  z-index: 0;
 
   @include lg{
     bottom: 10vh;
@@ -225,6 +231,7 @@ p{
   @include xl{
     bottom: 7vh;
   }
+
 
   svg{
     width: 18%;

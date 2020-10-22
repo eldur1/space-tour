@@ -1,6 +1,9 @@
 
     // INIT
     var canvas = document.getElementById("myCanvas");
+    let stars1 = document.querySelector(".stars1");
+    let stars2 = document.querySelector(".stars2");
+    let stars3 = document.querySelector(".stars3");
     var clientWidth = document.body.clientWidth;
     var clientHeight = document.body.clientHeight;
     var ctx = canvas.getContext("2d");

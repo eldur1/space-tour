@@ -51,3 +51,28 @@
         @content;
     }
 }
+
+@mixin smaller-h {
+    @media (min-height: #{$screen-small--h}){
+        @content;
+    }   
+}
+
+
+@mixin small-h {
+    @media (min-height: #{$screen-small--h}){
+        @content;
+    }   
+}
+
+@mixin medium-h {
+    @media (min-height: #{$screen-medium--h}){
+        @content;
+    }   
+}
+
+@mixin big-h {
+    @media (min-height: #{$screen-big--h}){
+        @content;
+    }   
+}

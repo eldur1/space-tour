@@ -14,6 +14,8 @@
     var downPressed = false;
     var img = new Image();
     img.src = "../assets/gravity/rocket.svg";
+    var ratio   = window.devicePixelRatio || 1;
+
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -105,6 +107,7 @@
         }
     }
 
+
     // TOUCH
     document.addEventListener("touchstart", touchHandler);
     document.addEventListener("touchmove", touchHandler);
@@ -149,25 +152,42 @@
     // DRAW
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.canvas.width  = window.innerWidth;
-        ctx.canvas.height = window.innerHeight;
+            
+        // 1. Ensure the element size stays the same.
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+        canvas.style.width  = canvas.width + "px";
+        canvas.style.height = canvas.height + "px";
+        
+        // 2. Increase the canvas dimensions by the pixel ratio.
+        canvas.width  *= ratio;
+        canvas.height *= ratio;
+    
+
+        // 3. Scale the context by the pixel ratio.
+        ctx.scale(ratio, ratio);
+
+
+
+ 
+
         
         
         // KEYBOARD
         if(rightPressed) {
-            playerX += 10;
+            playerX += 6;
             if (playerX >= window.innerWidth-70) {
                 playerX = window.innerWidth-70;
             }
         }
         else if(leftPressed) {
-            playerX -= 10;
+            playerX -= 6;
             if (playerX <= 0) {
                 playerX = 0;
             }
         }
         if(downPressed) {
-            playerY += 10;
+            playerY += 3;
             if (playerY >= window.innerHeight-85) {
                 playerY = window.innerHeight-85;
             }
@@ -178,6 +198,7 @@
                 playerY = 0;
             }
         }
+
         ctx.drawImage(img, playerX, playerY, 70, 85);
         requestAnimationFrame(draw);
     }

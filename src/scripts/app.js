@@ -1,123 +1,167 @@
-"use strict"
-// fonction création d'objet
-function Sprite(filename, id, size, left, bottom){
-    this._node = document.createElement("img");
-    this._node.src = filename;
-    this._node.style.position = "absolute";
-    this._node.style.width = size + "px";
-    this._node.classList.add(id);
-    document.body.appendChild(this._node);
-    
-    Object.defineProperty(this, "left", {
-        get: function() {
-            return this._left;
-        },
-        set: function(value) {
-            this._left = value;
-            this._node.style.left = value + "px";
+
+    // INIT
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var playerHeight = 110;
+    var playerWidth = 92;
+    var playerX = (canvas.width - playerWidth) / 2;
+    var playerY = (canvas.height - playerHeight) / 2;
+    var rightPressed = false;
+    var leftPressed = false;
+    var upPressed = false;
+    var downPressed = false;
+    var img = new Image();
+    img.src = "../assets/images/logo-heaj.png";
+
+    // KEYBOARD
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+    function keyDownHandler(e) {
+        if ("code" in e) {
+            switch(e.code) {
+                case "Unidentified":
+                    break;
+                case "ArrowRight":
+                case "Right": // IE <= 9 and FF <= 36
+                case "KeyD":
+                    rightPressed = true;
+                    return;
+                case "ArrowLeft":
+                case "Left": // IE <= 9 and FF <= 36
+                case "KeyA":
+                    leftPressed = true;
+                    return;
+                case "ArrowUp":
+                case "Up": // IE <= 9 and FF <= 36
+                case "KeyW":
+                    upPressed = true;
+                    return;
+                case "ArrowDown":
+                case "Down": // IE <= 9 and FF <= 36
+                case "KeyS":
+                    downPressed = true;
+                    return;
+                default:
+                    return;
+            }
         }
-    });
-    Object.defineProperty(this, "bottom", {
-        get: function() {
-            return this._bottom;
-        },
-        set: function(value) {
-            this._bottom = value;
-            this._node.style.bottom = value + "px";
+
+        if(e.keyCode == 39) {
+            rightPressed = true;
         }
-    });
-    Object.defineProperty(this, "display", {
-        get: function() {
-            return this._display;
-        },
-        set: function(value) {
-            this._display = value;
-            this._node.style.bottom = value;
+        else if(e.keyCode == 37) {
+            leftPressed = true;
         }
-    });
-    this.left = left;
-    this.bottom = bottom;
-}
-
-function getRandomInt(max) {
-    return (Math.floor(Math.random() * Math.floor(max)))+1;
-}
-
-// Création Rocket
-
-let clientWidth = document.body.clientWidth;
-let rocketLeft = (clientWidth/2)-(50/2);
-let rocket = new Sprite("../assets/gravity/rocket.svg", "rocket", 50, rocketLeft, 50);
-
-// Créations astéroides
-
-
-
-let asteroids = [];
-for (let i = 1; i <= 20; i++) {
-    let randomRotation = getRandomInt(90)*4;
-    let asteroidWidth = (getRandomInt(4)+1)*25;
-    let left = getRandomInt(clientWidth - asteroidWidth);
-    let bottom = 100*i+800;
-    let asteroid = new Sprite("../assets/gravity/asteroid.svg", "asteroid", asteroidWidth, left, bottom);
-    asteroid._node.style.transform = "rotate("+randomRotation+"deg)";
-    asteroids.push(asteroid);
-}
-
-// Bouger la fusée de gauche à droite
-
-document.onkeydown = function( event ) {
-    if (event.keyCode == 37) {
-        rocket.left -= 10;
-    } else if (event.keyCode == 39) {
-        rocket.left += 10;
-    };
-
-    if (rocket.left < 0) {
-        rocket.left = 0;
+        if(e.keyCode == 40) {
+            downPressed = true;
+        }
+        else if(e.keyCode == 38) {
+            upPressed = true;
+        }
     }
-    if (rocket.left > document.body.clientWidth - rocket._node.width) { 
-        rocket.left = document.body.clientWidth - rocket._node.width;
-    }
-}
-
-
-// Bouger les astéroïdes
-
-Sprite.prototype.startAnimation = function(fct, interval) {
-    if (this._clock) window.clearInterval(this._clock);
-    var _this = this;
-    this._clock = window.setInterval(function() {
-        fct(_this);
-    }, interval);   
-};
-
-Sprite.prototype.stopAnimation = function(){
-    window.clearInterval(this._clock);
-};
-
-function moveAsteroid(asteroid){
-    asteroid.bottom -= 3;
-    if (asteroid.bottom <= 0 - asteroid._node.height) {
-        asteroid.stopAnimation();
-        asteroid._node.style.display = "none";
-    }
-    asteroids.forEach(asteroid => {
-        if (rocket.checkCollision(asteroid)) {
-            asteroid.stopAnimation();
-            asteroid._node.style.display = "none";
+    function keyUpHandler(e) {
+        if ("code" in e) {
+            switch(e.code) {
+                case "Unidentified":
+                    break;
+                case "ArrowRight":
+                case "Right": // IE <= 9 and FF <= 36
+                case "KeyD":
+                    rightPressed = false;
+                    return;
+                case "ArrowLeft":
+                case "Left": // IE <= 9 and FF <= 36
+                case "KeyA":
+                    leftPressed = false;
+                    return;
+                case "ArrowUp":
+                case "Up": // IE <= 9 and FF <= 36
+                case "KeyW":
+                    upPressed = false;
+                    return;
+                case "ArrowDown":
+                case "Down": // IE <= 9 and FF <= 36
+                case "KeyS":
+                    downPressed = false;
+                    return;
+                default:
+                    return;
+            }
         }
-    });
-}
-asteroids.forEach(asteroid => {
-    asteroid.startAnimation(moveAsteroid, 40);
-});
 
-// Check la collision
+        if(e.keyCode == 39) {
+            rightPressed = false;
+        }
+        else if(e.keyCode == 37) {
+            leftPressed = false;
+        }
+        if(e.keyCode == 40) {
+            downPressed = false;
+        }
+        else if(e.keyCode == 38) {
+            upPressed = false;
+        }
+    }
 
-Sprite.prototype.checkCollision = function(other){
-    return ! ( (this.bottom + this._node.height < other.bottom) ||
-                this.bottom > (other.bottom + other._node.height) ||
-                (this.left + this._node.width < other.left) ||
-                this.left > (other.left + other._node.width) );
-}; 
+    // TOUCH
+    document.addEventListener("touchstart", touchHandler);
+    document.addEventListener("touchmove", touchHandler);
+    function touchHandler(e) {
+        if(e.touches) {
+            playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth / 2;
+            playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight / 2;
+            output.innerHTML = "Touch:  <br />"+ " x: " + playerX + ", y: " + playerY;
+            e.preventDefault();
+        }
+    }
+
+    // GAMEPAD
+    window.addEventListener("gamepadconnected", gamepadHandler);
+    var controller = {};
+    var buttonsPressed = [];
+    function gamepadHandler(e) {
+        controller = e.gamepad;
+        output.innerHTML = "Gamepad: " + controller.id;
+    }
+    function gamepadUpdateHandler() {
+        buttonsPressed = [];
+        if(controller.buttons) {
+            for(var b=0; b<controller.buttons.length; b++) {
+                if(controller.buttons[b].pressed) {
+                    buttonsPressed.push(b);
+                }
+            }
+        }
+    }
+    function gamepadButtonPressedHandler(button) {
+        var press = false;
+        for(var i=0; i<buttonsPressed.length; i++) {
+            if(buttonsPressed[i] == button) {
+                press = true;
+            }
+        }
+        return press;
+    }
+
+
+    // DRAW
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // KEYBOARD
+        if(rightPressed) {
+            playerX += 5;
+        }
+        else if(leftPressed) {
+            playerX -= 5;
+        }
+        if(downPressed) {
+            playerY += 5;
+        }
+        else if(upPressed) {
+            playerY -= 5;
+        }
+        ctx.drawImage(img, playerX, playerY);
+        requestAnimationFrame(draw);
+    }
+    draw();

@@ -1,9 +1,15 @@
 body{
-    font-family: 'Rajdhani', 'Assistant', sans-serif;
-    color: $c-white;
-    scroll-behavior: smooth;
+  font-family: 'Rajdhani', 'Assistant', sans-serif;
+  color: $c-white;
+  scroll-behavior: smooth;
 }
-
+main{
+  height: 100vh;
+  width: 100vw;
+}
+#myCanvas{
+  
+}
 .overflow-wrapper{
   overflow: hidden;
 }

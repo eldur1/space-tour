@@ -1,17 +1,19 @@
 
     // INIT
     var canvas = document.getElementById("myCanvas");
+    var clientWidth = document.body.clientWidth;
+    var clientHeight = document.body.clientHeight;
     var ctx = canvas.getContext("2d");
-    var playerHeight = 110;
-    var playerWidth = 92;
-    var playerX = (canvas.width - playerWidth) / 2;
-    var playerY = (canvas.height - playerHeight) / 2;
+    var playerHeight = 85;
+    var playerWidth = 70;
+    var playerX = (clientWidth - playerWidth) / 2;
+    var playerY = (clientHeight - playerHeight) / 2;
     var rightPressed = false;
     var leftPressed = false;
     var upPressed = false;
     var downPressed = false;
     var img = new Image();
-    img.src = "../assets/images/logo-heaj.png";
+    img.src = "../assets/gravity/rocket.svg";
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -147,21 +149,36 @@
     // DRAW
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.canvas.width  = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
+        
         
         // KEYBOARD
         if(rightPressed) {
-            playerX += 5;
+            playerX += 10;
+            if (playerX >= window.innerWidth-70) {
+                playerX = window.innerWidth-70;
+            }
         }
         else if(leftPressed) {
-            playerX -= 5;
+            playerX -= 10;
+            if (playerX <= 0) {
+                playerX = 0;
+            }
         }
         if(downPressed) {
-            playerY += 5;
+            playerY += 10;
+            if (playerY >= window.innerHeight-85) {
+                playerY = window.innerHeight-85;
+            }
         }
         else if(upPressed) {
-            playerY -= 5;
+            playerY -= 10;
+            if (playerY <= 0) {
+                playerY = 0;
+            }
         }
-        ctx.drawImage(img, playerX, playerY);
+        ctx.drawImage(img, playerX, playerY, 70, 85);
         requestAnimationFrame(draw);
     }
     draw();

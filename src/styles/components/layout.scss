@@ -161,9 +161,14 @@ p{
   }
 
   @include lg{
-    margin: 2vh auto 0;
-    max-width: $s-desk--biggest*3.5;
+    margin: 1vh auto 0;
+    max-width: $s-desk--biggest*3;
 
+    @include smaller-h{
+      margin: 2vh auto 0;
+      max-width: $s-desk--biggest*3.5;
+    }
+      
     @include medium-h{
     margin: 5vh auto 0;
     max-width: $s-desk--biggest*4;
@@ -267,13 +272,7 @@ p{
   z-index: 0;
   display: none;
 
-  // @include small-h{
-  //     display: block;
-  //     bottom: 20vh;
-  // }
-
   @include tb{
-    // display: none;
 
     @include smaller-h{
       display: inherit;

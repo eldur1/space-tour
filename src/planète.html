@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Space Tour — Un projet iLab</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta Partage -->
+
+  <link rel="shortcut icon" href="assets/gravity/logo.svg" type="image/x-icon">
+  <script src="scripts/scroll.js" defer></script>
+  <script src="scripts/zenscroll.js"></script>
+  <link rel="stylesheet" href="styles/app.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <div class="overflow-wrapper">
+    <header class="section section--header">
+    
+          <svg class="planet planet-bg" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop class="stop1" offset="00%"/>
+                <stop class="stop2" offset="35%"/>
+                <stop class="stop3" offset="65%"/>
+                <stop class="stop4" offset="99%"/>
+              </linearGradient>
+              <radialGradient id="shadow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" class="center" />
+                <stop offset="80%" class="edge" />
+              </radialGradient>
+              <!-- <radialGradient id="beam" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="50%" class="center"/>
+                <stop offset="80%" class="edge"/>
+              </radialGradient> -->
+            </defs>
+            <circle cx="50" cy="50" r="63" fill="url(#shadow)" />
+            <circle cx="50" cy="50" r="45" class="beam-stroke"  />
+            <circle cx="50" cy="50" r="45" class="beam-stroke beam-stroke--delay" />
+            <!-- <circle cx="50" cy="50" r="45" class="shadow-stroke shadow-stroke--outer" /> -->
+
+
+
+            <circle class="core" cx="50" cy="50" r="35" />
+            <circle class="orbit" cx="50" cy="50" r="49" />
+          </svg>
+ 
+    </header>
+    </div>
+  </body>
+</html>

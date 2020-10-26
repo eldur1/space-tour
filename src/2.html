@@ -51,8 +51,10 @@
               </radialGradient>
             </defs>
             <circle cx="50" cy="50" r="63" fill="url(#shadow)" />
-            <circle class="core" cx="50" cy="50" r="35" />
+            <circle cx="50" cy="50" r="47" class="beam-stroke"  />
+            <circle cx="50" cy="50" r="47" class="beam-stroke beam-stroke--delay" />
             <circle class="orbit" cx="50" cy="50" r="49" />
+            <circle class="core" cx="50" cy="50" r="35" />
           </svg>
           <p>Jouer</p>
         </a>
@@ -93,13 +95,18 @@
           <!-- planète verte -->
           <g>
             <circle class="orbit" cx="1188.5" cy="203.5" r="185.5" />
-            <circle  class="shadow" cx="1188.5" cy="203.5" r="250.5"/>
+            <circle class="beam-stroke beam-stroke--delay" cx="1188.5" cy="203.5" r="185.5"/>
+            <circle class="beam-stroke" cx="1188.5" cy="203.5" r="185.5" />
+            <circle class="shadow" cx="1188.5" cy="203.5" r="250.5"/>
             <circle class="core core" cx="1188.5" cy="203.5" r="133.5"/>
+            
           </g>
           
           <!-- planète rouge -->
           <g>
             <circle class="orbit orbit--red" cx="378.5" cy="162.5" r="120.5"/>
+            <circle class="beam-stroke beam-stroke--red" cx="378.5" cy="162.5" r="120.5"/>
+            <circle class="beam-stroke beam-stroke--delay beam-stroke--red" cx="378.5" cy="162.5" r="120.5"/>
             <circle class="shadow" cx="378" cy="163" r="170"/>
             <circle class="core core--red" cx="378" cy="163" r="89" />
           </g>
@@ -134,8 +141,10 @@
               </linearGradient>
             </defs>
             <circle class="shadow" cx="50" cy="50" r="63" />
-            <circle class="core" cx="50" cy="50" r="40"/>
             <circle class="orbit orbit--red" cx="50" cy="50" r="48" />
+            <circle class="beam-stroke beam-stroke--red" cx="50" cy="50" r="46" />
+            <circle class="beam-stroke beam-stroke--delay beam-stroke--red" cx="50" cy="50" r="46" />
+            <circle class="core" cx="50" cy="50" r="40"/>
           </svg>
       </section>
       
@@ -154,6 +163,8 @@
                   </linearGradient>
                 </defs>
                 <circle class="shadow" cx="50" cy="50" r="60" />
+                <circle class="beam-stroke" cx="50" cy="50" r="43" />
+                <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="43" />
                 <circle class="core" cx="50" cy="50" r="35" />
                 <circle class="orbit" cx="50" cy="50" r="49" />
                 <circle class="orbit orbit--close" cx="50" cy="50" r="43" />
@@ -172,6 +183,8 @@
                   </linearGradient>
                 </defs>
                 <circle class="shadow" cx="50" cy="50" r="60" />
+                <circle class="beam-stroke" cx="50" cy="50" r="43" />
+                <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="43" />
                 <circle class="core" cx="50" cy="50" r="35" />
                 <circle class="orbit" cx="50" cy="50" r="49" />
                 <circle class="orbit orbit--close" cx="50" cy="50" r="43" />
@@ -190,6 +203,8 @@
                   </linearGradient>
                 </defs>
                 <circle class="shadow" cx="50" cy="50" r="60" />
+                <circle class="beam-stroke" cx="50" cy="50" r="43" />
+                <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="43" />
                 <circle class="core" cx="50" cy="50" r="35" />
                 <circle class="orbit" cx="50" cy="50" r="49" />
                 <circle class="orbit orbit--close" cx="50" cy="50" r="43" />
@@ -208,6 +223,8 @@
                   </linearGradient>
                 </defs>
                 <circle class="shadow" cx="50" cy="50" r="60" />
+                <circle class="beam-stroke" cx="50" cy="50" r="43" />
+                <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="43" />
                 <circle class="core" cx="50" cy="50" r="35" />
                 <circle class="orbit" cx="50" cy="50" r="49" />
                 <circle class="orbit orbit--close" cx="50" cy="50" r="43" />
@@ -226,6 +243,8 @@
                   </linearGradient>
                 </defs>
                 <circle class="shadow" cx="50" cy="50" r="60" />
+                <circle class="beam-stroke" cx="50" cy="50" r="43" />
+                <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="43" />
                 <circle class="core" cx="50" cy="50" r="35" />
                 <circle class="orbit orbit--line" cx="50" cy="50" r="49" />
                 <circle class="orbit orbit--line" cx="50" cy="50" r="43" />
@@ -244,9 +263,11 @@
                   </linearGradient>
                 </defs>
                 <circle class="shadow" cx="50" cy="50" r="60" />
-                <circle class="core" cx="50" cy="50" r="35" />
                 <circle class="orbit" cx="50" cy="50" r="49" />
+                <circle class="beam-stroke" cx="50" cy="50" r="43" />
+                <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="43" />
                 <circle class="orbit orbit--close" cx="50" cy="50" r="43" />
+                <circle class="core" cx="50" cy="50" r="35" />
               </svg>
             </a>
           </li>
@@ -256,8 +277,11 @@
       <a class="cta cta--footer" href="index.html">
         <svg class="planet planet-bg  " viewBox="0 0 100 100">
           <circle class="shadow" cx="50" cy="50" r="63" />
-          <circle class="core" cx="50" cy="50" r="35" />
           <circle class="orbit" cx="50" cy="50" r="49" />
+          <circle class="beam-stroke" cx="50" cy="50" r="47" />
+          <circle class="beam-stroke beam-stroke--delay" cx="50" cy="50" r="47" />
+          <circle class="core" cx="50" cy="50" r="35" />
+
         </svg>
         <p>Jouer</p>
       </a>
@@ -270,7 +294,7 @@
           <li class="list__el">Cousin.ines, neveux & nièces de Camille et Guillaume, sans qui ce projet n’aurait pas&nbsp;décollé;</li>
           <li class="list__el">Aux professeur.es pour leurs nombreuses remarques et&nbsp;conseils;</li>
           <li class="list__el"><a href="#">Vinicius Ferreira</a> pour le <a href="#">fond&nbsp;d'écran&nbsp;animé</a>.</li>
-          <li class="list__el"><a href="#">Petit bonhomme en mousse</a> pour <a href="#">son&nbsp;code.</a>.</li>
+          <!-- <li class="list__el"><a href="#">Petit bonhomme en mousse</a> pour <a href="#">son&nbsp;code.</a>.</li> -->
 
         </ul>
       </div>

@@ -37,6 +37,17 @@ a{
     stop-opacity: 0;
   }
 
+  .beam-stroke{
+    fill: none;
+    stroke-width: 7;
+    stroke: $c-blue--m;
+    opacity: 30%;
+    
+    &--red{
+      stroke: $c-red;
+    }
+  }
+
   .orbit{
     stroke: $c-blue;
 
@@ -215,16 +226,22 @@ a{
     stroke-width: 7;
   }
 
-    .core{
-      fill: url(#gradient--green);
-      
-      &--red{
-        fill: url(#gradient--red);
-      }  
-    }
+  .core{
+    fill: url(#gradient--green);
+    
+    &--red{
+      fill: url(#gradient--red);
+    }  
+  }
 
   .orbit{
     stroke-dasharray: 20 20;
     stroke-width: 1;
   }
+
+  // &--space{
+  //   .beam-stroke{
+  //     stroke-width: 120;
+  //   }
+  // }
 }

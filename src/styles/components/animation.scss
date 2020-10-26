@@ -35,3 +35,36 @@
   }
   
 }
+
+@keyframes beam{
+    0%{
+        opacity: 0;
+        stroke-width: 4;
+    }
+
+    50%{
+        opacity: 30%;
+        // transform: scale(0.8)
+    }
+    
+    100%{
+        stroke-width: 7;
+        transform: scale(0.5);
+    }
+}
+
+// @keyframes outerbeam{
+//     0%{
+//         opacity: 0;
+//     }
+
+//     50%{
+//         opacity: 50%;
+//         // transform: scale(0.8)
+//     }
+    
+//     100%{
+//         // stroke-width: 7;
+//         transform: scale(1.1);
+//     }
+// }

@@ -150,31 +150,25 @@
         }
         return press;
     }
-
-
-    // DRAW
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-        // 1. Ensure the element size stays the same.
+    // Dynamic resizing of canvas
+    function canvasResize() {
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
         canvas.style.width  = canvas.width + "px";
         canvas.style.height = canvas.height + "px";
-        
-        // 2. Increase the canvas dimensions by the pixel ratio.
         canvas.width  *= ratio;
         canvas.height *= ratio;
-    
-
-        // 3. Scale the context by the pixel ratio.
         ctx.scale(ratio, ratio);
+    }
+    // Dynamic rocket position
+    function rocketResize() {
+        playerX = (window.innerWidth-85)/2;
+        playerY = (window.innerHeight-70)/2;
+    }
 
-
-
- 
-
-        
+    // DRAW
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
         // KEYBOARD
         if(rightPressed) {
@@ -205,4 +199,9 @@
         ctx.drawImage(img, playerX, playerY, 70, 85);
         requestAnimationFrame(draw);
     }
+    window.onresize = function() {
+        canvasResize();
+        rocketResize();
+    }
+    canvasResize();
     draw();

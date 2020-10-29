@@ -100,7 +100,7 @@ p{
 
   &--team{
     a{
-      p{
+      .title--small{
         font-weight: 800;
 
         font-size: $s-mob--small;
@@ -110,7 +110,7 @@ p{
         }
       
         @include lg{
-          font-size: $s-desk--small;
+          font-size: $s-desk--medium;
         }
       }
     }

@@ -99,7 +99,6 @@ p{
     cursor: pointer;
     transition: 100ms;
     animation-timing-function: ease-in;
-    border-radius: 20px;
     box-shadow: 0 10px #fefefe80;
     user-select: none; 
     -webkit-user-select: none;      
@@ -494,34 +493,39 @@ p{
       flex-direction: column;
       flex-wrap: nowrap;
       padding: 0;
+      margin-top: $s-mob--big;
+
 
       @include sm{
-        width: 120%;
-        margin-left: -10%;
+        // width: 100%;
+        margin-top: $s-tab--bigger;
+
       }
 
       @include lg{
-        width: 100%;
-        margin-left: inherit;
+        // width: 100%;
+        // margin-left: inherit;
+        margin-top: $s-desk--bigger;
       }
 
       .list__el {
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-bottom: $s-mob--bigger;
+        margin: 0 $s-mob--small $s-mob--bigger;
+        
 
         @include sm{
-          max-width: 80%;
+          max-width: 100%;
+          margin: 0 $s-mob--smallest $s-mob--bigger;
         }
 
         @include tb{
-        margin-bottom: $s-tab--bigger;
-        max-width: 100%;
+          margin: 0 0 $s-tab--big*3;
         }
 
         @include lg{
-          margin-bottom: $s-desk--bigger;
+          margin: 0 0 $s-desk--big*2;
         }
 
         a {
@@ -529,117 +533,95 @@ p{
           text-align: left;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around;
           cursor: inherit;
 
-          p {
-            margin: 0 auto;
-            width: 30%;
+          .title--small {
+            width: 35%;
             cursor: pointer;
             transition: 200ms;
             animation-timing-function: ease-in;
             animation-delay: 0.2s;
           }
-        }
-        
-        a:hover {
-          .planet{
-              transition: 200ms;
-              animation-timing-function: ease-out;
-              transform: scale(1.1);
-          
-              .orbit {
-                stroke: $c-white;
-                stroke-opacity: 0.7;
-              }
 
-              .beam-stroke{
-                stroke: $c-white;
-              }
-            }
-          }
-
-        .planet{
-          overflow: auto;
-          cursor: pointer;
-          width: 60%;
-          transition: 200ms;
-          animation-timing-function: ease-in;
-
-          .orbit{
-            stroke-width: 0.5;
-            stroke-dasharray: 100 20;
-          }
-
-          &:hover{
+          .planet-container{
+            cursor: pointer;
+            border-radius: 100%;
+            width: 40%;
+            height: 40%;
+            max-width: 550px;
+            position: relative;          
             transition: 200ms;
             animation-timing-function: ease-out;
-            transform: scale(1.1);
-        
-            .orbit {
-              stroke: $c-white;
-              stroke-opacity: 0.7;
+      
+            &:hover{
+              transform: scale(1.05);
+      
+              .planet{
+                .orbit {
+                  stroke: $c-white;
+                  stroke-opacity: 0.7;
+                }
+      
+                .beam-stroke{
+                  stroke: $c-white;
+                }
+              }
+            }
+            
+            .planet{
+              position: absolute;
+              width: 100%;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%) scale(1.5);
+              z-index: -1;
+              transition: 200ms;
+              animation-timing-function: ease-in;
+      
+              .orbit{
+                stroke-width: 0.5;
+                stroke-dasharray: 100 20;
+              }
+            }
+             
+            img{
+              width: 100%;
+              border-radius: 100%;
+              z-index: 1;
             }
           }
         }
-        
+
         &:nth-child(even) {
           align-self: flex-end; 
           
           a{
             text-align: right;
 
-            p {
-              margin-right: $s-mob--small;
+            &:hover .title--small{
 
-              @include tb{
-                margin-right: $s-tab--small;
-              }
-
-              @include lg{
-                margin-right: $s-mob--small;
-
-              }
-            }
-
-            &:hover{
-              p{
                 animation-timing-function: ease-in-out;
                 transition: 600ms;
                 animation-delay: 100ms;
                 transform: translateX(-15%);
-              }
+              
             }
           }
         }
         
         &:nth-child(odd) {
           align-self: flex-start;
-          
+
           a{
             flex-direction: row-reverse; 
             text-align: left;
 
-            p {
-              margin-left: $s-mob--small;
-
-              @include tb{
-                margin-left: $s-tab--small;
-              }
-
-              @include lg{
-                margin-left: $s-mob--small;
-
-              }
-            }
-
-            &:hover{
-              p{
+            &:hover .title--small{
                 animation-timing-function: ease-in-out;
                 transition: 600ms;
                 animation-delay: 100ms;
                 transform: translateX(15%);
-              }
             }
           }
         }
@@ -648,8 +630,11 @@ p{
           margin-bottom: 0;
         }
       }
-    }
+
+
   }
+}
+
  
 
   &--footer{

@@ -55,93 +55,6 @@ a{
       stroke: $c-red;
     }
   }
-
-  &--tom{
-    .stop1{
-      stop-color: $c-yellow;
-    }
-
-    .stop2{
-      stop-color: $c-bord;
-    }
-    .core{
-      fill: url(#gradient--tom);
-    }
-  }
-
-  &--guillaume{
-
-    .stop1{
-      stop-color: $c-blue;
-    }
-
-    .stop2{
-      stop-color: $c-green;
-    }
-    .core{
-      fill: url(#gradient--guillaume);
-    }
-  }
-
-  &--ludovic{
-    
-    .stop1{
-      stop-color: $c-red;
-    }
-
-    .stop2{
-      stop-color: $c-purple--d;
-    }
-
-    .core{
-      fill: url(#gradient--ludovic);
-    }
-  }
-
-  &--camille{
-
-    .stop1{
-      stop-color: $c-red;
-    }
-    
-    .stop2{
-      stop-color: $c-yellow--d;
-    }
-
-    .core{
-      fill: url(#gradient--camille);
-    }
-  }
-
-  &--elie{
-
-    .stop1{
-      stop-color: $c-blue;
-    }
-    
-    .stop2{
-      stop-color: $c-blue--d;
-    }
-
-    .core{
-      fill: url(#gradient--elie);
-    }
-  }
-
-  &--william{
-
-    .stop1{
-      stop-color: $c-yellow;
-    }
-    
-    .stop2{
-      stop-color: $c-green;
-    }
-
-    .core{
-      fill: url(#gradient--william);
-    }
-  }
 }
 
 .section{
@@ -179,8 +92,6 @@ a{
     }
   }
 }
-
-
 
 .cta{
 
@@ -244,4 +155,40 @@ a{
   //     stroke-width: 120;
   //   }
   // }
+}
+
+
+.list--team{
+  .list__el{
+    &--gui{
+      img{
+        background: linear-gradient( 180deg, $c-blue 0%, $c-green 100% );
+      }
+    }
+    &--tom{
+      img{
+        background: linear-gradient( 180deg, $c-yellow 0%, $c-bord 100% );
+      }
+    }
+    &--cam{
+      img{
+        background: linear-gradient( 180deg, $c-red 0%, $c-yellow--d 100% );
+      }
+    }
+    &--lud{
+      img{
+        background: linear-gradient( 180deg, $c-red 0%, $c-purple--d 100% );
+      }
+    }
+    &--eli{
+      img{
+        background: linear-gradient( 180deg, $c-blue--d 0%, $c-blue--d 100% );
+      }
+    }
+    &--wil{
+      img{
+        background: linear-gradient( 180deg, $c-yellow 0%, $c-green 100% );
+      }
+    }
+  }
 }

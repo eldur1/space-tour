@@ -104,3 +104,13 @@ dist
 .tern-port
 start.bat
 src/2 backup.html
+src/assets/images/raw/ElieAstronaute.png
+src/assets/images/raw/ElieAstronaute@2x.png
+src/assets/images/raw/GuiguiAstronaute.png
+src/assets/images/raw/GuiguiAstronaute@2x.png
+src/assets/images/raw/LudoAstronaute.png
+src/assets/images/raw/LudoAstronaute@2x.png
+src/assets/images/raw/TomAstronaute.png
+src/assets/images/raw/TomAstronaute@2x.png
+src/assets/images/raw/WilliamAstronaute.png
+src/assets/images/raw/WilliamAstronaute@2x.png

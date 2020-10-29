@@ -1,6 +1,4 @@
 const { default: gsap } = require("gsap/gsap-core");
-import CSSPlugin from "gsap/CSSPlugin"
-gsap.registerPlugin(CSSPlugin);
 
     // INIT
     var canvas = document.getElementById("myCanvas");
@@ -13,7 +11,7 @@ gsap.registerPlugin(CSSPlugin);
     var playerHeight = 85;
     var playerWidth = 70;
     var playerX = (clientWidth - playerWidth) / 2;
-    var playerY = (clientHeight - playerHeight) / 2;
+    var playerY = clientHeight - playerHeight - 70;
     var rightPressed = false;
     var leftPressed = false;
     var upPressed = false;
@@ -178,11 +176,21 @@ gsap.registerPlugin(CSSPlugin);
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        let speed = 0;
+        let isLaunched = false;
         document.addEventListener('keydown', event => {
-            if (event.code === 'Space') {
-                playerY -= 0.01;
+            if (event.code === 'Space' && !isLaunched ) {
+                    let incrementalSpeed = 0.01;
+                    let speedBuffer = 0;
+                    playerY -= incrementalSpeed;
+                    incrementalSpeed = incrementalSpeed * 1.015;
+                    speedBuffer += 50;
+                    console.log(playerY);
+            }
+        
+        });
+        document.addEventListener('keyup', event => {
+            if (event.code === 'Space' && !isLaunched ) {
+                // Refaire descendre la fusée 
             }
         
         });

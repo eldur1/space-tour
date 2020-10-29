@@ -587,7 +587,7 @@ p{
           
           a{
             text-align: right;
-            .title--small:hover{
+            &:hover .title--small{
                 animation-timing-function: ease-in-out;
                 transition: 600ms;
                 animation-delay: 100ms;
@@ -602,7 +602,7 @@ p{
           a{
             flex-direction: row-reverse; 
             text-align: left;
-            .title--small:hover{
+            &:hover .title--small{
                 animation-timing-function: ease-in-out;
                 transition: 600ms;
                 animation-delay: 100ms;

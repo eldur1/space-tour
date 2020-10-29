@@ -212,10 +212,6 @@ p{
       margin: 8vh auto 0;
     }
   }
-  // .planet{
-  //   // width: 100%;
-  //   // height: 100%;
-  // }
 
   p{
     padding: 0;
@@ -272,7 +268,7 @@ p{
     }
 
     @include xl{
-      margin: $s-desk--bigger*2 auto $s-desk--bigger*6;
+      margin: $s-desk--bigger*2 auto $s-desk--bigger*5;
     }
   }
 }
@@ -317,7 +313,6 @@ p{
       display: inherit;
       bottom: 4vh;
     }
-
   }
 
   svg{
@@ -337,10 +332,10 @@ p{
   }
   
   &:hover{
-      transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
-      animation-timing-function: ease-out;
-      transition: 200ms;
-      opacity: 1;
+    transform: translateX(-50%) scale3d(1.5, 1.5 ,1.5);
+    animation-timing-function: ease-out;
+    transition: 200ms;
+    opacity: 1;
   }
 }
 
@@ -487,7 +482,6 @@ p{
 
   &--team {   
     .list--team {
-
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -495,16 +489,11 @@ p{
       padding: 0;
       margin-top: $s-mob--big;
 
-
       @include sm{
-        // width: 100%;
         margin-top: $s-tab--bigger;
-
       }
 
       @include lg{
-        // width: 100%;
-        // margin-left: inherit;
         margin-top: $s-desk--bigger;
       }
 
@@ -598,14 +587,11 @@ p{
           
           a{
             text-align: right;
-
-            &:hover .title--small{
-
+            .title--small:hover{
                 animation-timing-function: ease-in-out;
                 transition: 600ms;
                 animation-delay: 100ms;
                 transform: translateX(-15%);
-              
             }
           }
         }
@@ -616,8 +602,7 @@ p{
           a{
             flex-direction: row-reverse; 
             text-align: left;
-
-            &:hover .title--small{
+            .title--small:hover{
                 animation-timing-function: ease-in-out;
                 transition: 600ms;
                 animation-delay: 100ms;
@@ -625,17 +610,9 @@ p{
             }
           }
         }
-        
-        &:nth-last-child(1){
-          margin-bottom: 0;
-        }
       }
-
-
   }
 }
-
- 
 
   &--footer{
     position: relative;

@@ -1,26 +1,38 @@
 const { default: gsap } = require("gsap/gsap-core");
+import CSSPlugin from "gsap/CSSPlugin"
+gsap.registerPlugin(CSSPlugin);
 
     // INIT
+    var Victor = require('victor');
     var canvas = document.getElementById("myCanvas");
-    let stars1 = document.querySelector(".stars1");
-    let stars2 = document.querySelector(".stars2");
-    let stars3 = document.querySelector(".stars3");
     var clientWidth = document.body.clientWidth;
     var clientHeight = document.body.clientHeight;
     var ctx = canvas.getContext("2d");
     var playerHeight = 85;
     var playerWidth = 70;
     var playerX = (clientWidth - playerWidth) / 2;
-    var playerY = clientHeight - playerHeight - 70;
+    var playerY = (clientHeight - playerHeight) / 2;
     var rightPressed = false;
     var leftPressed = false;
     var upPressed = false;
     var downPressed = false;
     var img = new Image();
     img.src = "../assets/gravity/rocket.svg";
-    var ratio   = window.devicePixelRatio || 1;
+    var asteroid = new Image();
+    asteroid.src = "../assets/gravity/asteroid.svg";
+    var asteroidX = 600;
+    var asteroidY = 200;
+    var asteroidHeight = 150;
+    var asteroidWidth = 150;
+    var ratio = window.devicePixelRatio || 1;
+
 
     let rocketLaunch = false;
+    let gravity = false;
+
+
+    
+
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -176,54 +188,62 @@ const { default: gsap } = require("gsap/gsap-core");
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        let isLaunched = false;
-        document.addEventListener('keydown', event => {
-            if (event.code === 'Space' && !isLaunched ) {
-                    let incrementalSpeed = 0.01;
-                    let speedBuffer = 0;
-                    playerY -= incrementalSpeed;
-                    incrementalSpeed = incrementalSpeed * 1.015;
-                    speedBuffer += 50;
-                    console.log(playerY);
+        var asteroidPos = new Victor(asteroidX + (asteroidWidth/2), asteroidY + (asteroidHeight/2));
+        var playerPos = new Victor(playerX + (playerWidth/2), playerY + (playerHeight/2));
+        var vectorX = ((asteroidX + asteroidWidth/2) - (playerX + playerWidth/2));
+        var vectorY = ((asteroidY + asteroidHeight/2) - (playerY + playerHeight/2));
+        var distance = playerPos.distance(asteroidPos);
+        var angleV = Victor(vectorX, vectorY).verticalAngleDeg();
+        var angleH = Victor(vectorX, vectorY).angleDeg();
+        if (distance <= 200) {
+            // vérifie le playerX/playerY par rapport au asteroidX/asteroidY
+            if (angleV >= 0 && angleH > 0 ) {
+                playerX += 1;
+                playerY += 1;
+            } 
+            else if (angleV <= 0 && angleH < 0 ) {
+                playerX += -1;
+                playerY += -1;
             }
-        
-        });
-        document.addEventListener('keyup', event => {
-            if (event.code === 'Space' && !isLaunched ) {
-                // Refaire descendre la fusée 
+            else if (angleV >= 0 && angleH < 0 ) {
+                playerX += 1;
+                playerY += -1;
             }
-        
-        });
+            else if (angleV <= 0 && angleH > 0 ) {
+                playerX += -1;
+                playerY += 1;
+            }
+            
+        }
         
         // KEYBOARD
             // Need to launch the rocket before being able to move the rocket
-        if(rocketLaunch) {
-            if(rightPressed) {
-                playerX += 6;
-                if (playerX >= window.innerWidth-70) {
-                    playerX = window.innerWidth-70;
-                }
-            }
-            else if(leftPressed) {
-                playerX -= 6;
-                if (playerX <= 0) {
-                    playerX = 0;
-                }
-            }
-            if(downPressed) {
-                playerY += 3;
-                if (playerY >= window.innerHeight-85) {
-                    playerY = window.innerHeight-85;
-                }
-            }
-            else if(upPressed) {
-                playerY -= 10;
-                if (playerY <= 0) {
-                    playerY = 0;
-                }
+        if(rightPressed) {
+            playerX += 6;
+            if (playerX >= window.innerWidth-70) {
+                playerX = window.innerWidth-70;
             }
         }
-
+        else if(leftPressed) {
+            playerX -= 6;
+            if (playerX <= 0) {
+                playerX = 0;
+            }
+        }
+        if(downPressed) {
+            playerY += 3;
+            if (playerY >= window.innerHeight-85) {
+                playerY = window.innerHeight-85;
+            }
+        }
+        else if(upPressed) {
+            playerY -= 2;
+            if (playerY <= 0) {
+                playerY = 0;
+            }
+        }
+        
+        ctx.drawImage(asteroid, asteroidX, asteroidY, asteroidWidth, asteroidHeight);
         ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
         requestAnimationFrame(draw);
     }
@@ -233,3 +253,4 @@ const { default: gsap } = require("gsap/gsap-core");
     }
     canvasResize();
     draw();
+    

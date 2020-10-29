@@ -1,3 +1,6 @@
+const { default: gsap } = require("gsap/gsap-core");
+import CSSPlugin from "gsap/CSSPlugin"
+gsap.registerPlugin(CSSPlugin);
 
     // INIT
     var canvas = document.getElementById("myCanvas");
@@ -19,6 +22,7 @@
     img.src = "../assets/gravity/rocket.svg";
     var ratio   = window.devicePixelRatio || 1;
 
+    let rocketLaunch = false;
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -165,38 +169,54 @@
         playerX = (window.innerWidth-85)/2;
         playerY = (window.innerHeight-70)/2;
     }
+    
 
+      
     // DRAW
+
+
+
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let speed = 0;
+        document.addEventListener('keydown', event => {
+            if (event.code === 'Space') {
+                playerY -= 0.01;
+            }
+        
+        });
         
         // KEYBOARD
-        if(rightPressed) {
-            playerX += 6;
-            if (playerX >= window.innerWidth-70) {
-                playerX = window.innerWidth-70;
+            // Need to launch the rocket before being able to move the rocket
+        if(rocketLaunch) {
+            if(rightPressed) {
+                playerX += 6;
+                if (playerX >= window.innerWidth-70) {
+                    playerX = window.innerWidth-70;
+                }
             }
-        }
-        else if(leftPressed) {
-            playerX -= 6;
-            if (playerX <= 0) {
-                playerX = 0;
+            else if(leftPressed) {
+                playerX -= 6;
+                if (playerX <= 0) {
+                    playerX = 0;
+                }
             }
-        }
-        if(downPressed) {
-            playerY += 3;
-            if (playerY >= window.innerHeight-85) {
-                playerY = window.innerHeight-85;
+            if(downPressed) {
+                playerY += 3;
+                if (playerY >= window.innerHeight-85) {
+                    playerY = window.innerHeight-85;
+                }
             }
-        }
-        else if(upPressed) {
-            playerY -= 10;
-            if (playerY <= 0) {
-                playerY = 0;
+            else if(upPressed) {
+                playerY -= 10;
+                if (playerY <= 0) {
+                    playerY = 0;
+                }
             }
         }
 
-        ctx.drawImage(img, playerX, playerY, 70, 85);
+        ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
         requestAnimationFrame(draw);
     }
     window.onresize = function() {

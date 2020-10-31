@@ -24,9 +24,10 @@ $shadows-big: multiple-box-shadow(100);
   font-size: 0;
   border-radius: 100%;
   z-index: -4;
+  transition: 0.5s ease-in-out;
 }
     
-.stars{
+.stars1{
   width: 1px;
   height: 1px;
   background: transparent ;

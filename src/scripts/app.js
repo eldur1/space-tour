@@ -19,7 +19,7 @@ gsap.registerPlugin(CSSPlugin);
     var img = new Image();
     img.src = "../assets/gravity/rocket.svg";
     var asteroid = new Image();
-    asteroid.src = "../assets/gravity/asteroid.svg";
+    asteroid.src = "../assets/gravity/terre.svg";
     var asteroidX = 600;
     var asteroidY = 200;
     var asteroidHeight = 150;
@@ -29,10 +29,6 @@ gsap.registerPlugin(CSSPlugin);
 
     let rocketLaunch = false;
     let gravity = false;
-
-
-    
-
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -124,7 +120,6 @@ gsap.registerPlugin(CSSPlugin);
         }
     }
 
-
     // TOUCH
     document.addEventListener("touchstart", touchHandler);
     document.addEventListener("touchmove", touchHandler);
@@ -179,12 +174,8 @@ gsap.registerPlugin(CSSPlugin);
         playerX = (window.innerWidth-85)/2;
         playerY = (window.innerHeight-70)/2;
     }
-    
-
-      
+ 
     // DRAW
-
-
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -219,13 +210,13 @@ gsap.registerPlugin(CSSPlugin);
         // KEYBOARD
             // Need to launch the rocket before being able to move the rocket
         if(rightPressed) {
-            playerX += 6;
+            playerX += 3;
             if (playerX >= window.innerWidth-70) {
                 playerX = window.innerWidth-70;
             }
         }
         else if(leftPressed) {
-            playerX -= 6;
+            playerX -= 3;
             if (playerX <= 0) {
                 playerX = 0;
             }
@@ -237,7 +228,7 @@ gsap.registerPlugin(CSSPlugin);
             }
         }
         else if(upPressed) {
-            playerY -= 2;
+            playerY -= 6;
             if (playerY <= 0) {
                 playerY = 0;
             }

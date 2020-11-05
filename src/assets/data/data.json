@@ -1,0 +1,16 @@
+{
+    "dialogues": [
+         {
+            "text": "Toi, tu te trouves sur la planète Terre. Elle possède ce qu’on appelle un champ de gravité. La gravité, c’est ce qui fait que tu tiens debout sur tes deux jambes sur ta&nbsp;planète! ",
+            "type": "info",
+            "TutoPassed": true,
+            "characterAnim": "url/../"
+         },
+         {
+            "text": "Dirige ton vaisseau en utilisant les flèches de ton clavier, ou en mettant ton doigt à gauche ou à droite de ton&nbsp;écran!",
+            "type": "gameplay",
+            "TutoPassed": true,
+            "characterAnim": "url/../"
+         }
+    ]
+}

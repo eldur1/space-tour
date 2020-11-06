@@ -1,0 +1,45 @@
+,
+         {
+            "text": "Attention cher aventurier! Attention chère aventurière! Ta troisième mission est sur le point de commencer. N’oublie pas ta combinaison et continue sur ta lancée, nous comptons sur toi. Direction&nbsp;Saturne!",
+            "text-list": [],
+            "type": "gameplay",
+            "TutoPassed": true,
+            "characterAnim": "url/../",
+            "level": 1,
+            "text-class" : "",
+            "text-type" : "paragraph"
+         },
+         {
+            "text": "",
+            "text-list": [
+               {"title": "Description de la mission&#8239;:&#8239;"},
+               {"listElement" :"&ndash; Objectif&#8239;:&#8239;atteindre la planète&nbsp;Saturne&#8239;;"},
+               {"listElement" :"&ndash; Distance à parcourir&#8239;:&#8239;628 millions de&nbsp;kilomètres&#8239;;"},
+               {"listElement" :"&ndash; Évitez les obstacles&#8239;;"},
+               {"listElement" :"&ndash; Gérez la puissance de la navette&#8239;;"}
+            ],
+            "type": "gameplay",
+            "TutoPassed": true,
+            "characterAnim": "url/../",
+            "level": 1,
+            "text-class" : "",
+            "text-type" : "paragraph"
+         },
+         {
+            "text": "",
+            "text-list": [
+               {"title": "Description de la&nbsp;planète&#8239;:&#8239;"},
+               {"listElement" :"&ndash; Planète&nbsp;Jupiter&#8239;;"},
+               {"listElement" :"&ndash; 5ème planète de notre système&nbsp;solaire&#8239;;"},
+               {"listElement" :"&ndash; Diamètre&#8239;:&#8239;143.000&nbsp;kilomètres (11 fois la taille de la&nbspTerre)&#8239;;"},
+               {"listElement" :"&ndash; Force gravitanionnelle den&bsp;24,79m/s²&#8239;;"},
+               {"listElement" :"&ndash; Température de&nbsp;-148°C&#8239;;"},
+               {"listElement" :"&ndash; Planète gazeuse constituée à plus de 80% d'hydrogène et 17%&nbsp;d'hélium&#8239;;"}
+            ],
+            "type": "gameplay",
+            "TutoPassed": true,
+            "characterAnim": "url/../",
+            "level": 1,
+            "text-class" : "",
+            "text-type" : "paragraph"
+         }

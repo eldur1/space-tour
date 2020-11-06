@@ -225,20 +225,20 @@ var Victor = require('victor');
         if (distance <= 200) {
             // vérifie le playerX/playerY par rapport au asteroidX/asteroidY
             if (angleV >= 0 && angleH > 0 ) {
-                playerX += 1;
-                playerY += 1;
+                playerX += 2;
+                playerY += 2;
             } 
             else if (angleV <= 0 && angleH < 0 ) {
-                playerX += -1;
-                playerY += -1;
+                playerX += -2;
+                playerY += -2;
             }
             else if (angleV >= 0 && angleH < 0 ) {
-                playerX += 1;
-                playerY += -1;
+                playerX += 2;
+                playerY += -2;
             }
             else if (angleV <= 0 && angleH > 0 ) {
-                playerX += -1;
-                playerY += 1;
+                playerX += -2;
+                playerY += 2;
             }
             
         }

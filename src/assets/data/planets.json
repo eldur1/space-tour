@@ -1,0 +1,67 @@
+{
+    "planets": [
+        {
+            "nom": "Mars",
+            "Temp": "-140°C à 20°C",
+            "Force": "3,711&nbsp;m/s²",
+            "Description": "Aussi appelée &#8239;“&#8239;Planète rouge&#8239;”, couleur due aux oxydes de fer présent sur le&nbsp;sol",
+            "taille":"6800&nbsp;kilomètres",
+            "Distance": "225 millions de&nbsp;kilomètres",
+            "place":"4ème planète de notre système&nbsp;solaire"
+        },
+        {
+            "nom": "Jupiter",
+            "place":"5ème planète de notre système&nbsp;solaire",
+            "taille":"143.000&nbsp;kilomètres",
+            "Distance": "628 millions de&nbsp;kilomètres",
+            "Force": "24,79&nbsp;m/s²",
+            "Temp": "-148°C",
+            "Description": "Planète gazeuse constitué de plus de 80% d’hydrogène et 17% d’hélium"
+        },
+        {
+            "nom": "Saturne",
+            "place":"6ème planète de notre système&nbsp;solaire",
+            "taille":"120.536&nbsp;kilomètres",
+            "Distance": "1 277 milliards de kilomètres de&nbsp;kilomètres",
+            "Force": "10,44nbsp;m/s²",
+            "Temp": "-143°C",
+            "Description": "Planète gazeuse constitué de plus d’hydrogène, d’hélium et&nbsp;méthane. Elle possède 7 anneaux différents composés de morceaux de glace entourant la&nbsp;planète."
+        },
+        {
+            "nom": "Uranus",
+            "place":"7ème planète de notre système&nbsp;solaire",
+            "taille":"51.800&nbsp;kilomètres",
+            "Distance": "2.719 milliards de&nbsp;kilomètres",
+            "Force": "8,87&nbsp;m/s²",
+            "Temp": "-224°C",
+            "Description": "Planète gazeuse la plus froide du système solaire. Elle possède également la particularité de tourner&nbsp;verticalement."
+        },
+        {
+            "nom": "Neptune",
+            "place":"8ème planète de notre système&nbsp;solaire",
+            "taille":"49.500&nbsp;kilomètres",
+            "Distance": "4 347 milliards de&nbsp;kilomètres",
+            "Force": "11,15&nbsp;m/s²",
+            "Temp": "-218°C",
+            "Description": "Planète gazeuse apparaissant bleue dû à la présence élevée de&nbsp;méthane."
+        },
+        {
+            "nom": "Vénus",
+            "place":"2ème planète de notre système&nbsp;solaire",
+            "taille":"12.120&nbsp;kilomètres",
+            "Distance": "42 millions de&nbsp;kilomètres",
+            "Force": "8,87&nbsp;m/s²",
+            "Temp": "470°C",
+            "Description": "Planète tellurique, composée essentiellement de roches et métaux. On l'appelle également&#8239;“&#8239;l'Étoile du Matin&#8239;”, ou le&nbsp;“Berger”."
+        },
+        {
+            "nom": "Mercure",
+            "place":"1ème planète de notre système&nbsp;solaire",
+            "taille":"4.878&nbsp;kilomètres",
+            "Distance": "92 millions de&nbsp;kilomètres",
+            "Force": "3,7&nbsp;m/s²",
+            "Temp": "de -183°C à 430°C",
+            "Description": "Il s'agit de la plus petite planète du système&nbsp;solaire."
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 {
     "dialogues": [
          {
-            "text": "Salutation petit être de la planète Terre ! Je te souhaite la bienvenue chez SpaceTour notre base spatiale. Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles.",
+            "text": "Salutation petit être de la planète Terre! Je te souhaite la bienvenue chez SpaceTour notre base spatiale. Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles.",
             "type": "context",
             "TutoPassed": true,
             "characterAnim": "url/../",
@@ -15,7 +15,7 @@
             "text-list": [],
             "TutoPassed": true,
             "characterAnim": "url/../",
-            "level": ,
+            "level": 1,
             "text-type" : "paragraph"
          },
          {
@@ -46,7 +46,7 @@
             "text-type" : "paragraph"
          },
          {
-            "text": "Cette force qui agit sur notre corps lorsqu'il est sur la Terre est le résultat de l'attraction entre celle-ci et le corps humain. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui ! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre.",
+            "text": "Cette force qui agit sur notre corps lorsqu'il est sur la Terre est le résultat de l'attraction entre celle-ci et le corps humain. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre.",
             "text-list": [],
             "type": "gameplay",
             "TutoPassed": true,
@@ -66,7 +66,7 @@
             "text-type" : "paragraph"
          },
          {
-            "text": "Tous les corps, c’est-à-dire tous les objets visible et existant dans l’univers vivant ou non s’attirent en effet entre eux et plus leur masse est élevée, plus ils s’attirent fortement. La force de gravité n’est donc pas la même partout !  Lors de tes voyages dans l’espace, prudence aux différents obstacles que tu pourrais croiser tels que des&nbsp;astéroïdes.",
+            "text": "Tous les corps, c’est-à-dire tous les objets visible et existant dans l’univers vivant ou non s’attirent en effet entre eux et plus leur masse est élevée, plus ils s’attirent fortement. La force de gravité n’est donc pas la même partout!  Lors de tes voyages dans l’espace, prudence aux différents obstacles que tu pourrais croiser tels que des&nbsp;astéroïdes.",
             "text-list": [],
             "type": "gameplay",
             "TutoPassed": true,
@@ -76,7 +76,7 @@
             "text-type" : "paragraph"
          },
          {
-            "text": "Attention cher aventurier ! Attention chère aventurière ! Ta première mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprissent au centre de formation, nous comptons sur toi. Direction&nbsp;Mars!",
+            "text": "Attention cher aventurier! Attention chère aventurière! Ta première mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprissent au centre de formation, nous comptons sur toi. Direction&nbsp;Mars!",
             "text-list": [],
             "type": "gameplay",
             "TutoPassed": true,
@@ -158,8 +158,7 @@
                {"listElement" :"&ndash; Objectif&#8239;:&#8239;atteindre la planète&#8239;;"},
                {"listElement" :"&ndash; Distance à parcourir&#8239;:&#8239;"},
                {"listElement" :"&ndash; Évitez les obstacles&#8239;;"},
-               {"listElement" :"&ndash; Gérez la puissance de la navette&#8239;;"}
-            ],
+               {"listElement" :"&ndash; Gérez la puissance de la navette&#8239;;"}],
             "type": "gameplay",
             "TutoPassed": true,
             "characterAnim": "url/../",
@@ -175,7 +174,7 @@
                {"listElement" :"&ndash; 5ème planète de notre système&nbsp;solaire&#8239;;"},
                {"listElement" :"&ndash; Diamètre&#8239;:&#8239;"},
                {"listElement" :"&ndash; Force gravitanionnelle de&nbsp;"},
-               {"listElement" :"&ndash; Température de&nbsp;"},
+               {"listElement" :"&ndash; Température de&nbsp;"}
             ],
             "type": "gameplay",
             "TutoPassed": true,

@@ -1,9 +1,9 @@
 const { default: gsap } = require("gsap/gsap-core");
 import CSSPlugin from "gsap/CSSPlugin"
 gsap.registerPlugin(CSSPlugin);
-
+var Victor = require('victor');
     // INIT
-    var Victor = require('victor');
+
     var canvas = document.getElementById("myCanvas");
     var clientWidth = document.body.clientWidth;
     var clientHeight = document.body.clientHeight;
@@ -16,19 +16,55 @@ gsap.registerPlugin(CSSPlugin);
     var leftPressed = false;
     var upPressed = false;
     var downPressed = false;
+    // Import img
     var img = new Image();
     img.src = "../assets/gravity/rocket.svg";
     var asteroid = new Image();
-    asteroid.src = "../assets/gravity/terre.svg";
+    asteroid.src = "../assets/__planets/terre.svg";
+    let mars = new Image()
+    mars.src = "../assets/__planets/mars.svg";
+
+    // Ajout planète
+    var planetes = [
+        ["jupiter"],
+        ["mars"],
+        ["neptune"],
+        ["saturn"],
+        ["terre"],
+        ["uranus"],
+        ["vénus"]
+    ] 
+
+
+
+
+    let gravity = false;
+
+
     var asteroidX = 600;
     var asteroidY = 200;
     var asteroidHeight = 150;
     var asteroidWidth = 150;
+
     var ratio = window.devicePixelRatio || 1;
 
 
-    let rocketLaunch = false;
-    let gravity = false;
+
+    // Ajout planètes
+
+    for(let item in planetes) {
+        let planete = planetes[item]
+        planetes[item] = new Image();
+        planetes[item].className = planete;
+        planetes[item].src = "../assets/__planets/" + planete + ".svg";
+        console.log(planetes[item]);
+        //ctx.drawImage(planetes[item], 0,0) ; 
+    }
+
+
+
+
+
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -233,7 +269,6 @@ gsap.registerPlugin(CSSPlugin);
                 playerY = 0;
             }
         }
-        
         ctx.drawImage(asteroid, asteroidX, asteroidY, asteroidWidth, asteroidHeight);
         ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
         requestAnimationFrame(draw);

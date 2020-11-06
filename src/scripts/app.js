@@ -252,7 +252,11 @@ var Victor = require('victor');
                     }
                     
                 }
-                item["yPos"] += 1;
+                
+
+                if (item["yPos"] < clientHeight) {
+                    item["yPos"] += 1;
+                }
                 
                 // GameOver
                 if (distance <= item["width"]/2) {

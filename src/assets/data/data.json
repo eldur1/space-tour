@@ -28,7 +28,7 @@
                { "listElement" : "&ndash; Il a été directeur et maître de la monnaie, président de la Royal Society et député au parlement"},
                { "listElement" : "&ndash; Fait chevalier par la reine Anne le 16 avril 1705"}
             ],
-            "type": "gameplay",
+            "type": "context",
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
@@ -38,7 +38,7 @@
          {
             "text": "Ici sur notre planète bleue, nous sommes entourés d’un champ de force qui nous permet de garder les pieds sur terre ce phénomène naturel est appelé la gravité. Celle-ci a plusieurs&nbsp;facultés.",
             "text-list": [],
-            "type": "gameplay",
+            "type": "info",
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
@@ -48,7 +48,7 @@
          {
             "text": "Cette force qui agit sur notre corps lorsqu'il est sur la Terre est le résultat de l'attraction entre celle-ci et le corps humain. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre.",
             "text-list": [],
-            "type": "gameplay",
+            "type": "info",
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
@@ -58,7 +58,7 @@
          {
             "text": "Il est donc logique que plus notre corps se rapproche du centre de gravité, plus cette force émise est forte. Au contraire, plus l’on s’éloigne de ce centre, moins celle-ci nous attire, jusqu’à un point quasi nul. Comme les astronautes qui flottent dans&nbsp;l’espace.",
             "text-list": [],
-            "type": "gameplay",
+            "type": "info",
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
@@ -68,7 +68,7 @@
          {
             "text": "Tous les corps, c’est-à-dire tous les objets visible et existant dans l’univers vivant ou non s’attirent en effet entre eux et plus leur masse est élevée, plus ils s’attirent fortement. La force de gravité n’est donc pas la même partout!  Lors de tes voyages dans l’espace, prudence aux différents obstacles que tu pourrais croiser tels que des&nbsp;astéroïdes.",
             "text-list": [],
-            "type": "gameplay",
+            "type": "info",
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
@@ -76,7 +76,7 @@
             "text-type" : "paragraph"
          },
          {
-            "text": "Attention cher aventurier! Attention chère aventurière! Ta première mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprissent au centre de formation, nous comptons sur toi. Direction&nbsp;Mars!",
+            "text": "Attention cher aventurier! Attention chère aventurière! Ta mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprissent au centre de formation, nous comptons sur toi. Direction&nbsp;Mars!",
             "text-list": [],
             "type": "gameplay",
             "TutoPassed": true,
@@ -87,62 +87,6 @@
          },
          {
             "text": "Pour accomplir ton voyage sans embrouille, tu devras faire preuve d'habileté qu’il s’agisse de la gestion de la puissance de ta navette, ainsi que des obstacles que tu pourrais rencontrer. Bonne chance à&nbsp;toi! ",
-            "text-list": [],
-            "type": "gameplay",
-            "TutoPassed": true,
-            "characterAnim": "url/../",
-            "level": 1,
-            "text-class" : "",
-            "text-type" : "paragraph"
-         },
-         {
-            "text": "",
-            "text-list": [
-               {"title": "Description de la mission&#8239;:&#8239;"},
-               {"listElement" :"&ndash; Objectif&#8239;:&#8239;atteindre la planète&nbsp;Mars&#8239;;"},
-               {"listElement" :"&ndash; Distance à parcourir&#8239;:&#8239;225 millions de&nbsp;kilomètres&#8239;;"},
-               {"listElement" :"&ndash; Évitez les obstacles&#8239;;"},
-               {"listElement" :"&ndash; Gérez la puissance de la navette&#8239;;"}
-            ],
-            "type": "gameplay",
-            "TutoPassed": true,
-            "characterAnim": "url/../",
-            "level": 1,
-            "text-class" : "",
-            "text-type" : "paragraph"
-         },
-         {
-            "text": "",
-            "text-list": [
-               {"title": "Description de la&nbsp;planète&#8239;:&#8239;"},
-               {"listElement" :"&ndash; Planète&nbsp;Mars&#8239;;"},
-               {"listElement" :"&ndash; 4ème planète de notre système&nbsp;solaire&#8239;;"},
-               {"listElement" :"&ndash; Diamètre&#8239;:&#8239;6800&nbsp;kilomètres&#8239;;"},
-               {"listElement" :"&ndash; Force gravitanionnelle den&bsp;3,711m/s²&#8239;;"},
-               {"listElement" :"&ndash; Température de -140°C à&nbsp;20°C&#8239;;"},
-               {"listElement" :"&ndash; Aussi appelée “Planète rouge”, couleur due aux oxydes de fer présent sur le&nbsp;sol&#8239;;"},
-               {"listElement" :"&ndash; Atmosphère constituée de plus de 95% de dioxyde de carbone&#8239;;"},
-               {"listElement" :"&ndash; Présence&nbsp;d'eau&#8239;;"}
-            ],
-            "type": "gameplay",
-            "TutoPassed": true,
-            "characterAnim": "url/../",
-            "level": 1,
-            "text-class" : "",
-            "text-type" : "paragraph"
-         },
-         {
-            "text": "Félicitations! Tu as réussi à atteindre la planète en un seul&nbsp;morceau!",
-            "text-list": [],
-            "type": "gameplay",
-            "TutoPassed": true,
-            "characterAnim": "url/../",
-            "level": 1,
-            "text-class" : "",
-            "text-type" : "paragraph"
-         },
-         {
-            "text": "Attention cher aventurier! Attention chère aventurière! Ta mission est sur le point de commencer. N’oublie pas ta combinaison et continue sur ta lancée, nous comptons sur&nbsp;toi!",
             "text-list": [],
             "type": "gameplay",
             "TutoPassed": true,
@@ -176,6 +120,16 @@
                {"listElement" :"&ndash; Force gravitanionnelle de&nbsp;"},
                {"listElement" :"&ndash; Température de&nbsp;"}
             ],
+            "type": "gameplay",
+            "TutoPassed": true,
+            "characterAnim": "url/../",
+            "level": 1,
+            "text-class" : "",
+            "text-type" : "paragraph"
+         },
+         {
+            "text": "Félicitations! Tu as réussi à atteindre la planète en un seul&nbsp;morceau!",
+            "text-list": [],
             "type": "gameplay",
             "TutoPassed": true,
             "characterAnim": "url/../",

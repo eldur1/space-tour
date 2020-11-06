@@ -16,6 +16,7 @@
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
+            "text-class" : "",
             "text-type" : "paragraph"
          },
          {
@@ -108,7 +109,7 @@
             "characterAnim": "url/../",
             "level": 1,
             "text-class" : "",
-            "text-type" : "paragraph"
+            "text-type" : "list"
          },
          {
             "text": "",
@@ -125,7 +126,7 @@
             "characterAnim": "url/../",
             "level": 1,
             "text-class" : "",
-            "text-type" : "paragraph"
+            "text-type" : "list"
          },
          {
             "text": "Félicitations! Tu as réussi à atteindre la planète en un seul&nbsp;morceau!",
@@ -134,7 +135,7 @@
             "TutoPassed": true,
             "characterAnim": "url/../",
             "level": 1,
-            "text-class" : "",
+            "text-class" : "success",
             "text-type" : "paragraph"
          },
          {

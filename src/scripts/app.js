@@ -19,47 +19,54 @@ var Victor = require('victor');
     // Import img
     var img = new Image();
     img.src = "../assets/gravity/rocket.svg";
-    var asteroid = new Image();
-    asteroid.src = "../assets/__planets/terre.svg";
-    let mars = new Image()
-    mars.src = "../assets/__planets/mars.svg";
 
+    // Gestion de pauses
+    let gameOver = false;
+    let gamePaused = false;
+    let pauseBtn = document.querySelector(".pause_btn");
+    pauseBtn.addEventListener("click", (e) => {
+        if (!gameOver) {
+            gamePaused = !gamePaused;
+        }
+        
+    })
+
+    let gameOverTxt = document.querySelector(".gameOver p");
+    
+    
     // Ajout planète
-    var planetes = [
-        ["jupiter"],
-        ["mars"],
-        ["neptune"],
-        ["saturn"],
-        ["terre"],
-        ["uranus"],
-        ["vénus"]
-    ] 
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    var planetes = [];
+
+    let terre = {"name" : "terre", "width" : 150, "height" : 150, "xPos" : getRandomInt(clientWidth - 150), "yPos": -500, "champDistance" : 200}
+    let venus = {"name" : "vénus", "width" : 150, "height" : 150, "xPos" : getRandomInt(clientWidth - 150), "yPos": -1000, "champDistance" : 200}
+    let mars = {"name" : "mars", "width" : 120, "height" : 120, "xPos" : getRandomInt(clientWidth - 120), "yPos": -1600, "champDistance" : 150}
+    let jupiter = {"name" : "jupiter", "width" : 300, "height" : 300, "xPos" : getRandomInt(clientWidth - 300), "yPos": -2200, "champDistance" : 400}
+    let saturne = {"name" : "saturne", "width" : 280, "height" : 240, "xPos" : getRandomInt(clientWidth - 280), "yPos": -2800, "champDistance" : 360}
+    let uranus = {"name" : "uranus", "width" : 250, "height" : 200, "xPos" : getRandomInt(clientWidth - 250), "yPos": -3400, "champDistance" : 300}
+    let neptune = {"name" : "neptune", "width" : 200, "height" : 200, "xPos" : getRandomInt(clientWidth - 200), "yPos": -4000, "champDistance" : 300}
+
+    planetes.push(terre, venus, mars, jupiter, saturne, uranus, neptune);
 
 
-
-
-    let gravity = false;
-
-
-    var asteroidX = 600;
-    var asteroidY = 200;
-    var asteroidHeight = 150;
-    var asteroidWidth = 150;
 
     var ratio = window.devicePixelRatio || 1;
 
 
-
     // Ajout planètes
 
-    for(let item in planetes) {
-        let planete = planetes[item]
-        planetes[item] = new Image();
-        planetes[item].className = planete;
-        planetes[item].src = "../assets/__planets/" + planete + ".svg";
-        console.log(planetes[item]);
-        //ctx.drawImage(planetes[item], 0,0) ; 
-    }
+
+    planetes.forEach(item => {
+        let planete = item["name"];
+        item["name"] = new Image ();
+        item["name"].className = planete;
+        item["name"].src = "../assets/__planets/" + planete + ".svg";
+        console.log(item["name"]);
+    });
 
 
 
@@ -215,61 +222,79 @@ var Victor = require('victor');
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var asteroidPos = new Victor(asteroidX + (asteroidWidth/2), asteroidY + (asteroidHeight/2));
+        
         var playerPos = new Victor(playerX + (playerWidth/2), playerY + (playerHeight/2));
-        var vectorX = ((asteroidX + asteroidWidth/2) - (playerX + playerWidth/2));
-        var vectorY = ((asteroidY + asteroidHeight/2) - (playerY + playerHeight/2));
-        var distance = playerPos.distance(asteroidPos);
-        var angleV = Victor(vectorX, vectorY).verticalAngleDeg();
-        var angleH = Victor(vectorX, vectorY).angleDeg();
-        if (distance <= 200) {
-            // vérifie le playerX/playerY par rapport au asteroidX/asteroidY
-            if (angleV >= 0 && angleH > 0 ) {
-                playerX += 2;
-                playerY += 2;
-            } 
-            else if (angleV <= 0 && angleH < 0 ) {
-                playerX += -2;
-                playerY += -2;
-            }
-            else if (angleV >= 0 && angleH < 0 ) {
-                playerX += 2;
-                playerY += -2;
-            }
-            else if (angleV <= 0 && angleH > 0 ) {
-                playerX += -2;
-                playerY += 2;
-            }
+        if (!gamePaused) {
+            planetes.forEach(item => {
+                var planetPos = new Victor(item["xPos"] + (item["width"]/2), item["yPos"] + (item["height"]/2));
+                var vectorX = ((item["xPos"] + item["width"]/2) - (playerX + playerWidth/2));
+                var vectorY = ((item["yPos"] + item["height"]/2) - (playerY + playerHeight/2));
+                var distance = playerPos.distance(planetPos);
+                var angleV = Victor(vectorX, vectorY).verticalAngleDeg();
+                var angleH = Victor(vectorX, vectorY).angleDeg();
+                if (distance <= item["champDistance"]) {
+                    // vérifie le playerX/playerY par rapport au planetX/planetY
+                    if (angleV >= 0 && angleH > 0 ) {
+                        playerX += 1;
+                        playerY += 1;
+                    } 
+                    else if (angleV <= 0 && angleH < 0 ) {
+                        playerX += -1;
+                        playerY += -1;
+                    }
+                    else if (angleV >= 0 && angleH < 0 ) {
+                        playerX += 1;
+                        playerY += -1;
+                    }
+                    else if (angleV <= 0 && angleH > 0 ) {
+                        playerX += -1;
+                        playerY += 1;
+                    }
+                    
+                }
+                item["yPos"] += 1;
+                
+                // GameOver
+                if (distance <= item["width"]/2) {
+                    gamePaused = true;
+                    gameOverTxt.style.opacity = "1";
+                    gameOver = true;
+                }
             
+            });
+
+            
+            // KEYBOARD
+                // Need to launch the rocket before being able to move the rocket
+            if(rightPressed) {
+                playerX += 3;
+                if (playerX >= window.innerWidth-70) {
+                    playerX = window.innerWidth-70;
+                }
+            }
+            else if(leftPressed) {
+                playerX -= 3;
+                if (playerX <= 0) {
+                    playerX = 0;
+                }
+            }
+            if(downPressed) {
+                playerY += 3;
+                if (playerY >= window.innerHeight-85) {
+                    playerY = window.innerHeight-85;
+                }
+            }
+            else if(upPressed) {
+                playerY -= 3;
+                if (playerY <= 0) {
+                    playerY = 0;
+                }
+            }
         }
         
-        // KEYBOARD
-            // Need to launch the rocket before being able to move the rocket
-        if(rightPressed) {
-            playerX += 3;
-            if (playerX >= window.innerWidth-70) {
-                playerX = window.innerWidth-70;
-            }
-        }
-        else if(leftPressed) {
-            playerX -= 3;
-            if (playerX <= 0) {
-                playerX = 0;
-            }
-        }
-        if(downPressed) {
-            playerY += 3;
-            if (playerY >= window.innerHeight-85) {
-                playerY = window.innerHeight-85;
-            }
-        }
-        else if(upPressed) {
-            playerY -= 6;
-            if (playerY <= 0) {
-                playerY = 0;
-            }
-        }
-        ctx.drawImage(asteroid, asteroidX, asteroidY, asteroidWidth, asteroidHeight);
+        planetes.forEach(item => {
+            ctx.drawImage(item["name"], item["xPos"], item["yPos"], item["width"], item["height"]);
+        });
         ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
         requestAnimationFrame(draw);
     }

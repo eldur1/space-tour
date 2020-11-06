@@ -2,6 +2,28 @@
 .nowrap{
   white-space: pre;
 }
+.pause_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+}
+.gameOver{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gameOver p{
+  color: #fff;
+  font-size: 80px;
+  margin: 0;
+  opacity: 0;
+  transition: 0.5s ease-in;
+}
 
 .title{
   &--bigger{

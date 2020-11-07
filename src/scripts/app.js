@@ -260,7 +260,7 @@ var Victor = require('victor');
                 
 
                 if (item["yPos"] < clientHeight+100) {
-                    item["yPos"] += 1.2;
+                    item["yPos"] += 1.5;
                 }else{
                     item["champDistance"] = 0;
                 }

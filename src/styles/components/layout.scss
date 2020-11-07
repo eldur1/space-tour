@@ -817,35 +817,126 @@ p{
  
   }
 }
+
+
 .dialogues{
-  margin: 0;
-  padding: 15px;
   display: block;
+  margin: 0;
   position: absolute;
-  background-color: white;
-  bottom: 10px;
-  left: 10px;
-  min-height: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid $c-red;
+  border-radius: 25px;
+  width: 100%;
+  bottom: 0;
+  box-sizing: border-box;
+  max-width: 400px;
+  height: auto;
+  p {
+    color: $c-black;
+    margin:  $s-mob--small;
+
+    @include tb{
+      margin: $s-tab--small;
+    }
+
+    @include lg{
+      margin: $s-desk--small;
+    }
+  }
+  @include tb{
+    max-width: 550px;
+  }
+
+  @include lg{
+  bottom: 5%;
   max-width: 800px;
-  border: solid #EB4747 5px;
-  border-radius: 15px;
-  & p {
-    color: black;
-    margin: 0;
   }
 }
 
 .validate_btn{
-  background-color: #EB4747;
   border: none;
   border-radius: 5px;
   outline: none;
-  color: #fff;
-  font-size: 35px;
-  font-weight: bold;
-  padding: 10px 20px 10px 20px;
+  padding: 7px 14px;
   cursor: pointer;
+  transition: 300ms cubic-bezier(0.25, 0.89, 0.48, 0.97);
+  box-shadow: inset 0px 0 0.001px $c-blue--m, 0 5px $c-red--d;
+  display: block;
+  margin: auto $s-mob--small*2 $s-mob--small auto;
+  text-transform: uppercase;
+
+  &:hover{
+    transform: translateY(5px);
+    transition: 0ms ease-in;
+    color: $c-white;
+    box-shadow: inset 100px 0 $c-blue--m, 0 -5px $c-blue--d;
+  }
+
+  @include tb{
+    margin: auto $s-tab--medium $s-tab--small auto;
+  }
+
+  @include lg{
+    margin: auto $s-desk--medium $s-desk--smaller auto;
+    padding: 10px 20px 10px 20px;
+
+    &:hover{
+      transition: 300ms cubic-bezier(0.25, 0.89, 0.48, 0.97);
+      transform: translateY(0px);
+      color: $c-white;
+      box-shadow: inset 100px 0 $c-blue--m, 0 5px $c-blue--d;
+    }
+    
+    &:active{
+      transform: translateY(5px);
+      transition: 0ms ease-in;
+      color: $c-white;
+  
+      box-shadow: inset 100px 0 $c-blue--m, 0 -5px $c-blue--d;
+    }
+  }
+}
+
+.gameOver{
+  pointer-events: none;
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition: 400ms cubic-bezier(0.25, 0.89, 0.48, 0.97);
+  
+  strong{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-150%);
+    margin: 0;
+  }
+
+  &--show{
+    opacity: 1;
+  }
+}
+
+.dialogues-container{
+  img{
+    position: absolute;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    bottom: 12%;
+    z-index: -500;
+
+    @include tb{
+      left: 20%;
+    }
+
+    @include lg{
+      max-width: 350px;
+      bottom: 0%;
+      left: 30%;
+    }
+    
+  }
 }

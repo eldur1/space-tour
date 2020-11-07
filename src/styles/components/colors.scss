@@ -192,3 +192,23 @@ a{
     }
   }
 }
+
+
+.dialogues{
+  background-color: $c-white;
+
+  p{
+    color: $c-black;
+  }
+}
+
+
+.validate_btn{
+  color: $c-black;
+  background-color: $c-red--l;
+}
+
+
+.gameOver{
+  background-color: #FEFEFE25;
+}

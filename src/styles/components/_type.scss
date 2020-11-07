@@ -8,21 +8,24 @@
   right: 0;
   margin: 15px;
 }
-.gameOver{
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.gameOver p{
+
+.gameOver {
   color: #fff;
-  font-size: 80px;
-  margin: 0;
-  opacity: 0;
-  transition: 0.5s ease-in;
+
+  strong{
+    font-size: $s-mob--bigger;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-variant: small-caps;
+
+    @include tb{
+    font-size: $s-tab--bigger;
+    }
+
+    @include lg{
+      font-size: $s-desk--bigger;
+    }
+  }
 }
 
 .title{
@@ -173,3 +176,15 @@ p{
   }
 }
 
+.validate_btn{
+  font-size: $s-mob--small;
+  font-weight: bold;
+
+  @include tb{
+    font-size: $s-tab--small;
+  }
+
+  @include lg{
+    font-size: $s-desk--small;
+  }
+}

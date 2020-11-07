@@ -32,7 +32,7 @@ var Victor = require('victor');
         
     })
 
-    let gameOverTxt = document.querySelector(".gameOver p");
+    let gameOverContainer = document.querySelector(".gameOver");
     
     
     // Ajout planète
@@ -268,7 +268,8 @@ var Victor = require('victor');
                 // GameOver
                 if (distance <= item["width"]/2) {
                     gamePaused = true;
-                    gameOverTxt.style.opacity = "1";
+                    // gameOverTxt.style.opacity = "1";
+                    gameOverContainer.classList.add('gameOver--show');
                     gameOver = true;
                 }
             

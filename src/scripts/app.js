@@ -43,16 +43,21 @@ var Victor = require('victor');
 
     var planetes = [];
 
-    let terre = {"name" : "terre", "width" : 150*ratioScreen, "height" : 150*ratioScreen, "xPos" : getRandomInt(clientWidth - 150*ratioScreen), "yPos": -500*ratioScreen, "champDistance" : 200*ratioScreen}
-    let venus = {"name" : "vénus", "width" : 150*ratioScreen, "height" : 150*ratioScreen, "xPos" : getRandomInt(clientWidth - 150*ratioScreen), "yPos": -1000*ratioScreen, "champDistance" : 200*ratioScreen}
-    let mars = {"name" : "mars", "width" : 120*ratioScreen, "height" : 120*ratioScreen, "xPos" : getRandomInt(clientWidth - 120*ratioScreen), "yPos": -1600*ratioScreen, "champDistance" : 150*ratioScreen}
-    let jupiter = {"name" : "jupiter", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -2200*ratioScreen, "champDistance" : 400*ratioScreen}
-    let saturne = {"name" : "saturne", "width" : 280*ratioScreen, "height" : 240*ratioScreen, "xPos" : getRandomInt(clientWidth - 280*ratioScreen), "yPos": -2800*ratioScreen, "champDistance" : 360*ratioScreen}
-    let uranus = {"name" : "uranus", "width" : 250*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 250*ratioScreen), "yPos": -3400*ratioScreen, "champDistance" : 300*ratioScreen}
-    let neptune = {"name" : "neptune", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -4000*ratioScreen, "champDistance" : 300*ratioScreen}
+    
+    let terre = {"name" : "terre", "width" : 150*ratioScreen, "height" : 150*ratioScreen, "xPos" : getRandomInt(clientWidth - 150*ratioScreen), "yPos": -900*ratioScreen, "champDistance" : 200*ratioScreen}
+    let venus = {"name" : "vénus", "width" : 150*ratioScreen, "height" : 150*ratioScreen, "xPos" : getRandomInt(clientWidth - 150*ratioScreen), "yPos": -2100*ratioScreen, "champDistance" : 200*ratioScreen}
+    let mars = {"name" : "mars", "width" : 120*ratioScreen, "height" : 120*ratioScreen, "xPos" : getRandomInt(clientWidth - 120*ratioScreen), "yPos": -3300*ratioScreen, "champDistance" : 170*ratioScreen}
+    let jupiter = {"name" : "jupiter", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -5100*ratioScreen, "champDistance" : 400*ratioScreen}
+    let saturne = {"name" : "saturne", "width" : 280*ratioScreen, "height" : 240*ratioScreen, "xPos" : getRandomInt(clientWidth - 280*ratioScreen), "yPos": -6900*ratioScreen, "champDistance" : 360*ratioScreen}
+    let uranus = {"name" : "uranus", "width" : 250*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 250*ratioScreen), "yPos": -8700*ratioScreen, "champDistance" : 300*ratioScreen}
+    let neptune = {"name" : "neptune", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -10500*ratioScreen, "champDistance" : 300*ratioScreen}
 
     planetes.push(terre, venus, mars, jupiter, saturne, uranus, neptune);
 
+    for (let i = 1; i < 17; i++) {
+        let planet = {"name" : "planet"+getRandomInt(7), "width" : (i*5+120)*ratioScreen, "height" : (i*5+120)*ratioScreen, "xPos" : getRandomInt(clientWidth - (i*20+100)*ratioScreen), "yPos": -500*i*1.2*ratioScreen, "champDistance" : (i*5+120)*1.2*ratioScreen};
+        planetes.push(planet);
+    }
 
 
     var ratio = window.devicePixelRatio || 1;
@@ -66,7 +71,6 @@ var Victor = require('victor');
         item["name"] = new Image ();
         item["name"].className = planete;
         item["name"].src = "../assets/__planets/" + planete + ".svg";
-        console.log(item["name"]);
     });
 
 
@@ -236,27 +240,29 @@ var Victor = require('victor');
                 if (distance <= item["champDistance"]) {
                     // vérifie le playerX/playerY par rapport au planetX/planetY
                     if (angleV >= 0 && angleH > 0 ) {
-                        playerX += 1;
-                        playerY += 1;
+                        playerX += 1.5;
+                        playerY += 1.5;
                     } 
                     else if (angleV <= 0 && angleH < 0 ) {
-                        playerX += -1;
-                        playerY += -1;
+                        playerX += -1.5;
+                        playerY += -1.5;
                     }
                     else if (angleV >= 0 && angleH < 0 ) {
-                        playerX += 1;
-                        playerY += -1;
+                        playerX += 1.5;
+                        playerY += -1.5;
                     }
                     else if (angleV <= 0 && angleH > 0 ) {
-                        playerX += -1;
-                        playerY += 1;
+                        playerX += -1.5;
+                        playerY += 1.5;
                     }
                     
                 }
                 
 
-                if (item["yPos"] < clientHeight) {
-                    item["yPos"] += 1;
+                if (item["yPos"] < clientHeight+100) {
+                    item["yPos"] += 1.2;
+                }else{
+                    item["champDistance"] = 0;
                 }
                 
                 // GameOver

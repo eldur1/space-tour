@@ -28,11 +28,9 @@ var Victor = require('victor');
     pauseBtn.addEventListener("click", (e) => {
         if (!gameOver) {
             gamePaused = !gamePaused;
+            pauseBtn.classList.toggle("btn--pause-resume");
+            background.classList.toggle("background--stopped");
         }
-
-        pauseBtn.classList.toggle("btn--pause-resume");
-        background.classList.toggle("background--stopped");
-        
     })
 
     let gameOverContainer = document.querySelector(".gameOver");

@@ -860,6 +860,7 @@ p{
     max-width: 400px;
     position: fixed;
     width: 100%;
+    bottom: 0;
 
     img{
       width: 100%;
@@ -880,17 +881,17 @@ p{
     }
 
     @include tb{
-      max-width: 600px;
+      max-width: 550px;
       bottom: 5%;
     }
   
     @include lg{
-      max-width: 600px;
+      max-width: 800px;
+      
       bottom: 5%;
     }
 
     @include xl{
-      max-width: 800px;
     }
     &--hide{
       opacity: 0;
@@ -912,13 +913,17 @@ p{
   p {
     color: $c-black;
     margin:  $s-mob--small;
+    max-width: initial;
 
     @include tb{
       margin: $s-tab--small;
+      max-width: initial;
+
     }
 
     @include lg{
       margin: $s-desk--small;
+      max-width: initial;
     }
   }
 }

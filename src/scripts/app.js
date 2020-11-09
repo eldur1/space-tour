@@ -3,7 +3,7 @@ import CSSPlugin from "gsap/CSSPlugin"
 gsap.registerPlugin(CSSPlugin);
 var Victor = require('victor');
     // INIT
-
+    let background = document.querySelector(".background");
     var canvas = document.getElementById("myCanvas");
     var clientWidth = document.body.clientWidth;
     var clientHeight = document.body.clientHeight;
@@ -29,6 +29,9 @@ var Victor = require('victor');
         if (!gameOver) {
             gamePaused = !gamePaused;
         }
+
+        pauseBtn.classList.toggle("btn--pause-resume");
+        background.classList.toggle("background--stopped");
         
     })
 
@@ -271,6 +274,7 @@ var Victor = require('victor');
                     // gameOverTxt.style.opacity = "1";
                     gameOverContainer.classList.add('gameOver--show');
                     gameOver = true;
+                    background.classList.add("background--stopped");
                 }
             
             });

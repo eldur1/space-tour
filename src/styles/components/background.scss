@@ -93,3 +93,23 @@ $shadows-big: multiple-box-shadow(100);
 }
   
     
+
+.background--stopped{   
+  transition: 5000ms;   
+  .stars1{
+    // animation	: animStar 2100s linear infinite;
+    animation-play-state: paused;
+  }
+      
+  .stars2{
+    // animation	: animStar 1400s linear infinite;
+    animation-play-state: paused;
+         
+  }
+    
+  .stars3{
+    // animation	: animStar 700s linear infinite;
+    animation-play-state: paused;
+      
+  }
+}

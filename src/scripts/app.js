@@ -24,7 +24,7 @@ var Victor = require('victor');
     // Gestion de pauses
     let gameOver = false;
     let gamePaused = false;
-    let pauseBtn = document.querySelector(".pause_btn");
+    let pauseBtn = document.querySelector(".btn--pause");
     pauseBtn.addEventListener("click", (e) => {
         if (!gameOver) {
             gamePaused = !gamePaused;

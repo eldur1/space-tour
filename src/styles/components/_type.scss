@@ -176,9 +176,10 @@ p{
   }
 }
 
-.validate_btn{
+.btn--validate{
   font-size: $s-mob--small;
   font-weight: bold;
+  display: none;
 
   @include tb{
     font-size: $s-tab--small;

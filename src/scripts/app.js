@@ -224,87 +224,87 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
 function keyDownHandler(e) {
-  if ("code" in e) {
-    switch (e.code) {
-      case "Unidentified":
-        break;
-      case "ArrowRight":
-      case "Right": // IE <= 9 and FF <= 36
-      case "KeyD":
-        rightPressed = true;
-        return;
-      case "ArrowLeft":
-      case "Left": // IE <= 9 and FF <= 36
-      case "KeyA":
-        leftPressed = true;
-        return;
-      case "ArrowUp":
-      case "Up": // IE <= 9 and FF <= 36
-      case "KeyW":
-        upPressed = true;
-        return;
-      case "ArrowDown":
-      case "Down": // IE <= 9 and FF <= 36
-      case "KeyS":
-        downPressed = true;
-        return;
-      default:
-        return;
+    if ("code" in e) {
+        switch (e.code) {
+            case "Unidentified":
+                break;
+            case "ArrowRight":
+            case "Right": // IE <= 9 and FF <= 36
+            case "KeyD":
+                rightPressed = true;
+                return;
+            case "ArrowLeft":
+            case "Left": // IE <= 9 and FF <= 36
+            case "KeyA":
+                leftPressed = true;
+                return;
+            case "ArrowUp":
+            case "Up": // IE <= 9 and FF <= 36
+            case "KeyW":
+                upPressed = true;
+                return;
+            case "ArrowDown":
+            case "Down": // IE <= 9 and FF <= 36
+            case "KeyS":
+                downPressed = true;
+                return;
+            default:
+                return;
+        }
     }
-}
 
-if (e.keyCode == 39) {
-  rightPressed = true;
-} else if (e.keyCode == 37) {
-  leftPressed = true;
-}
-if (e.keyCode == 40) {
-  downPressed = true;
-} else if (e.keyCode == 38) {
-  upPressed = true;
-}
-}
+    if (e.keyCode == 39) {
+        rightPressed = true;
+    } else if (e.keyCode == 37) {
+        leftPressed = true;
+    }
+    if (e.keyCode == 40) {
+        downPressed = true;
+    } else if (e.keyCode == 38) {
+        upPressed = true;
+    }
+}  
 
 function keyUpHandler(e) {
-if ("code" in e) {
-  switch (e.code) {
-    case "Unidentified":
-      break;
-    case "ArrowRight":
-    case "Right": // IE <= 9 and FF <= 36
-    case "KeyD":
-      rightPressed = false;
-      return;
-    case "ArrowLeft":
-    case "Left": // IE <= 9 and FF <= 36
-    case "KeyA":
-      leftPressed = false;
-      return;
-    case "ArrowUp":
-    case "Up": // IE <= 9 and FF <= 36
-    case "KeyW":
-      upPressed = false;
-      return;
-    case "ArrowDown":
-    case "Down": // IE <= 9 and FF <= 36
-    case "KeyS":
-      downPressed = false;
-      return;
-    default:
-      return;
-  }
-}
+    if ("code" in e) {
+        switch (e.code) {
+            case "Unidentified":
+            break;
+            case "ArrowRight":
+            case "Right": // IE <= 9 and FF <= 36
+            case "KeyD":
+            rightPressed = false;
+            return;
+            case "ArrowLeft":
+            case "Left": // IE <= 9 and FF <= 36
+            case "KeyA":
+            leftPressed = false;
+            return;
+            case "ArrowUp":
+            case "Up": // IE <= 9 and FF <= 36
+            case "KeyW":
+            upPressed = false;
+            return;
+            case "ArrowDown":
+            case "Down": // IE <= 9 and FF <= 36
+            case "KeyS":
+            downPressed = false;
+            return;
+            default:
+            return;
+        }
+    }
 
-if (e.keyCode == 39) {
-  rightPressed = false;
-} else if (e.keyCode == 37) {
-  leftPressed = false;
-}
-if (e.keyCode == 40) {
-  downPressed = false;
-} else if (e.keyCode == 38) {
-  upPressed = false;
-}
+    if (e.keyCode == 39) {
+        rightPressed = false;
+    } else if (e.keyCode == 37) {
+        leftPressed = false;
+    }
+    if (e.keyCode == 40) {
+        downPressed = false;
+    } else if (e.keyCode == 38) {
+        upPressed = false;
+    }
 }
 
 // TOUCH
@@ -312,12 +312,12 @@ document.addEventListener("touchstart", touchHandler);
 document.addEventListener("touchmove", touchHandler);
 
 function touchHandler(e) {
-if (e.touches) {
-  playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth / 2;
-  playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight / 2;
-  output.innerHTML = "Touch:  <br />" + " x: " + playerX + ", y: " + playerY;
-  e.preventDefault();
-}
+    if (e.touches) {
+        playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth / 2;
+        playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight / 2;
+        output.innerHTML = "Touch:  <br />" + " x: " + playerX + ", y: " + playerY;
+        e.preventDefault();
+    }
 }
 
 // GAMEPAD
@@ -326,74 +326,74 @@ var controller = {};
 var buttonsPressed = [];
 
 function gamepadHandler(e) {
-controller = e.gamepad;
-output.innerHTML = "Gamepad: " + controller.id;
+    controller = e.gamepad;
+    output.innerHTML = "Gamepad: " + controller.id;
 }
 
 function gamepadUpdateHandler() {
-buttonsPressed = [];
-if (controller.buttons) {
-  for (var b = 0; b < controller.buttons.length; b++) {
-    if (controller.buttons[b].pressed) {
-      buttonsPressed.push(b);
+    buttonsPressed = [];
+    if (controller.buttons) {
+        for (var b = 0; b < controller.buttons.length; b++) {
+            if (controller.buttons[b].pressed) {
+                buttonsPressed.push(b);
+            }
+        }
     }
-  }
-}
 }
 
 function gamepadButtonPressedHandler(button) {
-  var press = false;
-  for (var i = 0; i < buttonsPressed.length; i++) {
+    var press = false;
+    for (var i = 0; i < buttonsPressed.length; i++) {
     if (buttonsPressed[i] == button) {
-      press = true;
+        press = true;
+        }
     }
-}
-return press;
+    return press;
 }
 // Dynamic resizing of canvas
 function canvasResize() {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-canvas.style.width = canvas.width + "px";
-canvas.style.height = canvas.height + "px";
-canvas.width *= ratio;
-canvas.height *= ratio;
-ctx.scale(ratio, ratio);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = canvas.width + "px";
+    canvas.style.height = canvas.height + "px";
+    canvas.width *= ratio;
+    canvas.height *= ratio;
+    ctx.scale(ratio, ratio);
 }
 // Dynamic rocket position
 function rocketResize() {
-playerX = (window.innerWidth - 85) / 2;
-playerY = (window.innerHeight - 70) / 2;
+    playerX = (window.innerWidth - 85) / 2;
+    playerY = (window.innerHeight - 70) / 2;
 }
 
 
 // Setup barre
 let progress = 0;
 function bar() {
-let posBarX = playerX + 80;
-let posBarY = playerY + 30;
-let maxProgress = Math.min(progress, 200);
-let progressionPourcent = Math.round(maxProgress / 2) + "%";
+    let posBarX = playerX + 80;
+    let posBarY = playerY + 30;
+    let maxProgress = Math.min(progress, 200);
+    let progressionPourcent = Math.round(maxProgress / 2) + "%";
 
-// Texte progression 
-ctx.fillStyle = "white";
-ctx.fillText("Progression : ", posBarX, posBarY - 10);
-ctx.fillText(progressionPourcent, posBarX + 65, posBarY - 10);
+    // Texte progression 
+    ctx.fillStyle = "white";
+    ctx.fillText("Progression : ", posBarX, posBarY - 10);
+    ctx.fillText(progressionPourcent, posBarX + 65, posBarY - 10);
 
-// Bar background
-ctx.fillStyle = "black";
-ctx.fillRect(posBarX, posBarY, 200, 20);
+    // Bar background
+    ctx.fillStyle = "black";
+    ctx.fillRect(posBarX, posBarY, 200, 20);
 
-// Bar progress
-// Limite de progression
-if (maxProgress < progress) {
-  progress = 200;
-} else {
-  progress += 0.05;
-}
-// Draw progress bar
-ctx.fillStyle = "#EB4747";
-ctx.fillRect(posBarX, posBarY, maxProgress, 20);
+    // Bar progress
+    // Limite de progression
+    if (maxProgress < progress) {
+        progress = 200;
+    } else {
+        progress += 0.05;
+    }
+    // Draw progress bar
+    ctx.fillStyle = "#EB4747";
+    ctx.fillRect(posBarX, posBarY, maxProgress, 20);
 }
 
 
@@ -405,117 +405,117 @@ function toggleGameOverScreen() {
 }
 // Local storage
 function gameOverScreen() {
-  toggleGameOverScreen()
-btn_retry.addEventListener('click', () => {
-      document.location.reload(true);
-});
+    toggleGameOverScreen()
+    btn_retry.addEventListener('click', () => {
+        document.location.reload(true);
+    });
 }
 
 
 // DRAW
 function draw() {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-var playerPos = new Victor(playerX + (playerWidth / 2), playerY + (playerHeight / 2));
-if (!gamePaused) {
-  bar()
-  planetes.forEach(item => {
-    var planetPos = new Victor(item["xPos"] + (item["width"] / 2), item["yPos"] + (item["height"] / 2));
-    var vectorX = ((item["xPos"] + item["width"] / 2) - (playerX + playerWidth / 2));
-    var vectorY = ((item["yPos"] + item["height"] / 2) - (playerY + playerHeight / 2));
-    var distance = playerPos.distance(planetPos);
-    var angleV = Victor(vectorX, vectorY).verticalAngleDeg();
-    var angleH = Victor(vectorX, vectorY).angleDeg();
-    if (distance <= item["champDistance"]) {
-      // vérifie le playerX/playerY par rapport au planetX/planetY
-      if (angleV >= 0 && angleH > 0) {
-        playerX += 1.5;
-        playerY += 1.5;
-      } else if (angleV <= 0 && angleH < 0) {
-        playerX += -1.5;
-        playerY += -1.5;
-      } else if (angleV >= 0 && angleH < 0) {
-        playerX += 1.5;
-        playerY += -1.5;
-      } else if (angleV <= 0 && angleH > 0) {
-        playerX += -1.5;
-        playerY += 1.5;
-      }
-    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var playerPos = new Victor(playerX + (playerWidth / 2), playerY + (playerHeight / 2));
+    if (!gamePaused) {
+        bar()
+        planetes.forEach(item => {
+            var planetPos = new Victor(item["xPos"] + (item["width"] / 2), item["yPos"] + (item["height"] / 2));
+            var vectorX = ((item["xPos"] + item["width"] / 2) - (playerX + playerWidth / 2));
+            var vectorY = ((item["yPos"] + item["height"] / 2) - (playerY + playerHeight / 2));
+            var distance = playerPos.distance(planetPos);
+            var angleV = Victor(vectorX, vectorY).verticalAngleDeg();
+            var angleH = Victor(vectorX, vectorY).angleDeg();
+            if (distance <= item["champDistance"]) {
+                // vérifie le playerX/playerY par rapport au planetX/planetY
+                if (angleV >= 0 && angleH > 0) {
+                    playerX += 1.5;
+                    playerY += 1.5;
+                } else if (angleV <= 0 && angleH < 0) {
+                    playerX += -1.5;
+                    playerY += -1.5;
+                } else if (angleV >= 0 && angleH < 0) {
+                    playerX += 1.5;
+                    playerY += -1.5;
+                } else if (angleV <= 0 && angleH > 0) {
+                    playerX += -1.5;
+                    playerY += 1.5;
+                }
+            }
 
-    if (item["yPos"] < clientHeight + 100) {
-      item["yPos"] += 1.5;
-    } else {
-      item["champDistance"] = 0;
-    }
+            if (item["yPos"] < clientHeight + 100) {
+                item["yPos"] += 1.5;
+            } else {
+                item["champDistance"] = 0;
+            }
 
-    // GameOver
-    if (distance <= item["width"] / 2) {
-      gamePaused = true;
-      // gameOverTxt.style.opacity = "1";
-      gameOver = true;
-      gameOverScreen()
-    }
-    if(!conditionSkipDiag) {
-              // Gestion dialogues
-              if (item["number"] == 1 && item["yPos"] >= 0 - item["width"] / 2) {
-                step++;
-              }
-              if (step == 1) {
-                dialoguesContainer.style.display = "block";
-                gamePaused = !gamePaused;
-                pauseBtn.classList.toggle("btn--pause-resume");
-                background.classList.toggle("background--stopped");
-                background.classList.toggle('background--dial-open');
-                pauseBtn.setAttribute('disabled', "");
-                canvas.classList.toggle('canvas--dial-open');
-                hud.classList.toggle('hud--dial-open');
-                step++;
-              }
-              // Rendre les dialogues skippable
-              if (step >= 7) {
-                sessionStorage.setItem('skippableDiag', 'true');
-              }
-          }
-    
-    
+            // GameOver
+            if (distance <= item["width"] / 2) {
+                gamePaused = true;
+                // gameOverTxt.style.opacity = "1";
+                gameOver = true;
+                gameOverScreen()
+            }
+            if(!conditionSkipDiag) {
+                // Gestion dialogues
+                if (item["number"] == 1 && item["yPos"] >= 0 - item["width"] / 2) {
+                    step++;
+                }
+                if (step == 1) {
+                    dialoguesContainer.style.display = "block";
+                    gamePaused = !gamePaused;
+                    pauseBtn.classList.toggle("btn--pause-resume");
+                    background.classList.toggle("background--stopped");
+                    background.classList.toggle('background--dial-open');
+                    pauseBtn.setAttribute('disabled', "");
+                    canvas.classList.toggle('canvas--dial-open');
+                    hud.classList.toggle('hud--dial-open');
+                    step++;
+                }
+                // Rendre les dialogues skippable
+                if (step >= 7) {
+                    sessionStorage.setItem('skippableDiag', 'true');
+                }
+            }
+        
+        
         });
-    
-    
+            
+            
         // KEYBOARD
         // Need to launch the rocket before being able to move the rocket
         if (rightPressed) {
-          playerX += 3;
-          if (playerX >= window.innerWidth - 70) {
-            playerX = window.innerWidth - 70;
-          }
+            playerX += 3;
+            if (playerX >= window.innerWidth - 70) {
+                playerX = window.innerWidth - 70;
+            }
         } else if (leftPressed) {
-          playerX -= 3;
-          if (playerX <= 0) {
-            playerX = 0;
-          }
+            playerX -= 3;
+            if (playerX <= 0) {
+                playerX = 0;
+            }
         }
         if (downPressed) {
             playerY += 3;
             if (playerY >= window.innerHeight - 85) {
-              playerY = window.innerHeight - 85;
+                playerY = window.innerHeight - 85;
             }
-          } else if (upPressed) {
+        } else if (upPressed) {
             playerY -= 3;
             if (playerY <= 0) {
-              playerY = 0;
+                playerY = 0;
             }
-          }
         }
+    }
 
-        planetes.forEach(item => {
-          ctx.drawImage(item["name"], item["xPos"], item["yPos"], item["width"], item["height"]);
-        });
-        ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
-        requestAnimationFrame(draw);
-      }
-      window.onresize = function () {
-        canvasResize();
-        rocketResize();
-      }
-      canvasResize();
-      draw();
+    planetes.forEach(item => {
+        ctx.drawImage(item["name"], item["xPos"], item["yPos"], item["width"], item["height"]);
+    });
+    ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
+    requestAnimationFrame(draw);
+}
+window.onresize = function () {
+    canvasResize();
+    rocketResize();
+}
+canvasResize();
+draw();

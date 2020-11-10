@@ -134,27 +134,21 @@ var Victor = require('victor');
     }
 
 
+    
+
     var ratio = window.devicePixelRatio || 1;
 
     planetes.forEach(item => {
         console.log("nom : "+item['name']+" number : "+item['number']+" y : "+item['yPos']);
     });
 
-
     // Ajout planètes
-
-
     planetes.forEach(item => {
         let planete = item["name"];
         item["name"] = new Image ();
         item["name"].className = planete;
         item["name"].src = "../assets/__planets/" + planete + ".svg";
     });
-
-
-
-
-
 
     // KEYBOARD
     document.addEventListener("keydown", keyDownHandler, false);
@@ -301,13 +295,49 @@ var Victor = require('victor');
         playerY = (window.innerHeight-70)/2;
     }
  
-    // DRAW
 
+    // Setup barre
+        let progress = 0; 
+    function bar() {
+        let posBarX = playerX + 80;
+        let posBarY = playerY + 30;
+        let maxProgress = Math.min(progress, 200);
+        let progressionPourcent = Math.round(maxProgress/2) + "%";
+
+        // Texte progression 
+        ctx.fillStyle = "white";
+        ctx.fillText("Progression : ", posBarX, posBarY-10);
+        ctx.fillText(progressionPourcent, posBarX+65, posBarY-10);
+
+        // Bar background
+        ctx.fillStyle = "black";
+        ctx.fillRect(posBarX,posBarY,200,20);
+
+        // Bar progress
+            // Limite de progression
+        if(maxProgress < progress) {
+            progress = 200;
+        }
+        else {
+            progress += 0.05;
+        }
+        // Draw progress bar
+        ctx.fillStyle = "#EB4747"; 
+        ctx.fillRect(posBarX,posBarY,maxProgress,20);
+    }
+
+    // DRAW
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+
         var playerPos = new Victor(playerX + (playerWidth/2), playerY + (playerHeight/2));
         if (!gamePaused) {
+            // Micro barre de progression
+                // Faire avancer la barre quand le jeu n'est pas en pause
+                // Setup barre
+                bar()
+
+
             planetes.forEach(item => {
                 var planetPos = new Victor(item["xPos"] + (item["width"]/2), item["yPos"] + (item["height"]/2));
                 var vectorX = ((item["xPos"] + item["width"]/2) - (playerX + playerWidth/2));
@@ -335,7 +365,6 @@ var Victor = require('victor');
                     }
                     
                 }
-                
 
                 if (item["yPos"] < clientHeight+100) {
                     item["yPos"] += 1.5;

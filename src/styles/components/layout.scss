@@ -822,3 +822,180 @@ p{
     }
   }
 }
+
+.gameOver{
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 400ms cubic-bezier(0.25, 0.89, 0.48, 0.97);
+  
+  strong{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-250%);
+    margin: 0;
+  }
+
+  &--show{
+    opacity: 1;
+  }
+}
+
+.hud{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+
+  &--dial-open{
+    background-color: #fefefe13;
+    filter: blur(0);
+  }
+
+
+  .dialogues-container{
+    max-width: 400px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    img{
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+      position: relative;
+      top: 20px;
+
+      @include lg{
+        max-width: 300px;
+        top: 25px;
+      }
+    }
+
+    @include sm{
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    @include tb{
+      max-width: 550px;
+      bottom: 5%;
+    }
+  
+    @include lg{
+      max-width: 800px;
+      
+      bottom: 5%;
+    }
+
+    @include xl{
+    }
+    &--hide{
+      opacity: 0;
+      pointer-events: none;
+      // display : none;
+    }
+  }
+}
+
+
+.dialogues{
+  display: block;
+  margin: 0 auto;
+  border: 5px solid $c-red;
+  border-radius: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  bottom: 0;
+  p {
+    color: $c-black;
+    margin:  $s-mob--small;
+    max-width: initial;
+
+    @include tb{
+      margin: $s-tab--small;
+      max-width: initial;
+
+    }
+
+    @include lg{
+      margin: $s-desk--small;
+      max-width: initial;
+    }
+  }
+}
+
+
+.btn--pause{
+  display: none;
+  position: fixed;
+  left: auto;
+  right: 18px;
+  // la taille ici est en pixel car la valeur en EM dépend de la taille de la fonte, et la fonte-size = 0.
+  background-color: initial;
+  border: none;
+  background-image: url(../../assets/gravity/pause.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 0;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  top: 50px;
+  transition: 300ms ease-out;
+  cursor: pointer;
+  outline: inherit;
+
+  @include sm{
+    right: 28px;
+    width: 36px;
+    height: 36px;
+  }
+
+  @include tb{
+    right: 31px;
+    width: 48px;
+    height: 48px;
+  }
+
+  @include lg{
+    right: 50px;
+    width: 67px;
+    height: 67px;
+  }
+  &:hover{
+    transform: scale(1.2);
+  }
+
+  &:active{
+    transform: scale(1.3);
+
+  }
+
+  &-resume{
+    background-image: url(../../assets/gravity/play.svg);
+
+  }
+}
+
+
+.canvas{
+  &--dial-open{
+      filter: blur(2px);
+    pointer-events: none;
+
+  }
+}
+
+.background{
+  &--dial-open{
+    filter: blur(2px);
+
+  }
+}

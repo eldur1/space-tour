@@ -3,12 +3,6 @@
         {
             "characterImg" : "assets/images/Newton--idle.png",
             "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
-            "dialogueNb" : 0,
-            "text" : "Bien le&nbsp;Bonjour&nbsp;!"
-        },
-        {
-            "characterImg" : "assets/images/Newton--idle.png",
-            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
             "dialogueNb" : 1,
             "text" : "Je m’appelle Isaac Newton, et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures, et prépare-toi à découvrir la gravité parmi les&nbsp;étoiles&nbsp;!"
         },
@@ -22,7 +16,7 @@
             "characterImg" : "assets/images/Newton--hand-apple.png",
             "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
             "dialogueNb" : 3,
-            "text" : "&ndash; Je suis connu pour avoir “découvert” la gravité et ses trois lois du mouvement&#8239;; <br> &ndash; On me connaît principalement à cause d'une pomme qui m'est tombée sur la tête&#8239;;<br> &ndash; J'ai également découvert que la lumière blanche est composée d’une gamme de pleins de couleurs différentes&#8239;;<br> &ndash; La Reine Anne d'Angleterre m'a fait chevalier le&nbsp;16&nbsp;avril&nbsp;1705."
+            "text" : "&ndash; Je suis connu pour avoir “découvert” la gravité et ses trois lois du mouvement&#8239;; <br> &ndash; On me connaît principalement à cause d'une pomme qui m'est tombée sur la tête&#8239;;<br> &ndash; J'ai également découvert que la lumière blanche est composée d’une gamme de plein de couleurs différentes&#8239;;<br> &ndash; La Reine Anne d'Angleterre m'a fait chevalier le&nbsp;16&nbsp;avril&nbsp;1705."
         },
         {
             "characterImg" : "assets/images/Newton--apple.png",
@@ -46,19 +40,19 @@
             "characterImg" : "assets/images/Newton--apple.png",
             "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
             "dialogueNb" : 8,
-            "text" : "Il est donc logique de dire que, plus nous sommes proches d'un objet plus gros que nous (comme un astéroide, par exemple), plus l'attraction qu'il a sur nous est bien plus importante que celle que nous avons sur&nbsp;lui."
+            "text" : "Il est donc logique de dire que, plus nous sommes proches d'un objet plus gros que nous (comme un astéroïde, par exemple), plus l'attraction qu'il a sur nous est importante par rapport à celle que nous avons sur&nbsp;lui."
         },
         {
             "characterImg" : "assets/images/Newton--apple.png",
             "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
             "dialogueNb" : 9,
-            "text" : "Cela fonctionne dans l'autre sens également&#8239;: plus l’on s’éloigne de de cet objet, moins il nous attire vers lui, jusqu’à ce qu'il nous laisse partir. C'est ce qu'on appelle l'apesenteur, c'est-à-dire l'absence de gravité (en d'autre mots, ça permet de&nbsp;flotter&nbsp;!)."
+            "text" : "Cela fonctionne dans l'autre sens également&#8239;: plus l’on s’éloigne de cet objet, moins il nous attire vers lui, jusqu’à ce qu'il nous laisse partir. C'est ce qu'on appelle l'apesanteur, c'est-à-dire l'absence de gravité (en d'autres mots, ça permet de&nbsp;flotter&nbsp;!)."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
             "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
             "dialogueNb" : 10,
-            "text" : "La gravité, c'est donc ce qui nous maintient les pieds au sol. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre."
+            "text" : "La gravité, c'est donc ce qui nous maintient les pieds au sol. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Hé oui&nbsp;! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre."
         },
         {
             "characterImg" : "assets/images/Newton--hand-apple.png",
@@ -76,7 +70,7 @@
             "characterImg" : "assets/images/Newton--hand-apple.png",
             "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
             "dialogueNb" : 13,
-            "text" : "Mais si tu croise une autre planète, elle va t'attirer vers elle, et c'est à ça que tu dois faire attention, tu&nbsp;comprends?"
+            "text" : "Mais si tu croises une autre planète, elle va t'attirer vers elle, et te faire t'écraser. c'est à ça que tu dois faire attention, tu&nbsp;comprends?"
         },
         {
             "characterImg" : "assets/images/Newton--hand-apple.png",
@@ -88,7 +82,7 @@
             "characterImg" : "assets/images/Newton--idle.png",
             "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
             "dialogueNb" : 15,
-            "text" : "Attention cher aventurier! Attention chère aventurière! Ta mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprissent au centre de formation, nous comptons sur&nbsp;toi."
+            "text" : "Attention cher voyageur&nbsp;! Ta mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprises au centre de formation, nous comptons sur&nbsp;toi."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
@@ -184,13 +178,13 @@
             "characterImg" : "assets/images/Newton--idle.png",
             "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
             "dialogueNb" : 31,
-            "text" : "C'est la planète la plus froide de notre système solaire. Tout comme Vénus, ce sont les seules planètes à tourner dans le sens des aiguilles d'une montre. Toutes les autres tournent dans le sens&nbsp;inverse!"
+            "text" : "C'est la planète la plus froide de notre système solaire. Tout comme Vénus, ce sont les seules planètes à tourner dans le sens des aiguilles d'une montre. Toutes les autres tournent dans le sens&nbsp;inverse&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
             "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
             "dialogueNb" : 32,
-            "text" : "Regarde ! C'est <strong>Neptune</strong> juste&nbsp;là&nbsp;!"
+            "text" : "Regarde&nbsp;! C'est <strong>Neptune</strong> juste&nbsp;là&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",

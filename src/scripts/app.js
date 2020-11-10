@@ -4,7 +4,7 @@ const {
 import CSSPlugin from "gsap/CSSPlugin"
 gsap.registerPlugin(CSSPlugin);
 var Victor = require('victor');
-+// INIT
+// INIT
 let background = document.querySelector(".background");
 var canvas = document.getElementById("myCanvas");
 var clientWidth = document.body.clientWidth;

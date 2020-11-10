@@ -48,70 +48,59 @@ pauseBtn.addEventListener("click", (e) => {
 
 // Gestion de l'évolution du jeu et des dialogues 
 
-let dialogues = [{
-    "dialogueNb": 1,
-    "text": "Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles.",
-  },
-  {
-    "dialogueNb": 2,
-    "text": "Si tu as des doutes, voici mon CV&#8239;:&#8239;",
-  },
-  {
-    "dialogueNb": 3,
-    "text": "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le 16 avril 1705",
-  },
-  {
-    "dialogueNb": 4,
-    "text": "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes missions.",
-  },
-  {
-    "dialogueNb": 5,
-    "text": "Suis-moi direction le centre de formation pour jeunes&nbsp;astronautes&nbsp;!",
-  },
-  {
-    "dialogueNb": 6,
-    "text": "Ce que tu vois là sur ton écran, c'est une planète. Si tu t'en approches trop tu vas rentrer dans son champ de gravité ce qui signifie que tu vas être attiré par&nbsp;elle.",
-  },
-  {
-    "dialogueNb": 7,
-    "text": "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
-  },
-  {
-    "dialogueNb": 8,
-    "text": "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
-  },
-  {
-    "dialogueNb": 9,
-    "text": "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
-  }
-];
+let dialogues = [];
 
-if(conditionSkipDiag) {
+fetch("../assets/data/dialogues.json")
+.then(function(response) {
+    if (response.status !== 200){
+        console.log('error')
+    }
+    response.json().then(function(data){
+        dialogues = data.dialogues;
+    });
+});
+
+function closeDialogues(){
     dialoguesContainer.style.display = "none";
-    gamePaused = false;
-    canvas.classList.toggle('canvas--dial-open');
-    background.classList.toggle("background--stopped");
-    background.classList.toggle("background--dial-open")
-    pauseBtn.classList.toggle("btn--pause-resume");
-    pauseBtn.removeAttribute('disabled');
-    hud.classList.toggle('hud--dial-open');
+    gamePaused = !gamePaused;
+    pauseBtn.classList.remove("btn--pause-resume");
+    background.classList.remove("background--stopped");
+    background.classList.remove('background--dial-open');
+    pauseBtn.style.display = "block";
+    canvas.classList.remove('canvas--dial-open');
+    hud.classList.remove('hud--dial-open');
+};
+function openDialogues(){
+    dialogues.forEach(item => {
+        if (dialogue == item.dialogueNb) {
+            dialogueContent.innerHTML = item.text;
+        }
+    });
+    dialoguesContainer.style.display = "block";
+    gamePaused = !gamePaused;
+    pauseBtn.classList.add("btn--pause-resume");
+    background.classList.add("background--stopped");
+    background.classList.add('background--dial-open');
+    pauseBtn.style.display = "none";
+    canvas.classList.add('canvas--dial-open');
+    hud.classList.add('hud--dial-open');
+};
+
+/*if(conditionSkipDiag) {
+    closeDialogues();
 }
 else {
-}
+}*/
+let venusSeen = false;
+let earthSeen = false;
+let tutoPassed = false;
 okBtn.addEventListener("click", (e) => {
     dialogue++;
     dialogues.forEach(item => {
         if (dialogue == item.dialogueNb) {
-        dialogueContent.innerHTML = item.text;
-            if (dialogue == 6 || dialogue == 8) {
-                dialoguesContainer.style.display = "none";
-                gamePaused = !gamePaused;
-                pauseBtn.classList.toggle("btn--pause-resume");
-                background.classList.toggle("background--stopped");
-                background.classList.toggle('background--dial-open');
-                pauseBtn.removeAttribute('disabled');
-                canvas.classList.toggle('canvas--dial-open');
-                hud.classList.toggle('hud--dial-open');
+            dialogueContent.innerHTML = item.text;
+            if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20){
+                closeDialogues();
             }
         }
     });
@@ -128,6 +117,7 @@ var planetes = [];
 
 
 let terre = {
+  "id": "terre",
   "name": "terre",
   "width": 200 * ratioScreen,
   "height": 200 * ratioScreen,
@@ -136,6 +126,7 @@ let terre = {
   "champDistance": 300 * ratioScreen
 }
 let venus = {
+  "id": "vénus",
   "name": "vénus",
   "width": 200 * ratioScreen,
   "height": 200 * ratioScreen,
@@ -144,6 +135,7 @@ let venus = {
   "champDistance": 300 * ratioScreen
 }
 let mars = {
+  "id": "mars",
   "name": "mars",
   "width": 170 * ratioScreen,
   "height": 170 * ratioScreen,
@@ -152,6 +144,7 @@ let mars = {
   "champDistance": 255 * ratioScreen
 }
 let jupiter = {
+  "id": "jupiter",
   "name": "jupiter",
   "width": 350 * ratioScreen,
   "height": 350 * ratioScreen,
@@ -160,6 +153,7 @@ let jupiter = {
   "champDistance": 475 * ratioScreen
 }
 let saturne = {
+  "id": "saturne",
   "name": "saturne",
   "width": 300 * ratioScreen,
   "height": 300 * ratioScreen,
@@ -168,6 +162,7 @@ let saturne = {
   "champDistance": 350 * ratioScreen
 }
 let uranus = {
+  "id": "uranus",
   "name": "uranus",
   "width": 270 * ratioScreen,
   "height": 270 * ratioScreen,
@@ -176,6 +171,7 @@ let uranus = {
   "champDistance": 305 * ratioScreen
 }
 let neptune = {
+  "id": "neptune",
   "name": "neptune",
   "width": 220 * ratioScreen,
   "height": 220 * ratioScreen,
@@ -190,7 +186,7 @@ for (let i = 1; i <= 36; i++) {
   if (i != 3 && i != 8 && i != 13 && i != 18 && i != 24 && i != 36 && i != 30) {
     let width = getRandomInt(100) + 200;
     let planet = {
-      "number": i,
+      "id": i,
       "name": "planet" + getRandomInt(7),
       "width": width * ratioScreen,
       "height": width * ratioScreen,
@@ -207,9 +203,6 @@ for (let i = 1; i <= 36; i++) {
 
 var ratio = window.devicePixelRatio || 1;
 
-/* planetes.forEach(item => {
-  console.log("nom : " + item['name'] + " number : " + item['number'] + " y : " + item['yPos']);
-}); */
 
 // Ajout planètes
 planetes.forEach(item => {
@@ -455,27 +448,34 @@ function draw() {
                 gameOver = true;
                 gameOverScreen()
             }
-            if(!conditionSkipDiag) {
+/*            if(!conditionSkipDiag) {*/
                 // Gestion dialogues
-                if (item["number"] == 1 && item["yPos"] >= 0 - item["width"] / 2) {
-                    step++;
-                }
-                if (step == 1) {
-                    dialoguesContainer.style.display = "block";
-                    gamePaused = !gamePaused;
-                    pauseBtn.classList.toggle("btn--pause-resume");
-                    background.classList.toggle("background--stopped");
-                    background.classList.toggle('background--dial-open');
-                    pauseBtn.setAttribute('disabled', "");
-                    canvas.classList.toggle('canvas--dial-open');
-                    hud.classList.toggle('hud--dial-open');
-                    step++;
-                }
-                // Rendre les dialogues skippable
-                if (step >= 7) {
-                    sessionStorage.setItem('skippableDiag', 'true');
+            if (tutoPassed == false) {
+                if (item["id"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 13;
+                    openDialogues();
+                    tutoPassed = true;
                 }
             }
+            if (earthSeen == false) {
+                if (item["id"] == "terre" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 15;
+                    openDialogues();
+                    earthSeen = true;
+                }   
+            }
+            if (venusSeen == false) {
+                if (item["id"] == "vénus" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 17;
+                    openDialogues();
+                    venusSeen = true;
+                }   
+            }
+ /*               // Rendre les dialogues skippable
+                if (step >= 7) {
+                    sessionStorage.setItem('skippableDiag', true);
+                }
+            }*/
         
         
         });

@@ -28,6 +28,7 @@ let dialogueContent = document.querySelector(".dialogues p");
 let dialoguesContainer = document.querySelector('.dialogues-container');
 let okBtn = document.querySelector(".btn--validate");
 let conditionSkipDiag = sessionStorage.getItem('skippableDiag');
+let imgNewton = document.querySelector(".dialogues-container img");
 
 // Import img
 var img = new Image();
@@ -74,6 +75,8 @@ function openDialogues(){
     dialogues.forEach(item => {
         if (dialogue == item.dialogueNb) {
             dialogueContent.innerHTML = item.text;
+            imgNewton.src = item.characterImg;
+            imgNewton.srcset = item.characterImg;
         }
     });
     dialoguesContainer.style.display = "block";
@@ -91,15 +94,18 @@ function openDialogues(){
 }
 else {
 }*/
-let venusSeen = false;
-let earthSeen = false;
-let tutoPassed = false;
+let marsSeen = false;
+let venusSeen = true;
+let earthSeen = true;
+let tutoPassed = true;
 okBtn.addEventListener("click", (e) => {
     dialogue++;
     dialogues.forEach(item => {
         if (dialogue == item.dialogueNb) {
             dialogueContent.innerHTML = item.text;
-            if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20){
+            imgNewton.src = item.characterImg;
+            imgNewton.srcset = item.characterImg;
+            if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20 || dialogue == 22){
                 closeDialogues();
             }
         }
@@ -469,6 +475,13 @@ function draw() {
                     dialogue = 17;
                     openDialogues();
                     venusSeen = true;
+                }   
+            }
+            if (marsSeen == false) {
+                if (item["id"] == "mars" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 20;
+                    openDialogues();
+                    marsSeen = true;
                 }   
             }
  /*               // Rendre les dialogues skippable

@@ -79,6 +79,7 @@ var Victor = require('victor');
         canvas.classList.add('canvas--dial-open');
         hud.classList.add('hud--dial-open');
     };
+<<<<<<< HEAD
 
     let venusSeen = false;
     let earthSeen = false;
@@ -108,6 +109,147 @@ var Victor = require('victor');
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
+=======
+    planetes.push(planet);
+  }
+}
+
+
+
+
+var ratio = window.devicePixelRatio || 1;
+
+/* planetes.forEach(item => {
+  console.log("nom : " + item['name'] + " number : " + item['number'] + " y : " + item['yPos']);
+}); */
+
+// Ajout planètes
+planetes.forEach(item => {
+  let planete = item["name"];
+  item["name"] = new Image();
+  item["name"].className = planete;
+  item["name"].src = "../assets/__planets/" + planete + ".svg";
+});
+
+// KEYBOARD
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
+function keyDownHandler(e) {
+  if ("code" in e) {
+    switch (e.code) {
+      case "Unidentified":
+        break;
+      case "ArrowRight":
+      case "Right": // IE <= 9 and FF <= 36
+      case "KeyD":
+        rightPressed = true;
+        return;
+      case "ArrowLeft":
+      case "Left": // IE <= 9 and FF <= 36
+      case "KeyA":
+        leftPressed = true;
+        return;
+      case "ArrowUp":
+      case "Up": // IE <= 9 and FF <= 36
+      case "KeyW":
+        upPressed = true;
+        return;
+      case "ArrowDown":
+      case "Down": // IE <= 9 and FF <= 36
+      case "KeyS":
+        downPressed = true;
+        return;
+      default:
+        return;
+    }
+  }
+
+  if (e.keyCode == 39) {
+    rightPressed = true;
+  } else if (e.keyCode == 37) {
+    leftPressed = true;
+  }
+  if (e.keyCode == 40) {
+    downPressed = true;
+  } else if (e.keyCode == 38) {
+    upPressed = true;
+  }
+}
+
+function keyUpHandler(e) {
+  if ("code" in e) {
+    switch (e.code) {
+      case "Unidentified":
+        break;
+      case "ArrowRight":
+      case "Right": // IE <= 9 and FF <= 36
+      case "KeyD":
+        rightPressed = false;
+        return;
+      case "ArrowLeft":
+      case "Left": // IE <= 9 and FF <= 36
+      case "KeyA":
+        leftPressed = false;
+        return;
+      case "ArrowUp":
+      case "Up": // IE <= 9 and FF <= 36
+      case "KeyW":
+        upPressed = false;
+        return;
+      case "ArrowDown":
+      case "Down": // IE <= 9 and FF <= 36
+      case "KeyS":
+        downPressed = false;
+        return;
+      default:
+        return;
+    }
+  }
+
+  if (e.keyCode == 39) {
+    rightPressed = false;
+  } else if (e.keyCode == 37) {
+    leftPressed = false;
+  }
+  if (e.keyCode == 40) {
+    downPressed = false;
+  } else if (e.keyCode == 38) {
+    upPressed = false;
+  }
+}
+
+// TOUCH
+document.addEventListener("touchstart", touchHandler);
+document.addEventListener("touchmove", touchHandler);
+
+function touchHandler(e) {
+  if (e.touches) {
+    playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth / 2;
+    playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight / 2;
+    output.innerHTML = "Touch:  <br />" + " x: " + playerX + ", y: " + playerY;
+    e.preventDefault();
+  }
+}
+
+// GAMEPAD
+window.addEventListener("gamepadconnected", gamepadHandler);
+var controller = {};
+var buttonsPressed = [];
+
+function gamepadHandler(e) {
+  controller = e.gamepad;
+  output.innerHTML = "Gamepad: " + controller.id;
+}
+
+function gamepadUpdateHandler() {
+  buttonsPressed = [];
+  if (controller.buttons) {
+    for (var b = 0; b < controller.buttons.length; b++) {
+      if (controller.buttons[b].pressed) {
+        buttonsPressed.push(b);
+      }
+>>>>>>> parent of 80af0c3... Merge branch 'master' of https://github.com/eldur1/space-tour
     }
 
     var planetes = [];

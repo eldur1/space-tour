@@ -22,13 +22,19 @@ var downPressed = false;
 let gameOverContainer = document.querySelector(".gameOver");
 var btn_retry = document.querySelector('.btn--retry');
 let hud = document.querySelector(".hud");
-let step = 0;
 let dialogue = 0;
 let dialogueContent = document.querySelector(".dialogues p");
 let dialoguesContainer = document.querySelector('.dialogues-container');
 let okBtn = document.querySelector(".btn--validate");
-let conditionSkipDiag = sessionStorage.getItem('skippableDiag');
 let imgNewton = document.querySelector(".dialogues-container img");
+let neptuneSeen = false;
+let uranusSeen = false;
+let saturneSeen = false;
+let jupiterSeen = false;
+let marsSeen = false;
+let venusSeen = false;
+let earthSeen = false;
+let tutoPassed = false;
 
 // Import img
 var img = new Image();
@@ -89,19 +95,56 @@ function openDialogues(){
     hud.classList.add('hud--dial-open');
 };
 
-/*if(conditionSkipDiag) {
-    closeDialogues();
+
+if (sessionStorage.getItem('tutoPassed')) {
+    tutoPassed = sessionStorage.getItem('tutoPassed');
 }
 else {
-}*/
-let neptuneSeen = false;
-let uranusSeen = false;
-let saturneSeen = false;
-let jupiterSeen = false;
-let marsSeen = false;
-let venusSeen = false;
-let earthSeen = false;
-let tutoPassed = false;
+    tutoPassed = "false";
+}
+if (sessionStorage.getItem('earthSeen')) {
+    earthSeen = sessionStorage.getItem('earthSeen');
+}
+else {
+    earthSeen = "false";
+}
+if (sessionStorage.getItem('venusSeen')) {
+    venusSeen = sessionStorage.getItem('venusSeen');
+}
+else {
+    venusSeen = "false";
+}
+if (sessionStorage.getItem('marsSeen')) {
+    marsSeen = sessionStorage.getItem('marsSeen');
+}
+else {
+    marsSeen = "false";
+}
+if (sessionStorage.getItem('jupiterSeen')) {
+    jupiterSeen = sessionStorage.getItem('jupiterSeen');
+}
+else {
+    jupiterSeen = "false";
+}
+if (sessionStorage.getItem('saturneSeen')) {
+    saturneSeen = sessionStorage.getItem('saturneSeen');
+}
+else {
+    saturneSeen = "false";
+}
+if (sessionStorage.getItem('uranusSeen')) {
+    uranusSeen = sessionStorage.getItem('uranusSeen');
+}
+else {
+    uranusSeen = "false";
+}
+if (sessionStorage.getItem('neptuneSeen')) {
+    neptuneSeen = sessionStorage.getItem('neptuneSeen');
+}
+else {
+    neptuneSeen = "false";
+}
+
 okBtn.addEventListener("click", (e) => {
     dialogue++;
     dialogues.forEach(item => {
@@ -112,7 +155,13 @@ okBtn.addEventListener("click", (e) => {
             if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20 || dialogue == 22 || dialogue == 24 || dialogue == 26 || dialogue == 28 || dialogue == 30 ){
                 closeDialogues();
             }
+            if (dialogue == 1 && tutoPassed == "true") {
+                closeDialogues();
+                dialogue = 2;
+            }
+            
         }
+        
     });
 });
 
@@ -165,7 +214,7 @@ let jupiter = {
 let saturne = {
   "id": "saturne",
   "name": "saturne",
-  "width": 300 * ratioScreen,
+  "width": 320 * ratioScreen,
   "height": 300 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 300 * ratioScreen),
   "yPos": -19200,
@@ -174,7 +223,7 @@ let saturne = {
 let uranus = {
   "id": "uranus",
   "name": "uranus",
-  "width": 270 * ratioScreen,
+  "width": 300 * ratioScreen,
   "height": 270 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 270 * ratioScreen),
   "yPos": -24000,
@@ -458,70 +507,80 @@ function draw() {
                 gameOver = true;
                 gameOverScreen()
             }
-/*            if(!conditionSkipDiag) {*/
-                // Gestion dialogues
-            if (tutoPassed == false) {
+            
+            // Gestion dialogues
+            if (tutoPassed == "false") {
                 if (item["id"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 13;
                     openDialogues();
+                    // Rendre les dialogues skippable
+                    sessionStorage.setItem('tutoPassed', true);
                     tutoPassed = true;
+                    
                 }
             }
-            if (earthSeen == false) {
+            if (earthSeen == "false") {
                 if (item["id"] == "terre" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 15;
                     openDialogues();
+                    sessionStorage.setItem('earthSeen', true);
                     earthSeen = true;
                 }   
             }
-            if (venusSeen == false) {
+            if (venusSeen == "false") {
                 if (item["id"] == "vénus" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 17;
                     openDialogues();
+                    sessionStorage.setItem('venusSeen', true);
                     venusSeen = true;
                 }   
             }
-            if (marsSeen == false) {
+            if (marsSeen == "false") {
                 if (item["id"] == "mars" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 20;
                     openDialogues();
+                    
+                    sessionStorage.setItem('marsSeen', true);
                     marsSeen = true;
                 }   
             }
-            if (jupiterSeen == false) {
+            if (jupiterSeen == "false") {
                 if (item["id"] == "jupiter" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 22;
                     openDialogues();
+                    
+                    sessionStorage.setItem('jupiterSeen', true);
                     jupiterSeen = true;
                 }   
             }
-            if (saturneSeen == false) {
+            if (saturneSeen == "false") {
                 if (item["id"] == "saturne" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 24;
                     openDialogues();
+                    
+                    sessionStorage.setItem('saturneSeen', true);
                     saturneSeen = true;
                 }   
             }
-            if (uranusSeen == false) {
+            if (uranusSeen == "false") {
                 if (item["id"] == "uranus" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 26;
                     openDialogues();
+                    
+                    sessionStorage.setItem('uranusSeen', true);
                     uranusSeen = true;
                 }   
             }
-            if (neptuneSeen == false) {
+            if (neptuneSeen == "false") {
                 if (item["id"] == "neptune" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 28;
                     openDialogues();
+                    
+                    sessionStorage.setItem('neptuneSeen', true);
                     neptuneSeen = true;
                 }   
             }
-            
- /*               // Rendre les dialogues skippable
-                if (step >= 7) {
-                    sessionStorage.setItem('skippableDiag', true);
-                }
-            }*/
+                
         
         
         });

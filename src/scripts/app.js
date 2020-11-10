@@ -23,7 +23,7 @@ var Victor = require('victor');
 
     // Gestion de pauses
     let gameOver = false;
-    let gamePaused = false;
+    let gamePaused = true;
     let pauseBtn = document.querySelector(".btn--pause");
     pauseBtn.addEventListener("click", (e) => {
         if (!gameOver) {
@@ -34,6 +34,76 @@ var Victor = require('victor');
     })
 
     let gameOverContainer = document.querySelector(".gameOver");
+
+    // Gestion de l'évolution du jeu et des dialogues 
+
+    let dialogues = 
+    [
+        {
+            "dialogueNb" : 1,
+            "text" : "Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles.",
+        },
+        {
+            "dialogueNb" : 2,
+            "text" : "Si tu as des doutes, voici mon CV&#8239;:&#8239;",
+        },
+        {
+            "dialogueNb" : 3,
+            "text" : "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le 16 avril 1705",
+        },
+        {
+            "dialogueNb" : 4,
+            "text" : "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes missions.",
+        },
+        {
+            "dialogueNb" : 5,
+            "text" : "Suis-moi direction le centre de formation pour jeunes&nbsp;astronautes&nbsp;!",
+        },
+        {
+            "dialogueNb" : 6,
+            "text" : "Ce que tu vois là sur ton écran, c'est une planète. Si tu t'en approches trop tu vas rentrer dans son champ de gravité ce qui signifie que tu vas être attiré par&nbsp;elle.",
+        },
+        {
+            "dialogueNb" : 7,
+            "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
+        },
+        {
+            "dialogueNb" : 8,
+            "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
+        },
+        {
+            "dialogueNb" : 9,
+            "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
+        }
+    ];
+
+    let step = 0;
+    let hud = document.querySelector(".hud");
+    let dialogue = 0;
+    let dialogueContent = document.querySelector(".dialogues p");
+    let dialoguesContainer = document.querySelector('.dialogues-container');
+    let okBtn = document.querySelector(".btn--validate");
+    okBtn.addEventListener("click", (e) => {
+        dialogue++;
+        dialogues.forEach(item => {
+            if (dialogue == item.dialogueNb) {
+                dialogueContent.innerHTML = item.text;
+                if (dialogue == 6 || dialogue == 8){
+                    dialoguesContainer.style.display = "none";
+                    gamePaused = !gamePaused;
+                    pauseBtn.classList.toggle("btn--pause-resume");
+                    background.classList.toggle("background--stopped");
+                    background.classList.toggle('background--dial-open');
+                    pauseBtn.removeAttribute('disabled');
+                    canvas.classList.toggle('canvas--dial-open');
+                    hud.classList.toggle('hud--dial-open');
+                }
+            }
+        });
+    });
+
+    
+
     
     
     // Ajout planète
@@ -45,23 +115,28 @@ var Victor = require('victor');
     var planetes = [];
 
     
-    let terre = {"name" : "terre", "width" : 150*ratioScreen, "height" : 150*ratioScreen, "xPos" : getRandomInt(clientWidth - 150*ratioScreen), "yPos": -900*ratioScreen, "champDistance" : 200*ratioScreen}
-    let venus = {"name" : "vénus", "width" : 150*ratioScreen, "height" : 150*ratioScreen, "xPos" : getRandomInt(clientWidth - 150*ratioScreen), "yPos": -2100*ratioScreen, "champDistance" : 200*ratioScreen}
-    let mars = {"name" : "mars", "width" : 120*ratioScreen, "height" : 120*ratioScreen, "xPos" : getRandomInt(clientWidth - 120*ratioScreen), "yPos": -3300*ratioScreen, "champDistance" : 170*ratioScreen}
-    let jupiter = {"name" : "jupiter", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -5100*ratioScreen, "champDistance" : 400*ratioScreen}
-    let saturne = {"name" : "saturne", "width" : 280*ratioScreen, "height" : 240*ratioScreen, "xPos" : getRandomInt(clientWidth - 280*ratioScreen), "yPos": -6900*ratioScreen, "champDistance" : 360*ratioScreen}
-    let uranus = {"name" : "uranus", "width" : 250*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 250*ratioScreen), "yPos": -8700*ratioScreen, "champDistance" : 300*ratioScreen}
-    let neptune = {"name" : "neptune", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -10500*ratioScreen, "champDistance" : 300*ratioScreen}
+    let terre = {"name" : "terre", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -1900, "champDistance" : 300*ratioScreen}
+    let venus = {"name" : "vénus", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -5000, "champDistance" : 300*ratioScreen}
+    let mars = {"name" : "mars", "width" : 170*ratioScreen, "height" : 170*ratioScreen, "xPos" : getRandomInt(clientWidth - 170*ratioScreen), "yPos": -9900, "champDistance" : 255*ratioScreen}
+    let jupiter = {"name" : "jupiter", "width" : 350*ratioScreen, "height" : 350*ratioScreen, "xPos" : getRandomInt(clientWidth - 350*ratioScreen), "yPos": -12900, "champDistance" : 475*ratioScreen}
+    let saturne = {"name" : "saturne", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -17800, "champDistance" : 350*ratioScreen}
+    let uranus = {"name" : "uranus", "width" : 270*ratioScreen, "height" : 270*ratioScreen, "xPos" : getRandomInt(clientWidth - 270*ratioScreen), "yPos": -20800, "champDistance" : 305*ratioScreen}
+    let neptune = {"name" : "neptune", "width" : 220*ratioScreen, "height" : 220*ratioScreen, "xPos" : getRandomInt(clientWidth - 220*ratioScreen), "yPos": -24000, "champDistance" : 330*ratioScreen}
 
     planetes.push(terre, venus, mars, jupiter, saturne, uranus, neptune);
 
-    for (let i = 1; i < 17; i++) {
-        let planet = {"name" : "planet"+getRandomInt(7), "width" : (i*5+120)*ratioScreen, "height" : (i*5+120)*ratioScreen, "xPos" : getRandomInt(clientWidth - (i*20+100)*ratioScreen), "yPos": -500*i*1.2*ratioScreen, "champDistance" : (i*5+120)*1.2*ratioScreen};
+    for (let i = 1; i < 25; i++) {
+        let width = getRandomInt(100)+200;
+        let planet = {"number" : i, "name" : "planet"+getRandomInt(7), "width" : width*ratioScreen, "height" : width*ratioScreen, "xPos" : getRandomInt(clientWidth - width*ratioScreen), "yPos": -500 - ((i - 1) * 1000), "champDistance" : width*1.2*ratioScreen};
         planetes.push(planet);
     }
 
 
     var ratio = window.devicePixelRatio || 1;
+
+    planetes.forEach(item => {
+        console.log("nom : "+item['name']+" number : "+item['number']+" y : "+item['yPos']);
+    });
 
 
     // Ajout planètes
@@ -274,6 +349,23 @@ var Victor = require('victor');
                     gameOver = true;
                     background.classList.add("background--stopped");
                 }
+
+                // Gestion dialogues
+                if (item["number"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
+                    step++;
+                }
+                if (step == 1) {
+                    dialoguesContainer.style.display = "block";
+                    gamePaused = !gamePaused;
+                    pauseBtn.classList.toggle("btn--pause-resume");
+                    background.classList.toggle("background--stopped");
+                    background.classList.toggle('background--dial-open');
+                    pauseBtn.setAttribute('disabled', "");
+                    canvas.classList.toggle('canvas--dial-open');
+                    hud.classList.toggle('hud--dial-open');
+                    step++;
+                }
+            
             
             });
 

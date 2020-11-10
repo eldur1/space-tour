@@ -1,0 +1,26 @@
+[
+    {
+        "dialogueNb" : 1,
+        "text" : "Salutation petit être de la planète Terre! Je te souhaite la bienvenue chez SpaceTour, notre base spatiale.",
+    },
+    {
+        "dialogueNb" : 2,
+        "text" : "Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles.",
+    },
+    {
+        "dialogueNb" : 3,
+        "text" : "Si tu as des doutes, voici mon CV&#8239;:&#8239;",
+    },
+    {
+        "dialogueNb" : 4,
+        "text" : "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le 16 avril 1705",
+    },
+    {
+        "dialogueNb" : 5,
+        "text" : "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes missions.",
+    },
+    {
+        "dialogueNb" : 6,
+        "text" : "Suis-moi direction le centre de formation pour jeunes&nbsp;astronautes&nbsp;!"
+    }
+]

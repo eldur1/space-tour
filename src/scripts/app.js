@@ -208,7 +208,7 @@ for (let i = 1; i <= 36; i++) {
 
 
 var ratio = window.devicePixelRatio || 1;
-
+// 
 /* planetes.forEach(item => {
   console.log("nom : " + item['name'] + " number : " + item['number'] + " y : " + item['yPos']);
 }); */

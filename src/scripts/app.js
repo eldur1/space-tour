@@ -94,10 +94,14 @@ function openDialogues(){
 }
 else {
 }*/
+let neptuneSeen = false;
+let uranusSeen = false;
+let saturneSeen = false;
+let jupiterSeen = false;
 let marsSeen = false;
-let venusSeen = true;
-let earthSeen = true;
-let tutoPassed = true;
+let venusSeen = false;
+let earthSeen = false;
+let tutoPassed = false;
 okBtn.addEventListener("click", (e) => {
     dialogue++;
     dialogues.forEach(item => {
@@ -105,7 +109,7 @@ okBtn.addEventListener("click", (e) => {
             dialogueContent.innerHTML = item.text;
             imgNewton.src = item.characterImg;
             imgNewton.srcset = item.characterImg;
-            if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20 || dialogue == 22){
+            if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20 || dialogue == 22 || dialogue == 24 || dialogue == 26 || dialogue == 28 || dialogue == 30 ){
                 closeDialogues();
             }
         }
@@ -484,6 +488,35 @@ function draw() {
                     marsSeen = true;
                 }   
             }
+            if (jupiterSeen == false) {
+                if (item["id"] == "jupiter" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 22;
+                    openDialogues();
+                    jupiterSeen = true;
+                }   
+            }
+            if (saturneSeen == false) {
+                if (item["id"] == "saturne" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 24;
+                    openDialogues();
+                    saturneSeen = true;
+                }   
+            }
+            if (uranusSeen == false) {
+                if (item["id"] == "uranus" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 26;
+                    openDialogues();
+                    uranusSeen = true;
+                }   
+            }
+            if (neptuneSeen == false) {
+                if (item["id"] == "neptune" && item["yPos"] >= 0 - item["width"]/2) {
+                    dialogue = 28;
+                    openDialogues();
+                    neptuneSeen = true;
+                }   
+            }
+            
  /*               // Rendre les dialogues skippable
                 if (step >= 7) {
                     sessionStorage.setItem('skippableDiag', true);

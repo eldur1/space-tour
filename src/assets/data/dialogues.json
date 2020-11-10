@@ -2,157 +2,212 @@
     "dialogues": [
         {
             "characterImg" : "assets/images/Newton--idle.png",
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 0,
+            "text" : "Bien le&nbsp;Bonjour&nbsp;!"
+        },
+        {
+            "characterImg" : "assets/images/Newton--idle.png",
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
             "dialogueNb" : 1,
-            "text" : "Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles."
+            "text" : "Je m’appelle Isaac Newton, et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures, et prépare-toi à découvrir la gravité parmi les&nbsp;étoiles&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
             "dialogueNb" : 2,
-            "text" : "Si tu as des doutes, voici mon CV&#8239;:&#8239;"
+            "text" : "Tu ne sais pas qui je suis? Oh, voici ce que j'ai fait dans ma vie&#8239;:&#8239;"
         },
         {
             "characterImg" : "assets/images/Newton--hand-apple.png",
+            "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
             "dialogueNb" : 3,
-            "text" : "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le&nbsp;16&nbsp;avril&nbsp;1705"
+            "text" : "&ndash; Je suis connu pour avoir “découvert” la gravité et ses trois lois du mouvement&#8239;; <br> &ndash; On me connaît principalement à cause d'une pomme qui m'est tombée sur la tête&#8239;;<br> &ndash; J'ai également découvert que la lumière blanche est composée d’une gamme de pleins de couleurs différentes&#8239;;<br> &ndash; La Reine Anne d'Angleterre m'a fait chevalier le&nbsp;16&nbsp;avril&nbsp;1705."
         },
         {
             "characterImg" : "assets/images/Newton--apple.png",
+            "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
             "dialogueNb" : 4,
-            "text" : "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes&nbsp;missions."
-        },
-        {
-            "characterImg" : "assets/images/Newton--apple.png",
-            "dialogueNb" : 5,
-            "text" : "Suis-moi direction le centre de formation pour jeunes&nbsp;astronautes&nbsp;!"
+            "text" : "Pour être sûr de traverser le système solaire en toute sécurité, je vais t'apprendre les bases qui te permettront de réaliser ta&nbsp;mission."
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
             "dialogueNb" : 6,
-            "text" : "Sur la Terre, nous sommes entourés d’un champ de force qui nous permet de garder les pieds sur terre. Ce phénomène naturel est appelé la gravité. Celle-ci a plusieurs&nbsp;facultés."
+            "text" : "Voilà, alors sur la Terre, nous sommes entourés d'une force qui nous permet de garder les pieds sur&nbsp;terre. On appelle ce phénomène&#8239;«&#8239;la gravité&#8239;»&#8239;. Elle se montre de plusieurs façons&#8239;:"
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
             "dialogueNb" : 7,
-            "text" : "Cette force qui agit sur notre corps lorsqu'il est sur la Terre est le résultat de l'attraction entre celle-ci et le corps humain. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre."
+            "text" : "Tous les corps, c’est-à-dire tous les objets visibles et existant dans l’univers, s’attirent les uns entre les autres. Plus leur masse est élevée, plus leur attraction est puissante. La gravité n’est donc pas la même partout&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--apple.png",
+            "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
             "dialogueNb" : 8,
-            "text" : "Il est donc logique que plus notre corps se rapproche du centre de gravité, plus cette force émise est forte. Au contraire, plus l’on s’éloigne de ce centre, moins celle-ci nous attire, jusqu’à un point quasi nul. Comme les astronautes qui flottent dans&nbsp;l’espace."
+            "text" : "Il est donc logique de dire que, plus nous sommes proches d'un objet plus gros que nous (comme un astéroide, par exemple), plus l'attraction qu'il a sur nous est bien plus importante que celle que nous avons sur&nbsp;lui."
         },
         {
-            "characterImg" : "assets/images/Newton--hand-apple.png",
+            "characterImg" : "assets/images/Newton--apple.png",
+            "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
             "dialogueNb" : 9,
-            "text" : "Tous les corps, c’est-à-dire tous les objets visible et existant dans l’univers vivant ou non s’attirent en effet entre eux et plus leur masse est élevée, plus ils s’attirent fortement. La force de gravité n’est donc pas la même partout! Lors de tes voyages dans l’espace, prudence aux différents obstacles que tu pourrais croiser tels que des&nbsp;astéroïdes."
+            "text" : "Cela fonctionne dans l'autre sens également&#8239;: plus l’on s’éloigne de de cet objet, moins il nous attire vers lui, jusqu’à ce qu'il nous laisse partir. C'est ce qu'on appelle l'apesenteur, c'est-à-dire l'absence de gravité (en d'autre mots, ça permet de&nbsp;flotter&nbsp;!)."
+        },
+        {
+            "characterImg" : "assets/images/Newton--hand.png",
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 10,
+            "text" : "La gravité, c'est donc ce qui nous maintient les pieds au sol. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre."
         },
         {
             "characterImg" : "assets/images/Newton--hand-apple.png",
-            "dialogueNb" : 10,
-            "text" : "Pour accomplir ton voyage sans embrouille, tu devras faire preuve d'habileté qu’il s’agisse de la gestion de la puissance de ta navette, ainsi que des obstacles que tu pourrais rencontrer. Bonne chance à&nbsp;toi!"
+            "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
+            "dialogueNb" : 11,
+            "text" : "Mais donc, la raison pour laquelle tu tombes toujours vers le bas quand tu sautes, c'est la&nbsp;gravité."
+        },
+        {
+            "characterImg" : "assets/images/Newton--hand-apple.png",
+            "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
+            "dialogueNb" : 12,
+            "text" : "Mais dans l'espace, comme il n'y a pas de planètes autour de toi, il n'y a pas (enfin, très très peu) de gravité, tu peux donc flotter sans&nbsp;retomber&nbsp;!"
+        },
+        {
+            "characterImg" : "assets/images/Newton--hand-apple.png",
+            "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
+            "dialogueNb" : 13,
+            "text" : "Mais si tu croise une autre planète, elle va t'attirer vers elle, et c'est à ça que tu dois faire attention, tu&nbsp;comprends?"
+        },
+        {
+            "characterImg" : "assets/images/Newton--hand-apple.png",
+            "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
+            "dialogueNb" : 14,
+            "text" : "Allez, maintenant grimpe dans un vaisseau et monte aux commandes. Ta mission aujourd'hui est de voyager dans l'espace, en faisant bien attention à ne pas heurter les autres&nbsp;planètes."
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 11,
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 15,
             "text" : "Attention cher aventurier! Attention chère aventurière! Ta mission est sur le point de débuter. N’oublie pas ton casque et tes connaissances apprissent au centre de formation, nous comptons sur&nbsp;toi."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 12,
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 16,
             "text" : "C'est parti pour découvrir le système solaire. Direction&nbsp;Neptune&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 13,
-            "text" : "Ce que tu vois là sur ton écran, c'est une planète. Si tu t'en approches trop tu vas rentrer dans son champ de gravité ce qui signifie que tu vas être attiré par&nbsp;elle."
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 17,
+            "text" : "Ce que tu vois là sur ton écran, c'est une planète. Souviens-toi, si tu t'en approches trop, elle va t'attirer vers elle et tu ne pourras plus en&nbsp;sortir&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 14,
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 18,
             "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver."
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 15,
-            "text" : "Regarde ! Tu es en train de passer à côté de notre&nbsp;<strong>Terre</strong>."
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 19,
+            "text" : "Regarde&nbsp;! Tu es en train de passer à côté de notre&nbsp;<strong>Terre</strong>."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 16,
-            "text" : "On l'appelle aussi planète bleue car elle est recouverte à 70% d'eau. C'est la troisième planète de notre système solaire et c'est la seule qui possède une atmosphère vivable."
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 20,
+            "text" : "On l'appelle aussi planète bleue car elle est recouverte à 70% d'eau. C'est la troisième planète de notre système solaire et c'est la seule qui possède une atmosphère&nbsp;vivable."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 17,
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 21,
             "text" : "Là, c'est <strong>Vénus</strong>&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 18,
-            "text" : "C'est la deuxième planète de notre système solaire. On la surnomme de deux manières différentes&nbsp;: l'étoile du matin et l'étoile&nbsp;du&nbsp;berger."
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 22,
+            "text" : "C'est la deuxième planète de notre système solaire. On la surnomme de deux manières différentes&#8239;:&#8239;«&#8239;l'étoile du matin&#8239;»&#8239;, ou &#8239;«&#8239;l'étoile du berger&#8239;»&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 19,
-            "text" : "Elle a à peu près la même masse que la Terre, c'est pourquoi la gravité y est similaire."
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 23,
+            "text" : "Elle a à peu près la même masse que la Terre, c'est pourquoi la gravité y est&nbsp;similaire."
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 20,
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 24,
             "text" : "Nous allons bientôt dépasser <strong>Mars</strong>, qu'on surnomme aussi la planète&nbsp;rouge&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--apple.png",
-            "dialogueNb" : 21,
+            "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
+            "dialogueNb" : 25,
             "text" : "Sa couleur est due aux oxydes de fer présents sur le sol. Elle est la quatrième planète de notre&nbsp;système&nbsp;solaire."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 22,
-            "text" : "Waouh ! Regarde <strong>Jupiter</strong>&nbsp;!"
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 26,
+            "text" : "Waouh&nbsp;! Regarde, Il s'agit de&nbsp;<strong>Jupiter</strong>&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 23,
-            "text" : "C'est la cinquième planète de notre système solaire et c'en est la plus grosse. C'est la première des quatre planètes gazeuses."
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 27,
+            "text" : "C'est la cinquième planète de notre système solaire et c'est la plus grosse qui la compose. C'est la première des quatre planètes&nbsp;gazeuses, c'est-à-dire qu'elle n'est composée uniquement de&nbsp;gaz."
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 24,
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 28,
             "text" : "On approche de <strong>Saturne</strong> et ses&nbsp;anneaux&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 25,
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 29,
             "text" : "Elle en possède sept différents, tous composés de glace gravitant autour de la planète. C'est la sixième planète de notre système&nbsp;solaire."
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 26,
-            "text" : "Et là ! C'est <strong>Uranus</strong>, la septième&nbsp;planète&nbsp;!"
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 30,
+            "text" : "Et là&nbsp;! C'est <strong>Uranus</strong>, la septième&nbsp;planète&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 27,
-            "text" : "C'est la planète la plus froide de notre système solaire. Et contrairement à la Terre, elle tourne verticalement sur&nbsp;elle-même."
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 31,
+            "text" : "C'est la planète la plus froide de notre système solaire. Tout comme Vénus, ce sont les seules planètes à tourner dans le sens des aiguilles d'une montre. Toutes les autres tournent dans le sens&nbsp;inverse!"
         },
         {
             "characterImg" : "assets/images/Newton--hand.png",
-            "dialogueNb" : 28,
+            "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
+            "dialogueNb" : 32,
             "text" : "Regarde ! C'est <strong>Neptune</strong> juste&nbsp;là&nbsp;!"
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",
-            "dialogueNb" : 29,
+            "characterImgRetina" : "assets/images/Newton--idle@2x.png 2x",
+            "dialogueNb" : 33,
             "text" : "Il s'agit de la huitième et dernière planète de notre système solaire, c'est la plus éloignée du soleil. Sa couleur bleue est due à sa grande quantité&nbsp;de&nbsp;méthane."
         },
         {
             "characterImg" : "assets/images/Newton--hand-apple.png",
-            "dialogueNb" : 30,
-            "text" : "Félicitations jeune pilote&nbsp;! Tu viens de parcourir tout notre système solaire."
+            "characterImgRetina" : "assets/images/Newton--hand-apple@2x.png 2x",
+            "dialogueNb" : 34,
+            "text" : "Félicitations jeune pilote&nbsp;! Tu viens de parcourir tout notre système&nbsp;solaire."
         },
         {
             "characterImg" : "assets/images/Newton--apple.png",
-            "dialogueNb" : 31,
+            "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
+            "dialogueNb" : 35,
             "text" : "À bientôt pour d'autres péripéties dans l'espace&nbsp;!"
         }
     ]

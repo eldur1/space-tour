@@ -30,6 +30,7 @@ var Victor = require('victor');
             gamePaused = !gamePaused;
             pauseBtn.classList.toggle("btn--pause-resume");
             background.classList.toggle("background--stopped");
+            canvas.classList.toggle('canvas--dial-open');
         }
     })
 
@@ -49,11 +50,11 @@ var Victor = require('victor');
         },
         {
             "dialogueNb" : 3,
-            "text" : "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le 16 avril 1705",
+            "text" : "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le&nbsp;16&nbsp;avril&nbsp;1705",
         },
         {
             "dialogueNb" : 4,
-            "text" : "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes missions.",
+            "text" : "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes&nbsp;missions.",
         },
         {
             "dialogueNb" : 5,
@@ -61,23 +62,71 @@ var Victor = require('victor');
         },
         {
             "dialogueNb" : 6,
-            "text" : "Ce que tu vois là sur ton écran, c'est une planète. Si tu t'en approches trop tu vas rentrer dans son champ de gravité ce qui signifie que tu vas être attiré par&nbsp;elle.",
+            "text" : "Sur la Terre, nous sommes entourés d’un champ de force qui nous permet de garder les pieds sur terre. Ce phénomène naturel est appelé la gravité. Celle-ci a plusieurs&nbsp;facultés.",
         },
         {
             "dialogueNb" : 7,
-            "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
+            "text" : "Cette force qui agit sur notre corps lorsqu'il est sur la Terre est le résultat de l'attraction entre celle-ci et le corps humain. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre.",
         },
         {
             "dialogueNb" : 8,
-            "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
+            "text" : "Il est donc logique que plus notre corps se rapproche du centre de gravité, plus cette force émise est forte. Au contraire, plus l’on s’éloigne de ce centre, moins celle-ci nous attire, jusqu’à un point quasi nul. Comme les astronautes qui flottent dans&nbsp;l’espace.",
         },
         {
             "dialogueNb" : 9,
+            "text" : "Tous les corps, c’est-à-dire tous les objets visible et existant dans l’univers vivant ou non s’attirent en effet entre eux et plus leur masse est élevée, plus ils s’attirent fortement. La force de gravité n’est donc pas la même partout! Lors de tes voyages dans l’espace, prudence aux différents obstacles que tu pourrais croiser tels que des&nbsp;astéroïdes.",
+        },
+        {
+            "dialogueNb" : 10,
+            "text" : "Pour accomplir ton voyage sans embrouille, tu devras faire preuve d'habileté qu’il s’agisse de la gestion de la puissance de ta navette, ainsi que des obstacles que tu pourrais rencontrer. Bonne chance à&nbsp;toi!",
+        },
+        {
+            "dialogueNb" : 11,
+            "text" : "Ce que tu vois là sur ton écran, c'est une planète. Si tu t'en approches trop tu vas rentrer dans son champ de gravité ce qui signifie que tu vas être attiré par&nbsp;elle.",
+        },
+        {
+            "dialogueNb" : 12,
             "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
-        }
+        },
+        {
+            "dialogueNb" : 13,
+            "text" : "Regarde ! Tu es en train de passer à côté de notre&nbsp;Terre.",
+        },
+        {
+            "dialogueNb" : 14,
+            "text" : "On l'appelle aussi planète bleue car elle est recouverte à 70% d'eau. C'est la seule planète du système solaire qui possède une atmosphère vivable.",
+        },
+        {
+            "dialogueNb" : 15,
+            "text" : "On l'appelle aussi planète bleue car elle est recouverte à 70% d'eau. C'est la seule planète du système solaire qui possède une atmosphère vivable.",
+        },
+        
     ];
 
-    let step = 0;
+
+    function closeDialogues(){
+        dialoguesContainer.style.display = "none";
+        gamePaused = !gamePaused;
+        pauseBtn.classList.remove("btn--pause-resume");
+        background.classList.remove("background--stopped");
+        background.classList.remove('background--dial-open');
+        pauseBtn.style.display = "block";
+        canvas.classList.remove('canvas--dial-open');
+        hud.classList.remove('hud--dial-open');
+    };
+    function openDialogues(){
+        dialoguesContainer.style.display = "block";
+        gamePaused = !gamePaused;
+        pauseBtn.classList.add("btn--pause-resume");
+        background.classList.add("background--stopped");
+        background.classList.add('background--dial-open');
+        pauseBtn.style.display = "none";
+        canvas.classList.add('canvas--dial-open');
+        hud.classList.add('hud--dial-open');
+    };
+
+    let earthSeen = true;
+    let tutoPassed = true;
     let hud = document.querySelector(".hud");
     let dialogue = 0;
     let dialogueContent = document.querySelector(".dialogues p");
@@ -88,15 +137,8 @@ var Victor = require('victor');
         dialogues.forEach(item => {
             if (dialogue == item.dialogueNb) {
                 dialogueContent.innerHTML = item.text;
-                if (dialogue == 6 || dialogue == 8){
-                    dialoguesContainer.style.display = "none";
-                    gamePaused = !gamePaused;
-                    pauseBtn.classList.toggle("btn--pause-resume");
-                    background.classList.toggle("background--stopped");
-                    background.classList.toggle('background--dial-open');
-                    pauseBtn.removeAttribute('disabled');
-                    canvas.classList.toggle('canvas--dial-open');
-                    hud.classList.toggle('hud--dial-open');
+                if (dialogue == 11 || dialogue == 13 || dialogue == 15){
+                    closeDialogues();
                 }
             }
         });
@@ -115,32 +157,30 @@ var Victor = require('victor');
     var planetes = [];
 
     
-    let terre = {"name" : "terre", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -2400, "champDistance" : 300*ratioScreen}
-    let venus = {"name" : "vénus", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -6400, "champDistance" : 300*ratioScreen}
-    let mars = {"name" : "mars", "width" : 170*ratioScreen, "height" : 170*ratioScreen, "xPos" : getRandomInt(clientWidth - 170*ratioScreen), "yPos": -10400, "champDistance" : 255*ratioScreen}
-    let jupiter = {"name" : "jupiter", "width" : 350*ratioScreen, "height" : 350*ratioScreen, "xPos" : getRandomInt(clientWidth - 350*ratioScreen), "yPos": -14400, "champDistance" : 475*ratioScreen}
-    let saturne = {"name" : "saturne", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -19200, "champDistance" : 350*ratioScreen}
-    let uranus = {"name" : "uranus", "width" : 270*ratioScreen, "height" : 270*ratioScreen, "xPos" : getRandomInt(clientWidth - 270*ratioScreen), "yPos": -24000, "champDistance" : 305*ratioScreen}
-    let neptune = {"name" : "neptune", "width" : 220*ratioScreen, "height" : 220*ratioScreen, "xPos" : getRandomInt(clientWidth - 220*ratioScreen), "yPos": -28800, "champDistance" : 330*ratioScreen}
+    let terre = {"id" : "terre","name" : "terre", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -2400, "champDistance" : 300*ratioScreen}
+    let venus = {"id" : "vénus","name" : "vénus", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -6400, "champDistance" : 300*ratioScreen}
+    let mars = {"id" : "mars","name" : "mars", "width" : 170*ratioScreen, "height" : 170*ratioScreen, "xPos" : getRandomInt(clientWidth - 170*ratioScreen), "yPos": -10400, "champDistance" : 255*ratioScreen}
+    let jupiter = {"id" : "jupiter","name" : "jupiter", "width" : 350*ratioScreen, "height" : 350*ratioScreen, "xPos" : getRandomInt(clientWidth - 350*ratioScreen), "yPos": -14400, "champDistance" : 475*ratioScreen}
+    let saturne = {"id" : "saturne","name" : "saturne", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -19200, "champDistance" : 350*ratioScreen}
+    let uranus = {"id" : "uranus","name" : "uranus", "width" : 270*ratioScreen, "height" : 270*ratioScreen, "xPos" : getRandomInt(clientWidth - 270*ratioScreen), "yPos": -24000, "champDistance" : 305*ratioScreen}
+    let neptune = {"id" : "neptune","name" : "neptune", "width" : 220*ratioScreen, "height" : 220*ratioScreen, "xPos" : getRandomInt(clientWidth - 220*ratioScreen), "yPos": -28800, "champDistance" : 330*ratioScreen}
 
     planetes.push(terre, venus, mars, jupiter, saturne, uranus, neptune);
 
     for (let i = 1; i <= 36; i++) {
         if (i != 3 && i != 8 && i != 13 && i != 18 && i != 24 && i != 36 && i != 30) {
             let width = getRandomInt(100)+200;
-            let planet = {"number" : i, "name" : "planet"+getRandomInt(7), "width" : width*ratioScreen, "height" : width*ratioScreen, "xPos" : getRandomInt(clientWidth - width*ratioScreen), "yPos": -1000 - ((i - 1) * 800), "champDistance" : width*1.2*ratioScreen};
+            let planet = {"id" : i, "name" : "planet"+getRandomInt(7), "width" : width*ratioScreen, "height" : width*ratioScreen, "xPos" : getRandomInt(clientWidth - width*ratioScreen), "yPos": -1000 - ((i - 1) * 800), "champDistance" : width*1.2*ratioScreen};
             planetes.push(planet);
         }
     }
 
+    
 
     
 
     var ratio = window.devicePixelRatio || 1;
 
-    planetes.forEach(item => {
-        console.log("nom : "+item['name']+" number : "+item['number']+" y : "+item['yPos']);
-    });
 
     // Ajout planètes
     planetes.forEach(item => {
@@ -382,20 +422,19 @@ var Victor = require('victor');
                 }
 
                 // Gestion dialogues
-                if (item["number"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
-                    step++;
+                if (tutoPassed == false) {
+                    if (item["id"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
+                        openDialogues();
+                        tutoPassed = true;
+                    }
                 }
-                if (step == 1) {
-                    dialoguesContainer.style.display = "block";
-                    gamePaused = !gamePaused;
-                    pauseBtn.classList.toggle("btn--pause-resume");
-                    background.classList.toggle("background--stopped");
-                    background.classList.toggle('background--dial-open');
-                    pauseBtn.setAttribute('disabled', "");
-                    canvas.classList.toggle('canvas--dial-open');
-                    hud.classList.toggle('hud--dial-open');
-                    step++;
+                if (earthSeen == false) {
+                    if (item["id"] == "terre" && item["yPos"] >= 0 - item["width"]/2) {
+                        openDialogues();
+                        earthSeen = true;
+                    }   
                 }
+                    
             
             
             });

@@ -152,7 +152,7 @@ okBtn.addEventListener("click", (e) => {
             dialogueContent.innerHTML = item.text;
             imgNewton.src = item.characterImg;
             imgNewton.srcset = item.characterImgRetina;
-            if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20 || dialogue == 22 || dialogue == 24 || dialogue == 26 || dialogue == 28 || dialogue == 30 ){
+            if (dialogue == 16 || dialogue == 18 || dialogue == 20 || dialogue == 23 || dialogue == 25 || dialogue == 27 || dialogue == 29 || dialogue == 31 || dialogue == 33 ){
                 closeDialogues();
             }
             if (dialogue == 1 && tutoPassed == "true") {
@@ -511,7 +511,7 @@ function draw() {
             // Gestion dialogues
             if (tutoPassed == "false") {
                 if (item["id"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 13;
+                    dialogue = 16;
                     openDialogues();
                     // Rendre les dialogues skippable
                     sessionStorage.setItem('tutoPassed', true);
@@ -521,7 +521,7 @@ function draw() {
             }
             if (earthSeen == "false") {
                 if (item["id"] == "terre" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 15;
+                    dialogue = 18;
                     openDialogues();
                     sessionStorage.setItem('earthSeen', true);
                     earthSeen = true;
@@ -529,7 +529,7 @@ function draw() {
             }
             if (venusSeen == "false") {
                 if (item["id"] == "vénus" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 17;
+                    dialogue = 20;
                     openDialogues();
                     sessionStorage.setItem('venusSeen', true);
                     venusSeen = true;
@@ -537,7 +537,7 @@ function draw() {
             }
             if (marsSeen == "false") {
                 if (item["id"] == "mars" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 20;
+                    dialogue = 23;
                     openDialogues();
                     
                     sessionStorage.setItem('marsSeen', true);
@@ -546,7 +546,7 @@ function draw() {
             }
             if (jupiterSeen == "false") {
                 if (item["id"] == "jupiter" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 22;
+                    dialogue = 25;
                     openDialogues();
                     
                     sessionStorage.setItem('jupiterSeen', true);
@@ -555,7 +555,7 @@ function draw() {
             }
             if (saturneSeen == "false") {
                 if (item["id"] == "saturne" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 24;
+                    dialogue = 27;
                     openDialogues();
                     
                     sessionStorage.setItem('saturneSeen', true);
@@ -564,7 +564,7 @@ function draw() {
             }
             if (uranusSeen == "false") {
                 if (item["id"] == "uranus" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 26;
+                    dialogue = 29;
                     openDialogues();
                     
                     sessionStorage.setItem('uranusSeen', true);
@@ -573,7 +573,7 @@ function draw() {
             }
             if (neptuneSeen == "false") {
                 if (item["id"] == "neptune" && item["yPos"] >= 0 - item["width"]/2) {
-                    dialogue = 28;
+                    dialogue = 31;
                     openDialogues();
                     
                     sessionStorage.setItem('neptuneSeen', true);

@@ -38,70 +38,20 @@ var Victor = require('victor');
 
     // Gestion de l'évolution du jeu et des dialogues 
 
-    let dialogues = 
-    [
-        {
-            "dialogueNb" : 1,
-            "text" : "Je m’appelle Isaac Newton et je serai ton instructeur pendant toute la durée de ta mission. Attache tes ceintures et prépare-toi à apprendre et découvrir parmi les&nbsp;étoiles.",
-        },
-        {
-            "dialogueNb" : 2,
-            "text" : "Si tu as des doutes, voici mon CV&#8239;:&#8239;",
-        },
-        {
-            "dialogueNb" : 3,
-            "text" : "&ndash; Connu pour avoir “découvert” la gravité et ses trois lois du mouvement <br> &ndash; Célèbre histoire de la pomme qui tombe de l’arbre <br> &ndash; Découvre que la lumière blanche est composée d’une gamme de couleurs <br> &ndash; Fait chevalier par la reine Anne le&nbsp;16&nbsp;avril&nbsp;1705",
-        },
-        {
-            "dialogueNb" : 4,
-            "text" : "Pour être sûr de la réussite de ta conquête du système solaire, tu vas apprendre les bases qui te permettront de réaliser tes&nbsp;missions.",
-        },
-        {
-            "dialogueNb" : 5,
-            "text" : "Suis-moi direction le centre de formation pour jeunes&nbsp;astronautes&nbsp;!",
-        },
-        {
-            "dialogueNb" : 6,
-            "text" : "Sur la Terre, nous sommes entourés d’un champ de force qui nous permet de garder les pieds sur terre. Ce phénomène naturel est appelé la gravité. Celle-ci a plusieurs&nbsp;facultés.",
-        },
-        {
-            "dialogueNb" : 7,
-            "text" : "Cette force qui agit sur notre corps lorsqu'il est sur la Terre est le résultat de l'attraction entre celle-ci et le corps humain. Comme la Terre est plus imposante, la force gravitationnelle attire le corps humain vers son centre. Et oui! Si tu sautes en l'air, tu finis toujours par retomber sur&nbsp;Terre.",
-        },
-        {
-            "dialogueNb" : 8,
-            "text" : "Il est donc logique que plus notre corps se rapproche du centre de gravité, plus cette force émise est forte. Au contraire, plus l’on s’éloigne de ce centre, moins celle-ci nous attire, jusqu’à un point quasi nul. Comme les astronautes qui flottent dans&nbsp;l’espace.",
-        },
-        {
-            "dialogueNb" : 9,
-            "text" : "Tous les corps, c’est-à-dire tous les objets visible et existant dans l’univers vivant ou non s’attirent en effet entre eux et plus leur masse est élevée, plus ils s’attirent fortement. La force de gravité n’est donc pas la même partout! Lors de tes voyages dans l’espace, prudence aux différents obstacles que tu pourrais croiser tels que des&nbsp;astéroïdes.",
-        },
-        {
-            "dialogueNb" : 10,
-            "text" : "Pour accomplir ton voyage sans embrouille, tu devras faire preuve d'habileté qu’il s’agisse de la gestion de la puissance de ta navette, ainsi que des obstacles que tu pourrais rencontrer. Bonne chance à&nbsp;toi!",
-        },
-        {
-            "dialogueNb" : 11,
-            "text" : "Ce que tu vois là sur ton écran, c'est une planète. Si tu t'en approches trop tu vas rentrer dans son champ de gravité ce qui signifie que tu vas être attiré par&nbsp;elle.",
-        },
-        {
-            "dialogueNb" : 12,
-            "text" : "Utilise les flèches directionnelles de ton clavier pour&nbsp;l'esquiver.",
-        },
-        {
-            "dialogueNb" : 13,
-            "text" : "Regarde ! Tu es en train de passer à côté de notre&nbsp;Terre.",
-        },
-        {
-            "dialogueNb" : 14,
-            "text" : "On l'appelle aussi planète bleue car elle est recouverte à 70% d'eau. C'est la seule planète du système solaire qui possède une atmosphère vivable.",
-        },
-        {
-            "dialogueNb" : 15,
-            "text" : "On l'appelle aussi planète bleue car elle est recouverte à 70% d'eau. C'est la seule planète du système solaire qui possède une atmosphère vivable.",
-        },
-        
-    ];
+    let dialogues = [];
+
+    fetch("../assets/data/dialogues.json")
+    .then(function(response) {
+        if (response.status !== 200){
+            console.log('error')
+        }
+        response.json().then(function(data){
+            dialogues = data.dialogues;
+        });
+    });
+
+    
+    
 
 
     function closeDialogues(){
@@ -115,6 +65,11 @@ var Victor = require('victor');
         hud.classList.remove('hud--dial-open');
     };
     function openDialogues(){
+        dialogues.forEach(item => {
+            if (dialogue == item.dialogueNb) {
+                dialogueContent.innerHTML = item.text;
+            }
+        });
         dialoguesContainer.style.display = "block";
         gamePaused = !gamePaused;
         pauseBtn.classList.add("btn--pause-resume");
@@ -125,7 +80,8 @@ var Victor = require('victor');
         hud.classList.add('hud--dial-open');
     };
 
-    let earthSeen = true;
+    let venusSeen = false;
+    let earthSeen = false;
     let tutoPassed = true;
     let hud = document.querySelector(".hud");
     let dialogue = 0;
@@ -137,7 +93,7 @@ var Victor = require('victor');
         dialogues.forEach(item => {
             if (dialogue == item.dialogueNb) {
                 dialogueContent.innerHTML = item.text;
-                if (dialogue == 11 || dialogue == 13 || dialogue == 15){
+                if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20){
                     closeDialogues();
                 }
             }
@@ -430,8 +386,16 @@ var Victor = require('victor');
                 }
                 if (earthSeen == false) {
                     if (item["id"] == "terre" && item["yPos"] >= 0 - item["width"]/2) {
+                        dialogue = 15;
                         openDialogues();
                         earthSeen = true;
+                    }   
+                }
+                if (venusSeen == false) {
+                    if (item["id"] == "vénus" && item["yPos"] >= 0 - item["width"]/2) {
+                        dialogue = 17;
+                        openDialogues();
+                        venusSeen = true;
                     }   
                 }
                     

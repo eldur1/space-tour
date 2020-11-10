@@ -115,20 +115,22 @@ var Victor = require('victor');
     var planetes = [];
 
     
-    let terre = {"name" : "terre", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -1900, "champDistance" : 300*ratioScreen}
-    let venus = {"name" : "vénus", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -5000, "champDistance" : 300*ratioScreen}
-    let mars = {"name" : "mars", "width" : 170*ratioScreen, "height" : 170*ratioScreen, "xPos" : getRandomInt(clientWidth - 170*ratioScreen), "yPos": -9900, "champDistance" : 255*ratioScreen}
-    let jupiter = {"name" : "jupiter", "width" : 350*ratioScreen, "height" : 350*ratioScreen, "xPos" : getRandomInt(clientWidth - 350*ratioScreen), "yPos": -12900, "champDistance" : 475*ratioScreen}
-    let saturne = {"name" : "saturne", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -17800, "champDistance" : 350*ratioScreen}
-    let uranus = {"name" : "uranus", "width" : 270*ratioScreen, "height" : 270*ratioScreen, "xPos" : getRandomInt(clientWidth - 270*ratioScreen), "yPos": -20800, "champDistance" : 305*ratioScreen}
-    let neptune = {"name" : "neptune", "width" : 220*ratioScreen, "height" : 220*ratioScreen, "xPos" : getRandomInt(clientWidth - 220*ratioScreen), "yPos": -24000, "champDistance" : 330*ratioScreen}
+    let terre = {"name" : "terre", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -2400, "champDistance" : 300*ratioScreen}
+    let venus = {"name" : "vénus", "width" : 200*ratioScreen, "height" : 200*ratioScreen, "xPos" : getRandomInt(clientWidth - 200*ratioScreen), "yPos": -6400, "champDistance" : 300*ratioScreen}
+    let mars = {"name" : "mars", "width" : 170*ratioScreen, "height" : 170*ratioScreen, "xPos" : getRandomInt(clientWidth - 170*ratioScreen), "yPos": -10400, "champDistance" : 255*ratioScreen}
+    let jupiter = {"name" : "jupiter", "width" : 350*ratioScreen, "height" : 350*ratioScreen, "xPos" : getRandomInt(clientWidth - 350*ratioScreen), "yPos": -14400, "champDistance" : 475*ratioScreen}
+    let saturne = {"name" : "saturne", "width" : 300*ratioScreen, "height" : 300*ratioScreen, "xPos" : getRandomInt(clientWidth - 300*ratioScreen), "yPos": -19200, "champDistance" : 350*ratioScreen}
+    let uranus = {"name" : "uranus", "width" : 270*ratioScreen, "height" : 270*ratioScreen, "xPos" : getRandomInt(clientWidth - 270*ratioScreen), "yPos": -24000, "champDistance" : 305*ratioScreen}
+    let neptune = {"name" : "neptune", "width" : 220*ratioScreen, "height" : 220*ratioScreen, "xPos" : getRandomInt(clientWidth - 220*ratioScreen), "yPos": -28800, "champDistance" : 330*ratioScreen}
 
     planetes.push(terre, venus, mars, jupiter, saturne, uranus, neptune);
 
-    for (let i = 1; i < 25; i++) {
-        let width = getRandomInt(100)+200;
-        let planet = {"number" : i, "name" : "planet"+getRandomInt(7), "width" : width*ratioScreen, "height" : width*ratioScreen, "xPos" : getRandomInt(clientWidth - width*ratioScreen), "yPos": -500 - ((i - 1) * 1000), "champDistance" : width*1.2*ratioScreen};
-        planetes.push(planet);
+    for (let i = 1; i <= 36; i++) {
+        if (i != 3 && i != 8 && i != 13 && i != 18 && i != 24 && i != 36 && i != 30) {
+            let width = getRandomInt(100)+200;
+            let planet = {"number" : i, "name" : "planet"+getRandomInt(7), "width" : width*ratioScreen, "height" : width*ratioScreen, "xPos" : getRandomInt(clientWidth - width*ratioScreen), "yPos": -1000 - ((i - 1) * 800), "champDistance" : width*1.2*ratioScreen};
+            planetes.push(planet);
+        }
     }
 
 

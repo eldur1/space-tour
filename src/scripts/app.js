@@ -146,6 +146,9 @@ else {
 }
 
 okBtn.addEventListener("click", (e) => {
+    if (dialogue == 34) {
+        closeDialogues();
+    }
     dialogue++;
     dialogues.forEach(item => {
         if (dialogue == item.dialogueNb) {
@@ -579,6 +582,10 @@ function draw() {
                     sessionStorage.setItem('neptuneSeen', true);
                     neptuneSeen = true;
                 }   
+            }
+            if (item["id"] == "neptune" && item["yPos"] > clientHeight + item["height"]) {
+                dialogue = 33;
+                openDialogues();
             }
                 
         

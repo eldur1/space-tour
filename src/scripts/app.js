@@ -82,7 +82,7 @@ function openDialogues(){
         if (dialogue == item.dialogueNb) {
             dialogueContent.innerHTML = item.text;
             imgNewton.src = item.characterImg;
-            imgNewton.srcset = item.characterImg;
+            imgNewton.srcset = item.characterImgRetina;
         }
     });
     dialoguesContainer.style.display = "block";
@@ -151,7 +151,7 @@ okBtn.addEventListener("click", (e) => {
         if (dialogue == item.dialogueNb) {
             dialogueContent.innerHTML = item.text;
             imgNewton.src = item.characterImg;
-            imgNewton.srcset = item.characterImg;
+            imgNewton.srcset = item.characterImgRetina;
             if (dialogue == 13 || dialogue == 15 || dialogue == 17 || dialogue == 20 || dialogue == 22 || dialogue == 24 || dialogue == 26 || dialogue == 28 || dialogue == 30 ){
                 closeDialogues();
             }

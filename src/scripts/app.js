@@ -149,7 +149,7 @@ else {
 }
 
 okBtn.addEventListener("click", (e) => {
-    if (dialogue == 34) {
+    if (dialogue == 35) {
         closeDialogues();
     }
     dialogue++;

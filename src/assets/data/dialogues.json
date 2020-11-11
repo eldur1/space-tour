@@ -203,6 +203,12 @@
             "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
             "dialogueNb" : 34,
             "text" : "À bientôt pour d'autres péripéties dans l'espace&nbsp;!"
+        },
+        {
+            "characterImg" : "assets/images/Newton--apple.png",
+            "characterImgRetina" : "assets/images/Newton--apple@2x.png 2x",
+            "dialogueNb" : 35,
+            "text" : "Si tu veux en savoir plus sur la réalisation du voyage que tu viens de faire, rends toi sur le site de <a href='index.html'>SpaceTour</a>&nbsp;!"
         }
     ]
 }

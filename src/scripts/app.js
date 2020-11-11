@@ -442,12 +442,13 @@ function bar() {
     let posBarX = playerX + 80;
     let posBarY = playerY + 30;
     let progressionPourcent = Math.round(progress) + "%";
-    
+
 
     // Texte progression 
     ctx.fillStyle = "white";
-    ctx.fillText("Progression : ", posBarX, posBarY - 10);
-    ctx.fillText(progressionPourcent, posBarX + 65, posBarY - 10);
+    ctx.font = "600 1em Rajdhani"
+    ctx.fillText("Progression", posBarX, posBarY - 10);
+    ctx.fillText(progressionPourcent, posBarX + 86, posBarY - 10);
     // Bar background
     ctx.fillStyle = "black";
     ctx.fillRect(posBarX, posBarY, 100, 10);

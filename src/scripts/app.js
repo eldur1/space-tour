@@ -2,6 +2,7 @@ const {
     default: gsap
 } = require("gsap/gsap-core");
 import CSSPlugin from "gsap/CSSPlugin"
+import { OneMinusSrcColorFactor } from "three";
 gsap.registerPlugin(CSSPlugin);
 var Victor = require('victor');
 // INIT
@@ -35,7 +36,7 @@ let marsSeen = false;
 let venusSeen = false;
 let earthSeen = false;
 let tutoPassed = false;
-
+let angle = 0.15;
 // Import img
 var img = new Image();
 img.src = "../assets/gravity/rocket.svg";
@@ -184,7 +185,7 @@ let terre = {
   "width": 200 * ratioScreen,
   "height": 200 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 200 * ratioScreen),
-  "yPos": -2400,
+  "yPos": -2400/3,
   "champDistance": 300 * ratioScreen
 }
 let venus = {
@@ -193,7 +194,7 @@ let venus = {
   "width": 200 * ratioScreen,
   "height": 200 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 200 * ratioScreen),
-  "yPos": -6400,
+  "yPos": -6400/3,
   "champDistance": 300 * ratioScreen
 }
 let mars = {
@@ -202,7 +203,7 @@ let mars = {
   "width": 170 * ratioScreen,
   "height": 170 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 170 * ratioScreen),
-  "yPos": -10400,
+  "yPos": -10400/3,
   "champDistance": 255 * ratioScreen
 }
 let jupiter = {
@@ -220,7 +221,7 @@ let saturne = {
   "width": 320 * ratioScreen,
   "height": 300 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 300 * ratioScreen),
-  "yPos": -19200,
+  "yPos": -19200/3,
   "champDistance": 350 * ratioScreen
 }
 let uranus = {
@@ -229,7 +230,7 @@ let uranus = {
   "width": 300 * ratioScreen,
   "height": 270 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 270 * ratioScreen),
-  "yPos": -24000,
+  "yPos": -24000/3,
   "champDistance": 305 * ratioScreen
 }
 let neptune = {
@@ -238,13 +239,13 @@ let neptune = {
   "width": 220 * ratioScreen,
   "height": 220 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 220 * ratioScreen),
-  "yPos": -28800,
+  "yPos": -28800/3,
   "champDistance": 330 * ratioScreen
 }
 
 planetes.push(terre, venus, mars, jupiter, saturne, uranus, neptune);
 
-for (let i = 1; i <= 36; i++) {
+/* for (let i = 1; i <= 36; i++) {
   if (i != 3 && i != 8 && i != 13 && i != 18 && i != 24 && i != 36 && i != 30) {
     let width = getRandomInt(100) + 200;
     let planet = {
@@ -258,9 +259,8 @@ for (let i = 1; i <= 36; i++) {
     };
     planetes.push(planet);
   }
-}
-
-
+} */
+console.log(planetes)
 
 
 var ratio = window.devicePixelRatio || 1;
@@ -272,6 +272,9 @@ planetes.forEach(item => {
   item["name"] = new Image();
   item["name"].className = planete;
   item["name"].src = "../assets/__planets/" + planete + ".svg";
+
+  // Création des cercles
+
 });
 
 // KEYBOARD
@@ -427,8 +430,13 @@ let progress = 0;
 function bar() {
     let posBarX = playerX + 80;
     let posBarY = playerY + 30;
-    let maxProgress = Math.min(progress, 200);
-    let progressionPourcent = Math.round(maxProgress / 2) + "%";
+
+    let multiple = progress*100;
+    let multiple_round = Math.round(multiple);
+    let rounded = multiple_round/100;
+    let maxProgress = Math.min(rounded, 200);
+    // Max progress = entre 0 et 200
+    let progressionPourcent = rounded / 2 + "%";
 
     // Texte progression 
     ctx.fillStyle = "white";
@@ -441,10 +449,10 @@ function bar() {
 
     // Bar progress
     // Limite de progression
-    if (maxProgress < progress) {
-        progress = 200;
+    if (rounded > 200) {
+        //progress = 200;
     } else {
-        progress += 0.05;
+        progress += 0.034;
     }
     // Draw progress bar
     ctx.fillStyle = "#EB4747";
@@ -468,6 +476,7 @@ function gameOverScreen() {
 
 
 // DRAW
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var playerPos = new Victor(playerX + (playerWidth / 2), playerY + (playerHeight / 2));
@@ -591,7 +600,8 @@ function draw() {
         
         
         });
-            
+
+ 
             
         // KEYBOARD
         // Need to launch the rocket before being able to move the rocket
@@ -617,10 +627,31 @@ function draw() {
                 playerY = 0;
             }
         }
-    }
+    }      
+    // Boucle planète
+    var rotation = angle * Math.PI / 180;
+
+    angle -= 0.15;
 
     planetes.forEach(item => {
+        // Apparaître les planètes
         ctx.drawImage(item["name"], item["xPos"], item["yPos"], item["width"], item["height"]);
+        let centerPosX = item["xPos"]+ item['width']/2;
+        let centerPosY = item["yPos"]+ item["width"]/2;
+        //ctx.rotate(rotation);
+        ctx.beginPath();
+        ctx.setLineDash([20]);
+
+        // Setup le rotate
+        // L'orbite
+        ctx.ellipse(centerPosX, centerPosY, item["width"], item["width"], rotation ,0, 2 * Math.PI);
+        ctx.setTransform(2, 0, 0, 2, 0, 0);
+        ctx.strokeStyle = "white";
+        ctx.stroke();
+        ctx.closePath();
+    });
+
+    planetes.forEach(item => {
     });
     ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
     requestAnimationFrame(draw);

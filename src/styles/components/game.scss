@@ -184,3 +184,7 @@
 .hidden {
     display: none;
 }
+.planete {
+  animation: circle 1s linear infinite;
+  border:1px solid black;
+}

@@ -99,6 +99,7 @@ function openDialogues(){
 
 if (sessionStorage.getItem('tutoPassed')) {
     tutoPassed = sessionStorage.getItem('tutoPassed');
+    dialogueContent.innerHTML = "Retente ta chance, mais fais plus attention aux planètes cette&nbsp;fois&nbsp;!";
 }
 else {
     tutoPassed = "false";
@@ -521,7 +522,7 @@ function draw() {
             }
             
             // Gestion dialogues
-            if (tutoPassed == "false") {
+            /*if (tutoPassed == "false") {
                 if (item["id"] == 1 && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 16;
                     openDialogues();
@@ -530,13 +531,15 @@ function draw() {
                     tutoPassed = true;
                     
                 }
-            }
+            }*/
             if (earthSeen == "false") {
                 if (item["id"] == "terre" && item["yPos"] >= 0 - item["width"]/2) {
                     dialogue = 18;
                     openDialogues();
                     sessionStorage.setItem('earthSeen', true);
                     earthSeen = true;
+                    sessionStorage.setItem('tutoPassed', true);
+                    tutoPassed = true;
                 }   
             }
             if (venusSeen == "false") {

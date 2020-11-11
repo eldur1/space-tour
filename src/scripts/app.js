@@ -28,6 +28,7 @@ let dialogueContent = document.querySelector(".dialogues p");
 let dialoguesContainer = document.querySelector('.dialogues-container');
 let okBtn = document.querySelector(".btn--validate");
 let imgNewton = document.querySelector(".dialogues-container img");
+let neptunePassed = false;
 let neptuneSeen = false;
 let uranusSeen = false;
 let saturneSeen = false;
@@ -228,7 +229,7 @@ let saturne = {
 let uranus = {
   "id": "uranus",
   "name": "uranus",
-  "width": 320 * ratioScreen,
+  "width": 340 * ratioScreen,
   "height": 270 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 270 * ratioScreen),
   "yPos": -24000/3,
@@ -595,12 +596,13 @@ function draw() {
                     neptuneSeen = true;
                 }   
             }
-            if (item["id"] == "neptune" && item["yPos"] > clientHeight + item["height"]) {
-                dialogue = 33;
-                openDialogues();
+            if (neptunePassed == false) {
+                if (item["id"] == "neptune" && item["yPos"] > clientHeight + item["height"]) {
+                    dialogue = 33;
+                    openDialogues();
+                    neptunePassed = true;
+                }
             }
-                
-        
         
         });
 

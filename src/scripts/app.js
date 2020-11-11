@@ -371,8 +371,8 @@ document.addEventListener("touchmove", touchHandler);
 
 function touchHandler(e) {
     if (e.touches) {
-        playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth / 2;
-        playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight / 2;
+        playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth /4 ;
+        playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight/4;
         output.innerHTML = "Touch:  <br />" + " x: " + playerX + ", y: " + playerY;
         e.preventDefault();
     }
@@ -638,14 +638,12 @@ function draw() {
         ctx.drawImage(item["name"], item["xPos"], item["yPos"], item["width"], item["height"]);
         let centerPosX = item["xPos"]+ item['width']/2;
         let centerPosY = item["yPos"]+ item["width"]/2;
-        //ctx.rotate(rotation);
         ctx.beginPath();
         ctx.setLineDash([20]);
 
         // Setup le rotate
         // L'orbite
         ctx.ellipse(centerPosX, centerPosY, item["width"], item["width"], rotation ,0, 2 * Math.PI);
-        ctx.setTransform(2, 0, 0, 2, 0, 0);
         ctx.strokeStyle = "white";
         ctx.stroke();
         ctx.closePath();

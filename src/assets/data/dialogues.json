@@ -154,7 +154,7 @@
             "characterImg" : "assets/images/Newton--hand.png",
             "characterImgRetina" : "assets/images/Newton--hand@2x.png 2x",
             "dialogueNb" : 26,
-            "text" : "C'est la cinquième planète de notre système solaire et c'est la plus grosse qui la compose. C'est la première des quatre planètes&nbsp;gazeuses, c'est-à-dire qu'elle n'est composée uniquement de&nbsp;gaz."
+            "text" : "C'est la cinquième planète de notre système solaire et c'est la plus grosse qui le compose. C'est la première des quatre planètes&nbsp;gazeuses, c'est-à-dire qu'elle n'est composée uniquement de&nbsp;gaz."
         },
         {
             "characterImg" : "assets/images/Newton--idle.png",

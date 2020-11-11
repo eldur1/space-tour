@@ -213,13 +213,13 @@ let jupiter = {
   "width": 350 * ratioScreen,
   "height": 350 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 350 * ratioScreen),
-  "yPos": -14400,
+  "yPos": -14400/3,
   "champDistance": 475 * ratioScreen
 }
 let saturne = {
   "id": "saturne",
   "name": "saturne",
-  "width": 320 * ratioScreen,
+  "width": 350 * ratioScreen,
   "height": 300 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 300 * ratioScreen),
   "yPos": -19200/3,
@@ -228,7 +228,7 @@ let saturne = {
 let uranus = {
   "id": "uranus",
   "name": "uranus",
-  "width": 300 * ratioScreen,
+  "width": 320 * ratioScreen,
   "height": 270 * ratioScreen,
   "xPos": getRandomInt(clientWidth - 270 * ratioScreen),
   "yPos": -24000/3,

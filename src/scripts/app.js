@@ -46,13 +46,19 @@ img.src = "../assets/gravity/rocket.svg";
 let gameOver = false;
 let gamePaused = true;
 let pauseBtn = document.querySelector(".btn--pause");
+
+function pauseGame() {
+    if (!gameOver) {
+        gamePaused = !gamePaused;
+        pauseBtn.classList.toggle("btn--pause-resume");
+        background.classList.toggle("background--stopped");
+        hud.classList.toggle('hud--dial-open');
+        } else {}
+}
+
+
 pauseBtn.addEventListener("click", (e) => {
-  if (!gameOver) {
-    gamePaused = !gamePaused;
-    pauseBtn.classList.toggle("btn--pause-resume");
-    background.classList.toggle("background--stopped");
-    hud.classList.toggle('hud--dial-open');
-    } else {}
+    pauseGame()
 })
 
 // Gestion de l'évolution du jeu et des dialogues 
@@ -308,6 +314,9 @@ function keyDownHandler(e) {
             case "KeyS":
                 downPressed = true;
                 return;
+            case "Space":
+                pauseGame();
+                return;
             default:
                 return;
         }
@@ -432,33 +441,30 @@ let progress = 0;
 function bar() {
     let posBarX = playerX + 80;
     let posBarY = playerY + 30;
-
-    let multiple = progress*100;
-    let multiple_round = Math.round(multiple);
-    let rounded = multiple_round/100;
-    let maxProgress = Math.min(rounded, 200);
-    // Max progress = entre 0 et 200
-    let progressionPourcent = rounded / 2 + "%";
+    let progressionPourcent = Math.round(progress) + "%";
+    
 
     // Texte progression 
     ctx.fillStyle = "white";
     ctx.fillText("Progression : ", posBarX, posBarY - 10);
     ctx.fillText(progressionPourcent, posBarX + 65, posBarY - 10);
-
     // Bar background
     ctx.fillStyle = "black";
-    ctx.fillRect(posBarX, posBarY, 200, 20);
+    ctx.fillRect(posBarX, posBarY, 100, 10);
 
     // Bar progress
     // Limite de progression
-    if (rounded > 200) {
-        //progress = 200;
+    if (progress > 100) {
     } else {
-        progress += 0.034;
+        progress += 0.0142;
     }
     // Draw progress bar
     ctx.fillStyle = "#EB4747";
-    ctx.fillRect(posBarX, posBarY, maxProgress, 20);
+    ctx.fillRect(posBarX, posBarY, progress, 10);
+
+
+
+
 }
 
 
@@ -475,6 +481,7 @@ function gameOverScreen() {
         document.location.reload(true);
     });
 }
+
 
 
 // DRAW
@@ -648,7 +655,7 @@ function draw() {
 
         // Setup le rotate
         // L'orbite
-        ctx.ellipse(centerPosX, centerPosY, item["width"], item["width"], rotation ,0, 2 * Math.PI);
+        ctx.ellipse(centerPosX, centerPosY, item["champDistance"], item["champDistance"], rotation ,0, 2 * Math.PI);
         ctx.strokeStyle = "white";
         ctx.stroke();
         ctx.closePath();

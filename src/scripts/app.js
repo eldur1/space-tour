@@ -507,7 +507,7 @@ function draw() {
                 }
             }
 
-            if (item["yPos"] < clientHeight + 100) {
+            if (item["yPos"] < clientHeight + item['width']*2) {
                 item["yPos"] += 1.5;
             } else {
                 item["champDistance"] = 0;

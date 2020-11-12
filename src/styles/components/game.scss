@@ -92,7 +92,7 @@
     // la taille ici est en pixel car la valeur en EM dépend de la taille de la fonte, et la fonte-size = 0.
     background-color: initial;
     border: none;
-    background-image: url(../../assets/gravity/pause.svg);
+    background-image: url(../assets/gravity/pause.svg);
     background-size: contain;
     background-repeat: no-repeat;
     font-size: 0;
@@ -133,7 +133,7 @@
     }
   
     &-resume{
-      background-image: url(../../assets/gravity/play.svg);
+      background-image: url(../assets/gravity/play.svg);
   
     }
   }

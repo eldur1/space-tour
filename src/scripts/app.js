@@ -40,7 +40,7 @@ let tutoPassed = false;
 let angle = 0.15;
 // Import img
 var img = new Image();
-img.src = "../assets/gravity/rocket.svg";
+img.src = "assets/gravity/rocket.svg";
 
 // Gestion de pauses
 let gameOver = false;
@@ -65,7 +65,7 @@ pauseBtn.addEventListener("click", (e) => {
 
 let dialogues = [];
 
-fetch("../assets/data/dialogues.json")
+fetch("assets/data/dialogues.json")
 .then(function(response) {
     if (response.status !== 200){
         console.log('error')
@@ -279,7 +279,7 @@ planetes.forEach(item => {
   let planete = item["name"];
   item["name"] = new Image();
   item["name"].className = planete;
-  item["name"].src = "../assets/__planets/" + planete + ".svg";
+  item["name"].src = "assets/__planets/" + planete + ".svg";
 
   // Création des cercles
 
